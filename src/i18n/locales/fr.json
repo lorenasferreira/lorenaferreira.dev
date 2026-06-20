@@ -1,0 +1,121 @@
+{
+  "login.meta.title": "Lorena Ferreira — Lorkut connexion",
+
+  "common.brand": "l.orkut",
+  "common.name": "Lorena Ferreira",
+  "common.role": "Développeuse Full-Stack",
+
+  "login.intro.1": "<strong>Connectez-vous</strong> aux histoires qui m’ont inspirée à créer.",
+  "login.intro.2": "<strong>Découvrez</strong> comment créativité et code se rencontrent.",
+  "login.intro.3": "<strong>Partagez</strong> un aperçu de ce que j’apprends au fil du parcours.",
+
+  "login.signin.title": "<strong>Connectez-vous</strong> à la créativité.",
+  "login.avatar.alt": "Avatar de profil de Lorena Ferreira",
+  "login.cta.profile": "Voir mon profil",
+
+  "footer.inspired": "Inspiré d’Orkut",
+  "footer.about": "À propos",
+  "footer.contact": "Contact",
+  "footer.contact_message": "Bonjour Lorena, ça va ? J’aimerais en savoir plus sur ton travail.",
+  "footer.privacy": "Confidentialité",
+  "footer.terms": "Conditions",
+
+  "about.title": "À propos de ce projet",
+  "about.paragraph.1": "L.Orkut est un projet nostalgique inspiré des premiers jours d’internet — une époque où les profils étaient colorés, sincères et pleins de personnalité.",
+  "about.paragraph.2": "J’ai développé ce projet pour explorer le développement full-stack, en combinant créativité, narration et architecture propre.",
+
+  "privacy.meta.title": "Confidentialité | L.Orkut",
+  "privacy.title": "Politique de Confidentialité",
+  "privacy.paragraph.1": "L.Orkut est un projet personnel de portfolio créé à des fins éducatives et créatives.",
+  "privacy.paragraph.2": "Ce site ne collecte pas de données personnelles sensibles, n’utilise pas de cookies de suivi et ne partage aucune information avec des tiers.",
+  "privacy.paragraph.3": "Les témoignages ou interactions affichés font partie de l’expérience du projet et ne sont pas utilisés à des fins commerciales.",
+
+  "terms.meta.title": "Conditions | L.Orkut",
+  "terms.title": "Conditions d’Utilisation",
+  "terms.paragraph.1": "L.Orkut est un projet personnel de portfolio créé à des fins éducatives et créatives.",
+  "terms.paragraph.2": "Ce projet s’inspire du design nostalgique de la plateforme originale Orkut, mais n’a aucune affiliation, approbation ou lien avec Google ou la marque originale.",
+  "terms.paragraph.3": "Tout le contenu présenté sur ce site fait partie d’un portfolio personnel et ne doit pas être interprété comme un service commercial de réseau social.",
+
+  "profile.meta.title": "Profil | L.Orkut",
+
+  "profile.counters.scraps": "messages",
+  "profile.counters.photos": "photos",
+  "profile.counters.videos": "vidéos",
+  "profile.counters.fans": "fans",
+  "profile.counters.trustful": "fiable",
+  "profile.counters.cool": "cool",
+
+  "profile.views.total": "Vues totales :",
+  "profile.views.last_week": "La semaine dernière :",
+  "profile.views.yesterday": "Hier :",
+
+  "profile.fields.birthday": "anniversaire :",
+  "profile.fields.age": "âge :",
+  "profile.fields.interests": "intérêts :",
+  "profile.fields.who_am_i": "qui suis-je :",
+  "profile.fields.hometown": "ville natale :",
+  "profile.fields.webpages": "pages web :",
+
+  "profile.values.interests": "playlists qui deviennent des séances de thérapie, café, journaling",
+  "profile.values.who_am_i": "J’ai grandi dans les jours colorés d’Internet — une époque sincère, ludique et un peu kitsch. Aujourd’hui, je transforme le code en histoires — en créant des expériences qui font sourire, se souvenir et ressentir.",
+  "profile.values.hometown": "Rio de Janeiro, Brésil",
+
+  "profile.links.linkedin": "LinkedIn",
+  "profile.links.github": "GitHub",
+
+  "profile.testimonials.title": "laissez votre témoignage",
+  "profile.testimonials.total": "au total",
+  "profile.testimonials.form.name": "Votre nom",
+  "profile.testimonials.form.message": "Dites quelque chose de gentil…",
+  "profile.testimonials.form.post": "Publier",
+  "profile.testimonials.fake_time": "Il y a quelque temps",
+  "profile.testimonials.date_format": "d/m/Y",
+
+  "profile.fake_testimonials.0.message": "Cette page respire la nostalgie. Tu as parfaitement capturé l’ambiance !",
+  "profile.fake_testimonials.1.message": "Créative et chaleureuse. Ça me fait regretter l’Internet d’avant 🩵",
+
+  "profile.mobile.view_projects": "Voir les Projets",
+  "profile.mobile.message": "Message",
+  "profile.mobile.tab_social": "Social",
+  "profile.mobile.tab_professional": "Professionnel",
+  "profile.mobile.my_projects": "Mes Projets",
+  "profile.mobile.communities": "Communautés",
+
+  "common.view_all": "Voir tout",
+
+  "nav.home": "Accueil",
+  "nav.profile": "Profil",
+  "nav.scrapbook": "Messages",
+  "nav.projects": "Projets",
+  "nav.communities": "Communautés",
+
+  "nav.exit": "Quitter",
+
+  "nav.search": "Rechercher",
+  "nav.search_placeholder": "rechercher sur l.orkut",
+
+  "nav.open_menu": "Ouvrir le menu",
+
+  "home.meta.title": "Accueil | L.Orkut",
+  "home.updates_from": "Mises à jour de :",
+
+  "home.fortune.title": "Chance du jour",
+  "home.fortune.loading": "Chargement de votre chance...",
+  "home.fortune.error": "Impossible de charger la chance d’aujourd’hui.",
+  "home.fortune.default": "Aujourd’hui est une bonne journée pour construire quelque chose de significatif.",
+
+  "feed.new_project.title": "a commencé un nouveau projet",
+  "feed.new_community.title": "a rejoint une nouvelle communauté",
+  "feed.new_testimonial.title": "a reçu un nouveau témoignage",
+  "feed.new_profile_photo.title": "a mis à jour sa photo de profil",
+
+  "feed.joined_community": "a rejoint une nouvelle communauté",
+  "feed.updated_profile_photo": "a mis à jour sa photo de profil",
+
+  "feed.time.today": "Aujourd’hui",
+  "feed.time.yesterday": "Hier",
+  "feed.time.days_ago": "il y a quelques jours",
+
+  "communities.meta.title": "Communautés | L.Orkut",
+  "communities.title": "Communautés"
+}

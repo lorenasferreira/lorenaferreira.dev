@@ -1,0 +1,120 @@
+{
+  "login.meta.title": "Lorena Ferreira — Lorkut login",
+
+  "common.brand": "l.orkut",
+  "common.name": "Lorena Ferreira",
+  "common.role": "Full-Stack Developer",
+
+  "login.intro.1": "<strong>Connect</strong> with stories that inspired me to build.",
+  "login.intro.2": "<strong>Discover</strong> how creativity and code come together.",
+  "login.intro.3": "<strong>Share</strong> a glimpse of what I’m learning along the way.",
+
+  "login.signin.title": "<strong>Sign in</strong> to creativity.",
+  "login.avatar.alt": "Lorena Ferreira profile avatar",
+  "login.cta.profile": "Visit my profile",
+
+  "footer.inspired": "Inspired by Orkut",
+  "footer.about": "About",
+  "footer.contact": "Contact",
+  "footer.contact_message": "Hi Lorena, how are you? I would like to know more about your work.",
+  "footer.privacy": "Privacy",
+  "footer.terms": "Terms",
+
+  "about.title": "About this project",
+  "about.paragraph.1": "L.Orkut is a nostalgic project inspired by the early days of the internet — a time when profiles were colorful, sincere, and full of personality.",
+  "about.paragraph.2": "I built this project to explore full-stack development while combining creativity, storytelling, and clean architecture.",
+
+  "privacy.meta.title": "Privacy | L.Orkut",
+  "privacy.title": "Privacy Policy",
+  "privacy.paragraph.1": "L.Orkut is a personal portfolio project created for educational and creative purposes.",
+  "privacy.paragraph.2": "This website does not collect sensitive personal data, use tracking cookies, or share information with third parties.",
+  "privacy.paragraph.3": "Any testimonials or interactions displayed are part of the project experience and are not used for commercial data processing.",
+
+  "terms.meta.title": "Terms | L.Orkut",
+  "terms.title": "Terms of Use",
+  "terms.paragraph.1": "L.Orkut is a personal portfolio project created for educational and creative purposes.",
+  "terms.paragraph.2": "This project is inspired by the nostalgic design of the original Orkut platform but is not affiliated with, endorsed by, or connected to Google or the original Orkut brand.",
+  "terms.paragraph.3": "All content presented on this website is part of a personal portfolio and should not be interpreted as a commercial social network service.",
+
+  "profile.meta.title": "Profile | L.Orkut",
+
+  "profile.counters.scraps": "scraps",
+  "profile.counters.photos": "photos",
+  "profile.counters.videos": "videos",
+  "profile.counters.fans": "fans",
+  "profile.counters.trustful": "trustful",
+  "profile.counters.cool": "cool",
+
+  "profile.views.total": "Total views:",
+  "profile.views.last_week": "Last week:",
+  "profile.views.yesterday": "Yesterday:",
+
+  "profile.fields.birthday": "birthday:",
+  "profile.fields.age": "age:",
+  "profile.fields.interests": "interests:",
+  "profile.fields.who_am_i": "who am I:",
+  "profile.fields.hometown": "hometown:",
+  "profile.fields.webpages": "webpages:",
+
+  "profile.values.interests": "playlists that turn into therapy sessions, coffee, journaling",
+  "profile.values.who_am_i": "I grew up in the colorful days of the internet — a time when it was sincere, playful, and a little bit tacky. Now, I turn code into stories — designing experiences that make people smile, remember, and feel.",
+  "profile.values.hometown": "Rio de Janeiro, Brazil",
+
+  "profile.links.linkedin": "LinkedIn",
+  "profile.links.github": "GitHub",
+
+  "profile.testimonials.title": "leave your testimonials",
+  "profile.testimonials.total": "total",
+  "profile.testimonials.form.name": "Your name",
+  "profile.testimonials.form.message": "Say something nice…",
+  "profile.testimonials.form.post": "Post",
+  "profile.testimonials.fake_time": "Some time ago",
+  "profile.testimonials.date_format": "d M Y",
+
+  "profile.fake_testimonials.0.message": "This page feels like pure nostalgia. You nailed the vibe!",
+  "profile.fake_testimonials.1.message": "So creative and warm. Makes me miss the old internet 🩵",
+
+  "profile.mobile.view_projects": "View Projects",
+  "profile.mobile.message": "Message",
+  "profile.mobile.tab_social": "Social",
+  "profile.mobile.tab_professional": "Professional",
+  "profile.mobile.my_projects": "My Projects",
+  "profile.mobile.communities": "Communities",
+
+  "common.view_all": "View all",
+
+  "nav.home": "Home",
+  "nav.profile": "Profile",
+  "nav.scrapbook": "Scrapbook",
+  "nav.projects": "Projects",
+  "nav.communities": "Communities",
+
+  "nav.exit": "Exit",
+
+  "nav.search": "Search",
+  "nav.search_placeholder": "search on l.orkut",
+
+  "nav.open_menu": "Open menu",
+
+  "home.meta.title": "Home | L.Orkut",
+  "home.updates_from": "Updates from:",
+
+  "home.fortune.title": "Luck of the Day",
+  "home.fortune.loading": "Loading your luck...",
+  "home.fortune.error": "Could not load today's luck.",
+  "home.fortune.default": "Today is a good day to build something meaningful.",
+
+  "feed.new_project.title": "started a new project",
+  "feed.new_community.title": "joined a new community",
+  "feed.new_testimonial.title": "received a new testimonial",
+  "feed.new_profile_photo.title": "updated their profile photo",
+
+  "feed.time.today": "Today",
+  "feed.time.yesterday": "Yesterday",
+  "feed.time.days_ago": "days ago",
+  "feed.joined_community": "joined a new community",
+  "feed.updated_profile_photo": "updated their profile photo",
+
+  "communities.meta.title": "Communities | L.Orkut",
+  "communities.title": "Communities"
+}

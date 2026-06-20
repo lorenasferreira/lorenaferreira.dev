@@ -1,0 +1,121 @@
+{
+  "login.meta.title": "Lorena Ferreira — Lorkut login",
+
+  "common.brand": "l.orkut",
+  "common.name": "Lorena Ferreira",
+  "common.role": "Desenvolvedora Full-Stack",
+
+  "login.intro.1": "<strong>Conecte-se</strong> com histórias que me inspiraram a criar.",
+  "login.intro.2": "<strong>Descubra</strong> como criatividade e código se encontram.",
+  "login.intro.3": "<strong>Veja</strong> um pouco do que estou aprendendo ao longo do caminho.",
+
+  "login.signin.title": "<strong>Entre</strong> na criatividade.",
+  "login.avatar.alt": "Avatar de perfil de Lorena Ferreira",
+  "login.cta.profile": "Visite meu perfil",
+
+  "footer.inspired": "Inspirado no Orkut",
+  "footer.about": "Sobre",
+  "footer.contact": "Contato",
+  "footer.contact_message": "Oi, Lorena, tudo bem? Gostaria de saber mais sobre o seu trabalho.",
+  "footer.privacy": "Privacidade",
+  "footer.terms": "Termos",
+
+  "about.title": "Sobre este projeto",
+  "about.paragraph.1": "L.Orkut é um projeto nostálgico inspirado nos primeiros dias da internet — uma época em que os perfis eram coloridos, sinceros e cheios de personalidade.",
+  "about.paragraph.2": "Desenvolvi este projeto para explorar o desenvolvimento full-stack, combinando criatividade, narrativa e arquitetura limpa.",
+
+  "privacy.meta.title": "Privacidade | L.Orkut",
+  "privacy.title": "Política de Privacidade",
+  "privacy.paragraph.1": "L.Orkut é um projeto pessoal de portfólio criado para fins educacionais e criativos.",
+  "privacy.paragraph.2": "Este site não coleta dados pessoais sensíveis, não utiliza cookies de rastreamento e não compartilha informações com terceiros.",
+  "privacy.paragraph.3": "Quaisquer depoimentos ou interações exibidas fazem parte da experiência do projeto e não são utilizados para processamento comercial de dados.",
+
+  "terms.meta.title": "Termos | L.Orkut",
+  "terms.title": "Termos de Uso",
+  "terms.paragraph.1": "L.Orkut é um projeto pessoal de portfólio criado para fins educacionais e criativos.",
+  "terms.paragraph.2": "Este projeto é inspirado no design nostálgico da plataforma original Orkut, mas não possui qualquer afiliação, endosso ou vínculo com o Google ou com a marca original.",
+  "terms.paragraph.3": "Todo o conteúdo apresentado neste site faz parte de um portfólio pessoal e não deve ser interpretado como um serviço comercial de rede social.",
+
+  "profile.meta.title": "Perfil | L.Orkut",
+
+  "profile.counters.scraps": "recados",
+  "profile.counters.photos": "fotos",
+  "profile.counters.videos": "vídeos",
+  "profile.counters.fans": "fãs",
+  "profile.counters.trustful": "confiável",
+  "profile.counters.cool": "legal",
+
+  "profile.views.total": "Total de visitas:",
+  "profile.views.last_week": "Última semana:",
+  "profile.views.yesterday": "Ontem:",
+
+  "profile.fields.birthday": "aniversário:",
+  "profile.fields.age": "idade:",
+  "profile.fields.interests": "interesses:",
+  "profile.fields.who_am_i": "quem sou eu:",
+  "profile.fields.hometown": "cidade natal:",
+  "profile.fields.webpages": "páginas na web:",
+
+  "profile.values.interests": "playlists que viram sessão de terapia, café, journaling",
+  "profile.values.who_am_i": "Cresci nos dias coloridos da internet — uma época sincera, divertida e um pouco cafona. Hoje, transformo código em histórias — criando experiências que fazem as pessoas sorrirem, lembrarem e sentirem.",
+  "profile.values.hometown": "Rio de Janeiro, Brasil",
+
+  "profile.links.linkedin": "LinkedIn",
+  "profile.links.github": "GitHub",
+
+  "profile.testimonials.title": "deixe seu depoimento",
+  "profile.testimonials.total": "no total",
+  "profile.testimonials.form.name": "Seu nome",
+  "profile.testimonials.form.message": "Escreva algo legal…",
+  "profile.testimonials.form.post": "Publicar",
+  "profile.testimonials.fake_time": "Há algum tempo",
+  "profile.testimonials.date_format": "d/m/Y",
+
+  "profile.fake_testimonials.0.message": "Essa página é pura nostalgia. Você acertou demais na vibe!",
+  "profile.fake_testimonials.1.message": "Criativa e acolhedora. Me fez sentir saudade da antiga internet 🩵",
+
+  "profile.mobile.view_projects": "Ver Projetos",
+  "profile.mobile.message": "Mensagem",
+  "profile.mobile.tab_social": "Social",
+  "profile.mobile.tab_professional": "Profissional",
+  "profile.mobile.my_projects": "Meus Projetos",
+  "profile.mobile.communities": "Comunidades",
+
+  "common.view_all": "Ver todos",
+
+  "nav.home": "Início",
+  "nav.profile": "Perfil",
+  "nav.scrapbook": "Recados",
+  "nav.projects": "Projetos",
+  "nav.communities": "Comunidades",
+
+  "nav.exit": "Sair",
+
+  "nav.search": "Buscar",
+  "nav.search_placeholder": "buscar no l.orkut",
+
+  "nav.open_menu": "Abrir menu",
+
+  "home.meta.title": "Início | L.Orkut",
+  "home.updates_from": "Atualizações de:",
+
+  "home.fortune.title": "Sorte do Dia",
+  "home.fortune.loading": "Carregando sua sorte...",
+  "home.fortune.error": "Não foi possível carregar a sorte de hoje.",
+  "home.fortune.default": "Hoje é um bom dia para construir algo significativo.",
+
+  "feed.new_project.title": "começou um novo projeto",
+  "feed.new_community.title": "entrou em uma nova comunidade",
+  "feed.new_testimonial.title": "recebeu um novo depoimento",
+  "feed.new_profile_photo.title": "atualizou a foto de perfil",
+
+  "feed.joined_community": "entrou em uma nova comunidade",
+  "feed.updated_profile_photo": "atualizou a foto de perfil",
+
+  "feed.time.today": "Hoje",
+  "feed.time.yesterday": "Ontem",
+  "feed.time.days_ago": "dias atrás",
+
+  "communities.meta.title": "Comunidades | L.Orkut",
+  "communities.title": "Comunidades"
+}
