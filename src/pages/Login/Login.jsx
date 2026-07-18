@@ -1,71 +1,76 @@
-import "../styles/login.css";
+import styles from "./Login.module.css";
 import { useTranslation, Trans } from "react-i18next";
 
 export default function Login() {
   const { t, i18n } = useTranslation();
 
   const currentYear = new Date().getFullYear();
+  const currentLanguage = i18n.resolvedLanguage || i18n.language;
 
   const whatsappMessage = encodeURIComponent(t("footer.contact_message"));
 
   const whatsappLink = `https://wa.me/34662321407?text=${whatsappMessage}`;
 
   return (
-    <main className="shell">
-      <div className="lang-switch">
+    <main className={styles.shell}>
+      <div className={styles.langSwitch}>
         <button
+          type="button"
           onClick={() => i18n.changeLanguage("en")}
-          aria-current={i18n.language === "en"}
+          aria-current={currentLanguage === "en" ? "true" : undefined}
         >
           EN
         </button>
 
         <button
+          type="button"
           onClick={() => i18n.changeLanguage("pt")}
-          aria-current={i18n.language === "pt"}
+          aria-current={currentLanguage === "pt" ? "true" : undefined}
         >
           PT
         </button>
 
         <button
+          type="button"
           onClick={() => i18n.changeLanguage("es")}
-          aria-current={i18n.language === "es"}
+          aria-current={currentLanguage === "es" ? "true" : undefined}
         >
           ES
         </button>
 
         <button
+          type="button"
           onClick={() => i18n.changeLanguage("fr")}
-          aria-current={i18n.language === "fr"}
+          aria-current={currentLanguage === "fr" ? "true" : undefined}
         >
           FR
         </button>
       </div>
 
-      <div className="login-grid">
+      <div className={styles.loginGrid}>
         <section
-          className="intro-box orkut-panel"
+          className={`${styles.introBox} ${styles.orkutPanel}`}
           aria-labelledby="brand-title"
         >
-          <h1 className="logo-word" id="brand-title">
+          <h1 className={styles.logoWord} id="brand-title">
             {t("common.brand")}
           </h1>
 
-          <p className="intro-line">
+          <p className={styles.introLine}>
             <Trans
               i18nKey="login.intro.1"
               components={{ strong: <strong /> }}
             />
           </p>
 
-          <p className="intro-line">
+          <p className={styles.introLine}>
             <Trans
               i18nKey="login.intro.2"
               components={{ strong: <strong /> }}
             />
           </p>
 
-          <p className="intro-line">
+          <p className={styles.introLine}>
             <Trans
               i18nKey="login.intro.3"
               components={{ strong: <strong /> }}
@@ -73,9 +78,9 @@ export default function Login() {
           </p>
         </section>
 
-        <aside className="login-side">
-          <section className="login-card" aria-labelledby="signin-title">
-            <h2 id="signin-title" className="signin-title">
+        <aside className={styles.loginSide}>
+          <section className={styles.loginCard} aria-labelledby="signin-title">
+            <h2 id="signin-title" className={styles.signinTitle}>
               <Trans
                 i18nKey="login.signin.title"
                 components={{ strong: <strong /> }}
@@ -83,33 +88,33 @@ export default function Login() {
             </h2>
 
             <img
-              className="avatar"
+              className={styles.avatar}
               src="/assets/img/avatar.png"
               alt={t("login.avatar.alt")}
             />
 
-            <div className="who">
-              <div className="who-name">{t("common.name")}</div>
+            <div className={styles.who}>
+              <div className={styles.whoName}>{t("common.name")}</div>
 
-              <div className="who-role">{t("common.role")}</div>
+              <div className={styles.whoRole}>{t("common.role")}</div>
             </div>
           </section>
 
-          <section className="cta-card">
-            <a href="/profile" className="btn-primary">
+          <section className={styles.ctaCard}>
+            <a href="/profile" className={styles.btnPrimary}>
               {t("login.cta.profile")}
             </a>
           </section>
         </aside>
       </div>
 
-      <footer className="footerbar" role="contentinfo">
-        <div className="footer-inner">
-          <small className="copy">
+      <footer className={styles.footerbar} role="contentinfo">
+        <div className={styles.footerInner}>
+          <small className={styles.copy}>
             © {currentYear} Lorena Ferreira — {t("footer.inspired")}
           </small>
 
-          <nav className="foot-links" aria-label="Footer">
+          <nav className={styles.footLinks} aria-label="Footer">
             <a href="/about">{t("footer.about")}</a>
 
             <span aria-hidden="true">—</span>

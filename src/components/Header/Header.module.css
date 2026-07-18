@@ -1,0 +1,221 @@
+.topbar {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 50px;
+  background: #4b74b2;
+}
+
+.topbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 30px;
+  background-color: #dde5f2;
+  font-family: "Inter", sans-serif;
+  color: var(--pink);
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.logoBrand {
+  color: inherit;
+  text-decoration: none;
+}
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 12px;
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 18px;
+}
+
+.menu a {
+  padding: 6px 10px;
+  color: #dde5f2;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.logoutBtn {
+  padding: 6px 14px;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.searchInput {
+  min-width: 200px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--lilac);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.searchBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.locked {
+  padding: 6px 10px;
+  color: #aebdd3;
+  cursor: not-allowed;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lockIcon {
+  font-size: 12px;
+}
+
+.langSwitch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.langButton {
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: #dde5f2;
+  font: inherit;
+  cursor: pointer;
+}
+
+.langButton:hover {
+  color: white;
+}
+
+.activeLanguage {
+  color: white;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.logoutBtn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: white;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mobileNavBtn {
+  display: none;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mobileNavBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  border: none;
+  background: rgb(0 0 0 / 45%);
+}
+
+.mobileNavDrawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: min(300px, 85%);
+  height: 100vh;
+  padding: 20px;
+  background: white;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+}
+
+.mobileNavDrawerOpen {
+  transform: translateX(0);
+}
+
+.mobileNavHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  color: var(--pink);
+  font-size: 24px;
+}
+
+.mobileNavClose {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobileNavLinks a {
+  color: #334;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .menu,
+  .langSwitch,
+  .logoutBtn,
+  .search {
+    display: none;
+  }
+
+  .mobileNavBtn {
+    display: block;
+  }
+}

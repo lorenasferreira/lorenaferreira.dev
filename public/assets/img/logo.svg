@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" role="img" aria-label="l.orkut logo">
+  <style>
+    .word {
+      font: 800 72px/1 "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      fill: #E54DB7; /* seu pink */
+    }
+  </style>
+  <!-- y define a linha de base; ajuste fino se quiser -->
+  <text class="word" x="0" y="76">l.orkut</text>
+</svg>

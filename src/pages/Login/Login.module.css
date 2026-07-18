@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.shell .login-grid {
+.loginGrid {
   display: grid;
   grid-template-columns: 1.1fr 0.5fr;
   gap: clamp(20px, 3vw, 32px);
@@ -13,35 +13,35 @@
   margin: 0 auto;
 }
 
-.login-side {
+.loginSide {
   display: grid;
   gap: clamp(16px, 2.5vw, 24px);
   align-content: start;
 }
 
-.login-card {
+.loginCard {
   background: rgba(233, 223, 241, 0.786);
   border: 1px solid var(--lilac);
   padding: clamp(18px, 3vw, 28px);
 }
 
-.signin-title {
-  margin: 0 0 16px 0;
-  font: 600 18px/1.4 "Work Sans", Inter;
+.signinTitle {
+  margin: 0 0 16px;
+  font: 600 18px/1.4 "Work Sans", Inter, sans-serif;
 }
 
-.signin-title strong {
+.signinTitle strong {
   font-weight: 800;
 }
 
-.orkut-panel {
+.orkutPanel {
   background: var(--white);
   border: 1px solid var(--lilac);
   padding: clamp(20px, 4vw, 40px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-.intro-box {
+.introBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,20 +50,20 @@
   line-height: 0.7;
 }
 
-.logo-word {
-  margin: 0 0 12px 0;
+.logoWord {
+  margin: 0 0 12px;
   font: 800 clamp(48px, 8vw, 96px) / 1 "Inter", sans-serif;
   color: var(--pink);
   letter-spacing: 0.5px;
   user-select: none;
-  align-items: center;
 }
 
-.intro-line {
+.introLine {
   margin: 10px 0;
   font-size: clamp(16px, 2vw, 20px);
 }
-.intro-line strong {
+
+.introLine strong {
   color: var(--pink);
   font-weight: 800;
 }
@@ -82,15 +82,17 @@
 .who {
   text-align: center;
 }
-.who-name {
+
+.whoName {
   font-weight: 700;
 }
-.who-role {
+
+.whoRole {
   color: var(--mute);
   font: 400 14px/1.4 "Work Sans", Inter, sans-serif;
 }
 
-.cta-card {
+.ctaCard {
   background: rgba(233, 223, 241, 0.6);
   border: 1px solid var(--lilac);
   padding: clamp(16px, 2.5vw, 22px);
@@ -98,9 +100,11 @@
   justify-content: center;
 }
 
-.btn-primary,
-a.btn-primary {
+.btnPrimary {
   appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #bca5d0;
   border-radius: 8px;
   padding: 10px 18px;
@@ -108,15 +112,18 @@ a.btn-primary {
   color: #4b3c6b;
   background: linear-gradient(to bottom, #f5e9ff, #e3c8eb);
   cursor: pointer;
+  text-decoration: none;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-  transition: filter 0.15s ease, transform 0.04s ease;
+  transition:
+    filter 0.15s ease,
+    transform 0.04s ease;
 }
 
-.btn-primary:hover {
+.btnPrimary:hover {
   filter: brightness(1.04);
 }
 
-.btn-primary:active {
+.btnPrimary:active {
   transform: translateY(1px);
 }
 
@@ -127,7 +134,7 @@ a.btn-primary {
   border-radius: 8px;
 }
 
-.lang-switch {
+.langSwitch {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
@@ -137,21 +144,25 @@ a.btn-primary {
   margin: 0 auto 12px;
 }
 
-.lang-switch a {
-  text-decoration: none;
-  font: 700 12px/1 "Work Sans", Inter, sans-serif;
-  color: #4b3c6b;
-  padding: 7px 10px;
-  border-radius: 999px;
+.langSwitch button {
   border: 1px solid var(--lilac);
+  border-radius: 999px;
+  padding: 7px 10px;
   background: rgba(255, 255, 255, 0.55);
+  color: #4b3c6b;
+  font: 700 12px/1 "Work Sans", Inter, sans-serif;
+  cursor: pointer;
 }
 
-.lang-switch a[aria-current="true"] {
+.langSwitch button:hover {
+  background: rgba(233, 223, 241, 0.65);
+}
+
+.langSwitch button[aria-current="true"] {
   background: rgba(233, 223, 241, 0.92);
 }
 
-.footer-inner {
+.footerInner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 10px 16px;
@@ -166,19 +177,19 @@ a.btn-primary {
   color: #444;
 }
 
-.foot-links {
+.footLinks {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.foot-links a {
+.footLinks a {
   color: var(--link);
   text-decoration: none;
   font-weight: 600;
 }
 
-.foot-links a:hover {
+.footLinks a:hover {
   text-decoration: underline;
 }
 
@@ -187,22 +198,23 @@ a.btn-primary {
     padding: 18px 14px;
   }
 
-  .lang-switch {
+  .langSwitch {
     justify-content: center;
-    margin: 10px 0 20px;
+    max-width: 100%;
+    margin: 10px auto 20px;
   }
 
-  .shell .login-grid {
+  .loginGrid {
     grid-template-columns: 1fr;
     max-width: 520px;
     gap: 16px;
   }
 
-  .login-side {
+  .loginSide {
     display: contents;
   }
 
-  .login-card {
+  .loginCard {
     grid-row: 1;
     border-radius: 18px;
     text-align: center;
@@ -213,18 +225,18 @@ a.btn-primary {
   .avatar {
     width: 110px;
     height: 110px;
-    margin: 10px auto 10px;
+    margin: 10px auto;
   }
 
-  .who-name {
+  .whoName {
     font-size: 22px;
   }
 
-  .who-role {
+  .whoRole {
     font-size: 14px;
   }
 
-  .intro-box {
+  .introBox {
     grid-row: 2;
     min-height: auto;
     padding: 26px 18px;
@@ -232,27 +244,24 @@ a.btn-primary {
     line-height: 1.25;
   }
 
-  .logo-word {
+  .logoWord {
     font-size: 56px;
     margin-bottom: 14px;
   }
 
-  .intro-line {
+  .introLine {
     font-size: 16px;
     margin: 10px 0;
   }
 
-  .cta-card {
+  .ctaCard {
     grid-row: 3;
     border-radius: 14px;
     padding: 14px;
   }
 
-  .btn-primary,
-  a.btn-primary {
+  .btnPrimary {
     width: 100%;
-    justify-content: center;
-    text-align: center;
     padding: 14px 18px;
     border-radius: 12px;
     font-size: 18px;
@@ -262,25 +271,25 @@ a.btn-primary {
     border-radius: 12px;
   }
 
-  .footer-inner {
+  .footerInner {
     justify-content: center;
     text-align: center;
     gap: 10px 16px;
-    padding: 14px 14px;
+    padding: 14px;
   }
 
-  .foot-links {
+  .footLinks {
     justify-content: center;
     flex-wrap: wrap;
   }
 }
 
 @media (max-width: 420px) {
-  .shell .login-grid {
+  .loginGrid {
     max-width: 100%;
   }
 
-  .logo-word {
+  .logoWord {
     font-size: 52px;
   }
 }
