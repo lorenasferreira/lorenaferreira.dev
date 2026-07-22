@@ -100,6 +100,7 @@
   "home.updates_from": "Updates from:",
 
   "home.fortune.title": "Luck of the Day",
+  "home.fortune.title_with_date": "Your luck of the day ({{date}})",
   "home.fortune.loading": "Loading your luck...",
   "home.fortune.error": "Could not load today's luck.",
   "home.fortune.default": "Today is a good day to build something meaningful.",

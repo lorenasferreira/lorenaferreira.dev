@@ -100,6 +100,7 @@
   "home.updates_from": "Actualizaciones de:",
 
   "home.fortune.title": "Suerte del día",
+  "home.fortune.title_with_date": "Tu suerte del día ({{date}})",
   "home.fortune.loading": "Cargando tu suerte...",
   "home.fortune.error": "No se pudo cargar la suerte de hoy.",
   "home.fortune.default": "Hoy es un buen día para construir algo significativo.",

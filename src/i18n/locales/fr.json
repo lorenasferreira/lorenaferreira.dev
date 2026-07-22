@@ -100,6 +100,7 @@
   "home.updates_from": "Mises à jour de :",
 
   "home.fortune.title": "Chance du jour",
+  "home.fortune.title_with_date": "Votre chance du jour ({{date}})",
   "home.fortune.loading": "Chargement de votre chance...",
   "home.fortune.error": "Impossible de charger la chance d’aujourd’hui.",
   "home.fortune.default": "Aujourd’hui est une bonne journée pour construire quelque chose de significatif.",

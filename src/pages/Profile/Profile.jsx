@@ -2,6 +2,10 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import Header from "../../components/Header/Header";
+import PageLayout from "../../components/PageLayout/PageLayout";
+import SidebarLeft from "../../components/SidebarLeft/SidebarLeft";
+import SidebarRight from "../../components/SidebarRight/SidebarRight";
+
 import styles from "./Profile.module.css";
 
 const profileCounters = [
@@ -82,245 +86,221 @@ function Profile() {
     <>
       <Header />
 
-      <main className={styles.layout}>
-        <aside className={styles.sidebarLeft}>
-          <img
-            className={styles.profileAvatar}
-            src="/assets/img/avatar.png"
-            alt={t("common.name")}
-          />
-
-          <h2>{t("common.name")}</h2>
-
-          <p>{t("profile.values.hometown")}</p>
-        </aside>
-
+      <PageLayout left={<SidebarLeft />} right={<SidebarRight />}>
         <section className={styles.centralProfile}>
-          <header>
-            <p className={styles.profileNameCentral}>{t("common.name")}</p>
-          </header>
+          <div className={styles.profileContent}>
+            <header>
+              <p className={styles.profileNameCentral}>{t("common.name")}</p>
+            </header>
 
-          <hr className={styles.dividerMain} />
+            <hr className={styles.dividerMain} />
 
-          <div className={styles.containerCentral}>
-            <ul className={styles.profileCounters}>
-              {profileCounters.map((counter) => (
-                <li key={counter.translationKey} className={styles.stat}>
+            <div className={styles.containerCentral}>
+              <ul className={styles.profileCounters}>
+                {profileCounters.map((counter) => (
+                  <li key={counter.translationKey} className={styles.stat}>
+                    <span className={styles.label}>
+                      {t(counter.translationKey)}
+                    </span>
+
+                    <span className={styles.value}>
+                      <img src={counter.icon} className={styles.icon} alt="" />
+
+                      <strong>{counter.value}</strong>
+                    </span>
+                  </li>
+                ))}
+
+                <li className={styles.stat}>
                   <span className={styles.label}>
-                    {t(counter.translationKey)}
+                    {t("profile.counters.trustful")}
                   </span>
 
                   <span className={styles.value}>
-                    <img src={counter.icon} className={styles.icon} alt="" />
-
-                    <strong>{counter.value}</strong>
+                    {[1, 2, 3].map((star) => (
+                      <img
+                        key={star}
+                        src="/assets/icons/star.svg"
+                        className={styles.icon}
+                        alt=""
+                      />
+                    ))}
                   </span>
                 </li>
-              ))}
 
-              <li className={styles.stat}>
-                <span className={styles.label}>
-                  {t("profile.counters.trustful")}
-                </span>
+                <li className={styles.stat}>
+                  <span className={styles.label}>
+                    {t("profile.counters.cool")}
+                  </span>
 
-                <span className={styles.value}>
-                  {[1, 2, 3].map((star) => (
-                    <img
-                      key={star}
-                      src="/assets/icons/star.svg"
-                      className={styles.icon}
-                      alt=""
-                    />
-                  ))}
-                </span>
-              </li>
+                  <span className={styles.value}>
+                    {[1, 2, 3].map((item) => (
+                      <img
+                        key={item}
+                        src="/assets/icons/cool.svg"
+                        className={styles.icon}
+                        alt=""
+                      />
+                    ))}
+                  </span>
+                </li>
+              </ul>
+            </div>
 
-              <li className={styles.stat}>
-                <span className={styles.label}>
-                  {t("profile.counters.cool")}
-                </span>
+            <hr className={styles.dividerMain} />
 
-                <span className={styles.value}>
-                  {[1, 2, 3].map((item) => (
-                    <img
-                      key={item}
-                      src="/assets/icons/cool.svg"
-                      className={styles.icon}
-                      alt=""
-                    />
-                  ))}
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <hr className={styles.dividerMain} />
-
-          <div className={styles.profileStats}>
-            <p>
-              <strong>{t("profile.views.total")}</strong> 120,{" "}
-              <strong>{t("profile.views.last_week")}</strong> 18,{" "}
-              <strong>{t("profile.views.yesterday")}</strong> 4
-            </p>
-          </div>
-
-          <hr className={styles.dividerMain} />
-
-          <div className={styles.profileInformation}>
-            <div className={styles.darkBlue}>
+            <div className={styles.profileStats}>
               <p>
-                <span className={styles.profileTitles}>
-                  {t("profile.fields.birthday")}
-                </span>
-                10-07-1997
+                <strong>{t("profile.views.total")}</strong> 120,{" "}
+                <strong>{t("profile.views.last_week")}</strong> 18,{" "}
+                <strong>{t("profile.views.yesterday")}</strong> 4
               </p>
             </div>
 
-            <div className={styles.lightBlue}>
-              <p>
-                <span className={styles.profileTitles}>
-                  {t("profile.fields.age")}
-                </span>
-                28
-              </p>
-            </div>
+            <hr className={styles.dividerMain} />
 
-            <div className={styles.darkBlue}>
-              <p>
-                <span className={styles.profileTitles}>
-                  {t("profile.fields.interests")}
-                </span>
-
-                {t("profile.values.interests")}
-              </p>
-            </div>
-
-            <div className={styles.lightBlue}>
-              <p>
-                <span className={styles.profileTitles}>
-                  {t("profile.fields.who_am_i")}
-                </span>
-
-                {t("profile.values.who_am_i")}
-              </p>
-            </div>
-
-            <div className={styles.darkBlue}>
-              <p>
-                <span className={styles.profileTitles}>
-                  {t("profile.fields.hometown")}
-                </span>
-
-                {t("profile.values.hometown")}
-              </p>
-            </div>
-
-            <div className={styles.lightBlue}>
-              <p>
-                <span className={styles.profileTitles}>
-                  {t("profile.fields.webpages")}
-                </span>
-
-                <a
-                  href="https://www.linkedin.com/in/lorenasferreira/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t("profile.links.linkedin")}
-                </a>
-
-                <span> | </span>
-
-                <a
-                  href="https://github.com/lorenasferreira"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t("profile.links.github")}
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <section
-            className={`${styles.card} ${styles.testimonies}`}
-            id="testimonies"
-          >
-            <header className={styles.cardHeader}>
-              <h3>{t("profile.testimonials.title")}</h3>
-
-              <small className={styles.muted}>
-                {testimonials.length} {t("profile.testimonials.total")}
-              </small>
-            </header>
-
-            <form className={styles.testimonialForm} onSubmit={handleSubmit}>
-              <input
-                type="text"
-                value={author}
-                onChange={(event) => setAuthor(event.target.value)}
-                placeholder={t("profile.testimonials.form.name")}
-                required
-              />
-
-              <textarea
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                placeholder={t("profile.testimonials.form.message")}
-                maxLength={280}
-                required
-              />
-
-              <div className={styles.testimonialActions}>
-                <small>{remainingCharacters}</small>
-
-                <button className={styles.primaryButton} type="submit">
-                  {t("profile.testimonials.form.post")}
-                </button>
+            <div className={styles.profileInformation}>
+              <div className={styles.darkBlue}>
+                <p>
+                  <span className={styles.profileTitles}>
+                    {t("profile.fields.birthday")}
+                  </span>
+                  10-07-1997
+                </p>
               </div>
-            </form>
 
-            <div className={styles.testimonialList}>
-              {testimonials.map((testimonial) => (
-                <article
-                  key={testimonial.id}
-                  className={styles.testimonialCard}
-                >
-                  <img
-                    className={styles.testimonialAvatar}
-                    src={testimonial.avatar}
-                    alt=""
-                  />
+              <div className={styles.lightBlue}>
+                <p>
+                  <span className={styles.profileTitles}>
+                    {t("profile.fields.age")}
+                  </span>
+                  28
+                </p>
+              </div>
 
-                  <div>
-                    <strong>{testimonial.author}</strong>
+              <div className={styles.darkBlue}>
+                <p>
+                  <span className={styles.profileTitles}>
+                    {t("profile.fields.interests")}
+                  </span>
 
-                    <p>{testimonial.message ?? t(testimonial.messageKey)}</p>
+                  {t("profile.values.interests")}
+                </p>
+              </div>
 
-                    <small className={styles.muted}>
-                      {t("profile.testimonials.fake_time")}
-                    </small>
-                  </div>
-                </article>
-              ))}
+              <div className={styles.lightBlue}>
+                <p>
+                  <span className={styles.profileTitles}>
+                    {t("profile.fields.who_am_i")}
+                  </span>
+
+                  {t("profile.values.who_am_i")}
+                </p>
+              </div>
+
+              <div className={styles.darkBlue}>
+                <p>
+                  <span className={styles.profileTitles}>
+                    {t("profile.fields.hometown")}
+                  </span>
+
+                  {t("profile.values.hometown")}
+                </p>
+              </div>
+
+              <div className={styles.lightBlue}>
+                <p>
+                  <span className={styles.profileTitles}>
+                    {t("profile.fields.webpages")}
+                  </span>
+
+                  <a
+                    href="https://www.linkedin.com/in/lorenasferreira/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("profile.links.linkedin")}
+                  </a>
+
+                  <span> | </span>
+
+                  <a
+                    href="https://github.com/lorenasferreira"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("profile.links.github")}
+                  </a>
+                </p>
+              </div>
             </div>
-          </section>
+
+            <section
+              className={`${styles.card} ${styles.testimonies}`}
+              id="testimonies"
+            >
+              <header className={styles.cardHeader}>
+                <h3>{t("profile.testimonials.title")}</h3>
+
+                <small className={styles.muted}>
+                  {testimonials.length} {t("profile.testimonials.total")}
+                </small>
+              </header>
+
+              <form className={styles.testimonialForm} onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  value={author}
+                  onChange={(event) => setAuthor(event.target.value)}
+                  placeholder={t("profile.testimonials.form.name")}
+                  required
+                />
+
+                <textarea
+                  value={message}
+                  onChange={(event) => setMessage(event.target.value)}
+                  placeholder={t("profile.testimonials.form.message")}
+                  maxLength={280}
+                  required
+                />
+
+                <div className={styles.testimonialActions}>
+                  <small>{remainingCharacters}</small>
+
+                  <button className={styles.primaryButton} type="submit">
+                    {t("profile.testimonials.form.post")}
+                  </button>
+                </div>
+              </form>
+
+              <div className={styles.testimonialList}>
+                {testimonials.map((testimonial) => (
+                  <article
+                    key={testimonial.id}
+                    className={styles.testimonialCard}
+                  >
+                    <img
+                      className={styles.testimonialAvatar}
+                      src={testimonial.avatar}
+                      alt=""
+                    />
+
+                    <div>
+                      <strong>{testimonial.author}</strong>
+
+                      <p>{testimonial.message ?? t(testimonial.messageKey)}</p>
+
+                      <small className={styles.muted}>
+                        {t("profile.testimonials.fake_time")}
+                      </small>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
         </section>
-
-        <aside className={styles.sidebarRight}>
-          <section className={styles.sideCard}>
-            <h3>{t("profile.mobile.my_projects")}</h3>
-
-            <p>Projetos vão entrar aqui.</p>
-          </section>
-
-          <section className={styles.sideCard}>
-            <h3>{t("profile.mobile.communities")}</h3>
-
-            <p>Comunidades vão entrar aqui.</p>
-          </section>
-        </aside>
-      </main>
+      </PageLayout>
 
       <div className={styles.profileMobile}>
         <section className={styles.mobileHeader}>

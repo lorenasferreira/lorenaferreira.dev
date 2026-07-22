@@ -96,13 +96,14 @@
 
   "nav.open_menu": "Abrir menu",
 
-  "home.meta.title": "Início | L.Orkut",
-  "home.updates_from": "Atualizações de:",
+"home.meta.title": "Início | L.Orkut",
+"home.updates_from": "Atualizações de:",
 
-  "home.fortune.title": "Sorte do Dia",
-  "home.fortune.loading": "Carregando sua sorte...",
-  "home.fortune.error": "Não foi possível carregar a sorte de hoje.",
-  "home.fortune.default": "Hoje é um bom dia para construir algo significativo.",
+"home.fortune.title": "Sorte do Dia",
+"home.fortune.title_with_date": "Sua sorte do dia ({{date}})",
+"home.fortune.loading": "Carregando sua sorte...",
+"home.fortune.error": "Não foi possível carregar a sorte de hoje.",
+"home.fortune.default": "Hoje é um bom dia para construir algo significativo.",
 
   "feed.new_project.title": "começou um novo projeto",
   "feed.new_community.title": "entrou em uma nova comunidade",

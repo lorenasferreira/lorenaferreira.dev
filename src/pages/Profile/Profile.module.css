@@ -1,0 +1,274 @@
+.profileContent {
+  padding: 16px;
+  background: var(--white);
+}
+
+.testimonialItem {
+  background: #fff;
+  border: 1px solid var(--lilac);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.testimonialHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.testimonialText {
+  line-height: 1.4;
+}
+
+.testimonialLike {
+  padding: 4px 8px;
+  border: 1px solid #bca5d0;
+  border-radius: 8px;
+  background: #f6f0fa;
+  cursor: pointer;
+}
+
+.centralProfile {
+  background: var(--white);
+  font-family: "Work Sans", sans-serif;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 1px;
+  align-items: flex-start;
+}
+
+.profileNameCentral {
+  font-size: 23px;
+  font-weight: 450;
+  margin-top: 15px;
+  margin-left: 5px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.containerCentral {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 12px;
+  text-align: center;
+}
+
+.muted {
+  color: var(--mute);
+}
+
+.dividerMain {
+  border: none;
+  border-top: 2px double var(--gray);
+  margin: 0;
+  opacity: 0.6;
+  width: 100%;
+  max-width: 618px;
+}
+
+.profileCounters {
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 12px;
+  text-align: left;
+  margin: 5px;
+  padding: 0;
+}
+
+.stat .label {
+  font: 500 14px/1.2 "Work Sans", Inter, sans-serif;
+  color: var(--mute);
+}
+
+.stat .value {
+  min-height: 1.25em;
+  display: block;
+  line-height: 1;
+  font: 700 15px/1 "Work Sans", Inter, sans-serif;
+}
+
+.stat .icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.darkBlue {
+  background-color: #e7f0f9;
+  margin-top: 0;
+  padding: 3px;
+  font-size: 15px;
+}
+
+.lightBlue {
+  background-color: #f2f6fa;
+  padding: 3px;
+  font-size: 15px;
+}
+
+.profileTitles {
+  color: #4a4a4a;
+  margin-right: 4px;
+}
+
+.profileMobile {
+  display: none;
+}
+
+.testimonialForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.testimonialActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.testimonialAvatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d5e9ff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.mobileHeader {
+  text-align: center;
+}
+
+.mobileAvatar {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.mobileActions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.mobileCounters {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 15px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.mobileCounterItem {
+  min-width: 80px;
+  text-align: center;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.mobileTabs {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.mobileTabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #eee;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.activeTab {
+  background: var(--pink) !important;
+  color: white;
+}
+
+.mobileTabContent {
+  display: block;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.mobileSection {
+  margin-top: 30px;
+}
+
+.mobileSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.mobileHorizontalScroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.mobileCard {
+  min-width: 160px;
+  max-width: 160px;
+  height: 190px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.mobileCard img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.mobileCard p {
+  font-size: 13px;
+  padding: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.mobileCardSmall {
+  min-width: 120px;
+  max-width: 120px;
+  height: 120px;
+  padding: 0;
+}
+
+.mobileCardSmall img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .layout,
+  .sidebarRight {
+    display: none;
+  }
+
+  .profileMobile {
+    display: block;
+    padding: 20px;
+    padding-bottom: 90px;
+  }
+}

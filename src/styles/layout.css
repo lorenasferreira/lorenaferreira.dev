@@ -1,0 +1,67 @@
+.layout {
+  margin: 20px auto;
+  gap: 16px;
+  padding: 0 16px;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.central-profile {
+  background: var(--white);
+  font-family: "Work Sans", sans-serif;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 1px;
+  align-items: flex-start;
+}
+
+.profile-name-central {
+  font-size: 23px;
+  font-weight: 450;
+  margin-top: 15px;
+  margin-left: 5px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.sidebar-left {
+  flex: 0 0 240px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-right {
+  flex: 0 0 260px;
+  min-width: 240px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.container-central {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 12px;
+  text-align: center;
+}
+
+.muted {
+  color: var(--mute);
+}
+
+.divider-main {
+  border: none;
+  border-top: 2px double var(--gray);
+  margin: 0;
+  opacity: 0.6;
+  width: 100%;
+  max-width: 618px;
+}
