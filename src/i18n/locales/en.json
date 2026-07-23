@@ -116,6 +116,12 @@
   "feed.joined_community": "joined a new community",
   "feed.updated_profile_photo": "updated their profile photo",
 
+  "feed.loading": "Loading updates...",
+  "feed.error": "Could not load the updates.",
+  "feed.empty": "No updates have been published yet.",
+
+  "feed.view_project": "View project",
+
   "communities.meta.title": "Communities | L.Orkut",
   "communities.title": "Communities",
 
@@ -127,5 +133,26 @@
 
   "sidebar.profile_navigation": "Profile navigation",
   "sidebar.profile_picture": "Profile picture",
-  "sidebar.apps": "Apps"
+  "sidebar.apps": "Apps",
+
+  "projects.view_project": "View project",
+
+  "projects.title": "Projects",
+  "projects.loading": "Loading projects...",
+  "projects.error": "Could not load the projects.",
+  "projects.empty": "No projects have been published yet.",
+
+  "projects.meta.title": "Projects | L.Orkut",
+
+  "project.loading": "Loading project...",
+  "project.error": "Could not load the project.",
+  "project.not_found": "Project not found.",
+  "project.back_to_projects": "Back to projects",
+  "project.github_repository": "GitHub repository",
+  "project.live_demo": "Live demo",
+  "project.tech_stack": "Tech stack",
+  "project.photos": "Project photos",
+  "project.videos": "Project videos",
+  "project.no_photos": "No screenshots yet.",
+  "project.no_videos": "No videos available."
 }

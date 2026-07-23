@@ -128,5 +128,23 @@
 
   "sidebar.profile_navigation": "Navegación del perfil",
   "sidebar.profile_picture": "Foto de perfil",
-  "sidebar.apps": "Apps"
+  "sidebar.apps": "Apps",
+
+  "feed.view_project": "Ver proyecto",
+
+  "projects.view_project": "Ver proyecto",
+
+  "projects.meta.title": "Proyectos | L.Orkut",
+
+  "project.loading": "Cargando proyecto...",
+  "project.error": "No se pudo cargar el proyecto.",
+  "project.not_found": "Proyecto no encontrado.",
+  "project.back_to_projects": "Volver a los proyectos",
+  "project.github_repository": "Repositorio en GitHub",
+  "project.live_demo": "Ver proyecto",
+  "project.tech_stack": "Tecnologías",
+  "project.photos": "Fotos del proyecto",
+  "project.videos": "Vídeos del proyecto",
+  "project.no_photos": "Todavía no hay capturas de pantalla.",
+  "project.no_videos": "No hay vídeos disponibles."
 }

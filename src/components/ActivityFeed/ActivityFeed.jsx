@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import styles from "./ActivityFeed.module.css";
 
 const API_URL = "http://localhost:8080/api/feed";
+
+const LOCALES = {
+  en: "en-US",
+  pt: "pt-BR",
+  es: "es-ES",
+  ca: "ca-ES",
+};
 
 function normalizeImagePath(path) {
   if (!path) {
@@ -21,33 +29,70 @@ function normalizeImagePath(path) {
 }
 
 function parsePayload(payload) {
-  if (typeof payload === "object") {
+  if (payload && typeof payload === "object") {
     return payload;
   }
 
   try {
     return JSON.parse(payload);
   } catch (error) {
-    console.error("Erro ao interpretar o payload do feed:", error);
+    console.error("Could not parse feed payload:", error);
     return {};
   }
 }
 
-function formatDate(dateValue) {
-  if (!dateValue) {
-    return "";
-  }
-
-  return new Intl.DateTimeFormat("pt-BR", {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(new Date(dateValue));
-}
-
 function ActivityFeed() {
+  const { t, i18n } = useTranslation();
+
   const [activities, setActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+
+  function formatDate(dateValue) {
+    if (!dateValue) {
+      return "";
+    }
+
+    const activityDate = new Date(dateValue);
+    const today = new Date();
+
+    const activityDay = new Date(
+      activityDate.getFullYear(),
+      activityDate.getMonth(),
+      activityDate.getDate(),
+    );
+
+    const currentDay = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate(),
+    );
+
+    const differenceInDays = Math.round(
+      (currentDay - activityDay) / (1000 * 60 * 60 * 24),
+    );
+
+    const language = i18n.resolvedLanguage || i18n.language || "en";
+    const locale = LOCALES[language] || "en-US";
+
+    const formattedTime = new Intl.DateTimeFormat(locale, {
+      hour: "2-digit",
+      minute: "2-digit",
+    }).format(activityDate);
+
+    if (differenceInDays === 0) {
+      return `${t("feed.time.today")} · ${formattedTime}`;
+    }
+
+    if (differenceInDays === 1) {
+      return `${t("feed.time.yesterday")} · ${formattedTime}`;
+    }
+
+    return new Intl.DateTimeFormat(locale, {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }).format(activityDate);
+  }
 
   useEffect(() => {
     async function loadFeed() {
@@ -58,26 +103,26 @@ function ActivityFeed() {
         const response = await fetch(API_URL);
 
         if (!response.ok) {
-          throw new Error(`Erro ao carregar o feed: ${response.status}`);
+          throw new Error(`Could not load feed. Status: ${response.status}`);
         }
 
         const data = await response.json();
         setActivities(data);
       } catch (requestError) {
         console.error(requestError);
-        setError("Não foi possível carregar as atualizações.");
+        setError(t("feed.error"));
       } finally {
         setIsLoading(false);
       }
     }
 
     loadFeed();
-  }, []);
+  }, [t]);
 
   if (isLoading) {
     return (
       <section className={styles.feed}>
-        <p>Carregando atualizações...</p>
+        <p>{t("feed.loading")}</p>
       </section>
     );
   }
@@ -93,7 +138,7 @@ function ActivityFeed() {
   if (activities.length === 0) {
     return (
       <section className={styles.feed}>
-        <p>Nenhuma atualização publicada ainda.</p>
+        <p>{t("feed.empty")}</p>
       </section>
     );
   }
@@ -110,15 +155,16 @@ function ActivityFeed() {
                 <img
                   className={styles.avatar}
                   src="/assets/img/avatar.png"
-                  alt="Lorena"
+                  alt={t("login.avatar.alt")}
                 />
 
                 <div>
                   <p className={styles.title}>
-                    <strong>Lorena</strong> publicou um novo projeto
+                    <strong>{t("common.name")}</strong>{" "}
+                    {t("feed.new_project.title")}
                   </p>
 
-                  <time className={styles.meta}>
+                  <time className={styles.meta} dateTime={activity.createdAt}>
                     {formatDate(activity.createdAt)}
                   </time>
                 </div>
@@ -152,7 +198,7 @@ function ActivityFeed() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Ver projeto
+                      {t("feed.view_project")}
                     </a>
                   )}
                 </div>
@@ -168,15 +214,16 @@ function ActivityFeed() {
                 <img
                   className={styles.avatar}
                   src="/assets/img/avatar.png"
-                  alt="Lorena"
+                  alt={t("login.avatar.alt")}
                 />
 
                 <div>
                   <p className={styles.title}>
-                    <strong>Lorena</strong> entrou em uma nova comunidade
+                    <strong>{t("common.name")}</strong>{" "}
+                    {t("feed.new_community.title")}
                   </p>
 
-                  <time className={styles.meta}>
+                  <time className={styles.meta} dateTime={activity.createdAt}>
                     {formatDate(activity.createdAt)}
                   </time>
                 </div>
