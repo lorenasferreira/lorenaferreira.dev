@@ -42,6 +42,19 @@ const fortunes = {
     "Recibirás claridad hoy.",
     "Hoy es un buen día para empezar de nuevo.",
   ],
+
+  fr: [
+    "Les bonnes choses prennent du temps — mais certaines commencent aujourd’hui.",
+    "Un petit pas aujourd’hui ouvrira la voie à un grand moment demain.",
+    "Vous êtes plus proche que vous ne le pensez.",
+    "Quelqu’un vous est reconnaissant aujourd’hui — même si vous ne le savez pas encore.",
+    "Votre énergie attire les bonnes personnes.",
+    "Un souvenir du passé vous fera bientôt sourire.",
+    "Faites confiance au bon moment — il joue en votre faveur.",
+    "Quelque chose de beau se prépare discrètement en coulisses.",
+    "Vous y verrez plus clair aujourd’hui.",
+    "Aujourd’hui est un bon jour pour recommencer.",
+  ],
 };
 
 function getLanguage(language) {
@@ -87,17 +100,26 @@ function Fortune() {
     };
   }, [i18n.language, i18n.resolvedLanguage]);
 
-  return (
-    <section className={styles.fortune}>
-      <h2 className={styles.title}>
-        {t("home.fortune.title_with_date", {
-          date: fortuneData.date,
-        })}
-      </h2>
+ return (
+   <section className={styles.fortune}>
+     <img
+       src="/assets/icons/sorte-do-dia.png"
+       alt=""
+       aria-hidden="true"
+       className={styles.icon}
+     />
 
-      <p className={styles.text}>{fortuneData.text}</p>
-    </section>
-  );
+     <div>
+       <h2 className={styles.title}>
+         {t("home.fortune.title_with_date", {
+           date: fortuneData.date,
+         })}
+       </h2>
+
+       <p className={styles.text}>{fortuneData.text}</p>
+     </div>
+   </section>
+ );
 }
 
 export default Fortune;

@@ -1,20 +1,37 @@
 .fortune {
-  padding: 12px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #fff;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 16px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
 }
 
 .title {
-  margin-bottom: 4px;
-  color: var(--ink);
+  margin: 0 0 4px;
   font-size: 18px;
   font-weight: 700;
+  color: #333;
 }
 
 .text {
   margin: 0;
-  color: #555;
   font-size: 16px;
+  color: #555;
   line-height: 1.4;
 }

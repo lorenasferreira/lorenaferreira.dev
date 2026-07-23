@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 
+import Header from "../../components/Header/Header";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import SidebarLeft from "../../components/SidebarLeft/SidebarLeft";
 import SidebarRight from "../../components/SidebarRight/SidebarRight";
@@ -12,22 +13,26 @@ function Home() {
   const { t } = useTranslation();
 
   return (
-    <PageLayout left={<SidebarLeft />} right={<SidebarRight />}>
-      <section className={styles.home}>
-        <header className={styles.header}>
-          <p className={styles.title}>
-            {t("home.updates_from")} {t("common.name")}
-          </p>
-        </header>
+    <>
+      <Header />
 
-        <hr className={styles.divider} />
+      <PageLayout left={<SidebarLeft />} right={<SidebarRight />}>
+        <section className={styles.home}>
+          <header className={styles.header}>
+            <p className={styles.title}>
+              {t("home.updates_from")} {t("common.name")}
+            </p>
+          </header>
 
-        <div className={styles.content}>
-          <Fortune />
-          <ActivityFeed />
-        </div>
-      </section>
-    </PageLayout>
+          <hr className={styles.divider} />
+
+          <div className={styles.content}>
+            <Fortune />
+            <ActivityFeed />
+          </div>
+        </section>
+      </PageLayout>
+    </>
   );
 }
 

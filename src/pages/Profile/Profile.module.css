@@ -1,5 +1,4 @@
 .profileContent {
-  padding: 16px;
   background: var(--white);
 }
 
@@ -64,7 +63,7 @@
   margin: 0;
   opacity: 0.6;
   width: 100%;
-  max-width: 618px;
+  max-width: 640px;
 }
 
 .profileCounters {
