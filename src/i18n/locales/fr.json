@@ -118,5 +118,15 @@
   "feed.time.days_ago": "il y a quelques jours",
 
   "communities.meta.title": "Communautés | L.Orkut",
-  "communities.title": "Communautés"
+  "communities.title": "Communautés",
+
+  "sidebar.profile": "profil",
+  "sidebar.scrapbook": "livre d'or",
+  "sidebar.photos": "photos",
+  "sidebar.videos": "vidéos",
+  "sidebar.testimonials": "témoignages",
+
+  "sidebar.profile_navigation": "Navigation du profil",
+  "sidebar.profile_picture": "Photo de profil",
+  "sidebar.apps": "Applications"
 }

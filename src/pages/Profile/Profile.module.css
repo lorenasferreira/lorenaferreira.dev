@@ -85,6 +85,9 @@
 .stat .value {
   min-height: 1.25em;
   display: block;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   line-height: 1;
   font: 700 15px/1 "Work Sans", Inter, sans-serif;
 }

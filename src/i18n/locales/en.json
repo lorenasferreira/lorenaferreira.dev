@@ -117,5 +117,15 @@
   "feed.updated_profile_photo": "updated their profile photo",
 
   "communities.meta.title": "Communities | L.Orkut",
-  "communities.title": "Communities"
+  "communities.title": "Communities",
+
+  "sidebar.profile": "profile",
+  "sidebar.scrapbook": "scrapbook",
+  "sidebar.photos": "photos",
+  "sidebar.videos": "videos",
+  "sidebar.testimonials": "testimonials",
+
+  "sidebar.profile_navigation": "Profile navigation",
+  "sidebar.profile_picture": "Profile picture",
+  "sidebar.apps": "Apps"
 }
