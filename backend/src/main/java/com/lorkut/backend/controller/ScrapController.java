@@ -19,7 +19,10 @@ import com.lorkut.backend.service.ScrapService;
 
 @RestController
 @RequestMapping("/api/scraps")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "https://lorkut-react-production.up.railway.app"
+})
 public class ScrapController {
 
     private final ScrapService scrapService;
