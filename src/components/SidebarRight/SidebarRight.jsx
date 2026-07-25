@@ -6,6 +6,24 @@ import { getCommunities, getProjects } from "../../services/api";
 
 import styles from "./SidebarRight.module.css";
 
+const API_BASE = "http://localhost:8080";
+
+function getImageUrl(imagePath) {
+  if (!imagePath) {
+    return "";
+  }
+
+  if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+    return imagePath;
+  }
+
+  const normalizedPath = imagePath.startsWith("/")
+    ? imagePath
+    : `/${imagePath}`;
+
+  return `${API_BASE}${normalizedPath}`;
+}
+
 function SidebarRight() {
   const { t } = useTranslation();
 
@@ -36,7 +54,7 @@ function SidebarRight() {
   if (isLoading) {
     return (
       <div className={styles.sidebar}>
-        <p className={styles.loading}>Carregando...</p>
+        <p className={styles.loading}>{t("sidebar.loading")}</p>
       </div>
     );
   }
@@ -61,7 +79,7 @@ function SidebarRight() {
               title={project.title}
             >
               <img
-                src={project.thumbnail}
+                src={getImageUrl(project.thumbnail)}
                 alt={project.title}
                 className={styles.thumbnail}
               />
@@ -88,7 +106,7 @@ function SidebarRight() {
               title={community.title}
             >
               <img
-                src={community.thumbnail}
+                src={getImageUrl(community.thumbnail)}
                 alt={community.title}
                 className={styles.thumbnail}
               />

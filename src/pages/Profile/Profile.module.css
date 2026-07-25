@@ -1,276 +1,537 @@
 .profileContent {
-  background: var(--white);
+width: 100%;
+background: var(--white);
 }
 
-.testimonialItem {
-  background: #fff;
-  border: 1px solid var(--lilac);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.testimonialHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.testimonialText {
-  line-height: 1.4;
-}
-
-.testimonialLike {
-  padding: 4px 8px;
-  border: 1px solid #bca5d0;
-  border-radius: 8px;
-  background: #f6f0fa;
-  cursor: pointer;
+.desktopProfile {
+display: block;
 }
 
 .centralProfile {
-  background: var(--white);
-  font-family: "Work Sans", sans-serif;
-  flex: 1 1 auto;
-  min-width: 0;
-  gap: 1px;
-  align-items: flex-start;
+flex: 1 1 auto;
+min-width: 0;
+background: var(--white);
+font-family: "Work Sans", sans-serif;
 }
 
 .profileNameCentral {
-  font-size: 23px;
-  font-weight: 450;
-  margin-top: 15px;
-  margin-left: 5px;
-  font-family: "Work Sans", sans-serif;
+margin: 15px 0 0 5px;
+font-family: "Work Sans", sans-serif;
+font-size: 23px;
+font-weight: 450;
 }
 
 .containerCentral {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  gap: 12px;
-  text-align: center;
-}
-
-.muted {
-  color: var(--mute);
+display: grid;
+grid-auto-flow: column;
+grid-auto-columns: 1fr;
+gap: 12px;
+text-align: center;
 }
 
 .dividerMain {
-  border: none;
-  border-top: 2px double var(--gray);
-  margin: 0;
-  opacity: 0.6;
-  width: 100%;
-  max-width: 640px;
+width: 100%;
+max-width: 640px;
+margin: 0;
+border: 0;
+border-top: 2px double var(--gray);
+opacity: 0.6;
 }
 
 .profileCounters {
-  list-style: none;
-  display: grid;
-  grid-auto-flow: column;
-  gap: 12px;
-  text-align: left;
-  margin: 5px;
-  padding: 0;
+display: grid;
+grid-auto-flow: column;
+gap: 12px;
+margin: 5px;
+padding: 0;
+list-style: none;
+text-align: left;
+}
+
+.stat {
+min-width: 0;
 }
 
 .stat .label {
-  font: 500 14px/1.2 "Work Sans", Inter, sans-serif;
-  color: var(--mute);
+display: block;
+color: var(--mute);
+font: 500 14px/1.2 "Work Sans", Inter, sans-serif;
 }
 
 .stat .value {
-  min-height: 1.25em;
-  display: block;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  line-height: 1;
-  font: 700 15px/1 "Work Sans", Inter, sans-serif;
+display: flex;
+align-items: center;
+gap: 4px;
+min-height: 1.25em;
+font: 700 15px/1 "Work Sans", Inter, sans-serif;
 }
 
 .stat .icon {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  display: inline-block;
-  vertical-align: middle;
+display: inline-block;
+width: 16px;
+height: 16px;
+object-fit: contain;
+vertical-align: middle;
+}
+
+.profileStats {
+padding: 6px 5px;
+color: var(--mute);
+font-size: 0.9rem;
+}
+
+.profileStats p {
+margin: 0;
+}
+
+.profileInformation p {
+margin: 0;
+}
+
+.darkBlue,
+.lightBlue {
+padding: 7px 8px;
+font-size: 15px;
 }
 
 .darkBlue {
-  background-color: #e7f0f9;
-  margin-top: 0;
-  padding: 3px;
-  font-size: 15px;
+margin-top: 0;
+background-color: #e7f0f9;
 }
 
 .lightBlue {
-  background-color: #f2f6fa;
-  padding: 3px;
-  font-size: 15px;
+background-color: #f2f6fa;
 }
 
 .profileTitles {
-  color: #4a4a4a;
-  margin-right: 4px;
+margin-right: 4px;
+color: #4a4a4a;
+font-weight: 600;
 }
 
-.profileMobile {
-  display: none;
+.card {
+margin-top: 24px;
+padding: 14px;
+background: var(--white);
+border: 1px solid var(--lilac);
+border-radius: 12px;
+}
+
+.cardHeader {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+}
+
+.cardHeader h3 {
+margin: 0;
+color: var(--ink);
+font-family: "Inter", sans-serif;
+font-size: 1rem;
+}
+
+.muted {
+color: var(--mute);
+}
+
+.testimonies {
+margin-bottom: 20px;
 }
 
 .testimonialForm {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 12px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin-top: 12px;
+}
+
+.testimonialForm input,
+.testimonialForm textarea {
+width: 100%;
+padding: 10px;
+border: 1px solid var(--lilac);
+border-radius: 8px;
+background: var(--white);
+color: var(--ink);
+font-family: "Work Sans", sans-serif;
+font-size: 0.9rem;
+box-sizing: border-box;
+}
+
+.testimonialForm textarea {
+min-height: 90px;
+resize: vertical;
+}
+
+.testimonialForm input:focus,
+.testimonialForm textarea:focus {
+border-color: var(--pink);
+outline: none;
 }
 
 .testimonialActions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.primaryButton,
+.secondaryButton {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 40px;
+padding: 9px 16px;
+border: 0;
+border-radius: 8px;
+font-family: "Inter", sans-serif;
+font-size: 0.85rem;
+font-weight: 600;
+text-decoration: none;
+cursor: pointer;
+}
+
+.primaryButton {
+background: var(--pink);
+color: var(--white);
+}
+
+.secondaryButton {
+background: var(--blue-bg);
+color: var(--link);
+}
+
+.testimonialList {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin-top: 18px;
+}
+
+.testimonialCard {
+display: grid;
+grid-template-columns: 56px 1fr;
+gap: 12px;
+padding: 12px;
+background: var(--white);
+border: 1px solid var(--lilac);
+border-radius: 10px;
+}
+
+.testimonialCard strong {
+color: var(--ink);
+}
+
+.testimonialCard p {
+margin: 5px 0;
+color: var(--mute);
+line-height: 1.5;
+white-space: pre-line;
 }
 
 .testimonialAvatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #d5e9ff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+width: 56px;
+height: 56px;
+border: 2px solid #d5e9ff;
+border-radius: 50%;
+object-fit: cover;
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Perfil mobile */
+
+.profileMobile {
+display: none;
 }
 
 .mobileHeader {
-  text-align: center;
+padding: 24px 18px;
+background: var(--white);
+border: 1px solid var(--lilac);
+border-radius: 18px;
+text-align: center;
 }
 
 .mobileAvatar {
-  width: 120px;
-  border-radius: 50%;
-  margin-bottom: 10px;
+display: block;
+width: 120px;
+height: 120px;
+margin: 0 auto 10px;
+border: 4px solid var(--blue-bg);
+border-radius: 50%;
+object-fit: cover;
+box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.mobileName {
+margin: 0;
+color: var(--ink);
+font-family: "Inter", sans-serif;
+font-size: 1.55rem;
+}
+
+.mobileLocation {
+margin: 6px 0 0;
+color: var(--mute);
+font-size: 0.9rem;
 }
 
 .mobileActions {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-top: 16px;
 }
 
 .mobileCounters {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding: 15px 0;
-  scroll-snap-type: x mandatory;
+display: flex;
+gap: 12px;
+margin-top: 16px;
+padding: 14px 4px;
+overflow-x: auto;
+scrollbar-width: none;
+scroll-snap-type: x mandatory;
+}
+
+.mobileCounters::-webkit-scrollbar {
+display: none;
 }
 
 .mobileCounterItem {
-  min-width: 80px;
-  text-align: center;
-  flex-shrink: 0;
-  scroll-snap-align: start;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+flex: 0 0 88px;
+min-height: 72px;
+padding: 10px;
+background: var(--white);
+border: 1px solid var(--lilac);
+border-radius: 14px;
+text-align: center;
+scroll-snap-align: start;
+}
+
+.mobileCounterItem span {
+color: var(--mute);
+font-size: 0.75rem;
+}
+
+.mobileCounterItem strong {
+margin-top: 5px;
+color: var(--ink);
+font-family: "Inter", sans-serif;
+font-size: 1rem;
 }
 
 .mobileTabs {
-  display: flex;
-  gap: 10px;
-  margin: 20px 0;
+display: flex;
+gap: 10px;
+margin: 20px 0 14px;
 }
 
-.mobileTabs button {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  background: #eee;
-  font-weight: 500;
-  cursor: pointer;
+.mobileTab {
+flex: 1;
+padding: 10px;
+border: 0;
+border-radius: 20px;
+background: #eeeeee;
+color: var(--ink);
+font-family: "Inter", sans-serif;
+font-weight: 500;
+cursor: pointer;
 }
 
 .activeTab {
-  background: var(--pink) !important;
-  color: white;
+background: var(--pink);
+color: var(--white);
 }
 
 .mobileTabContent {
-  display: block;
-  max-height: 260px;
-  overflow-y: auto;
+padding: 16px;
+background: var(--white);
+border: 1px solid var(--lilac);
+border-radius: 16px;
+}
+
+.mobileInformationBlock + .mobileInformationBlock {
+margin-top: 16px;
+padding-top: 16px;
+border-top: 1px solid var(--gray);
+}
+
+.mobileInformationBlock strong {
+color: var(--ink);
+font-family: "Inter", sans-serif;
+font-size: 0.9rem;
+}
+
+.mobileInformationBlock p {
+margin: 5px 0 0;
+color: var(--mute);
+font-size: 0.9rem;
+line-height: 1.55;
+}
+
+.mobileInformationBlock a {
+color: var(--link);
 }
 
 .mobileSection {
-  margin-top: 30px;
+margin-top: 28px;
 }
 
 .mobileSectionHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+margin-bottom: 12px;
+}
+
+.mobileSectionHeader h2 {
+margin: 0;
+color: var(--ink);
+font-family: "Inter", sans-serif;
+font-size: 1.1rem;
+}
+
+.mobileSectionHeader a {
+color: var(--link);
+font-size: 0.82rem;
+text-decoration: none;
+}
+
+.mobileSectionHeader a:hover {
+text-decoration: underline;
 }
 
 .mobileHorizontalScroll {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scroll-snap-type: x mandatory;
+display: flex;
+gap: 14px;
+padding: 2px 2px 12px;
+overflow-x: auto;
+scrollbar-width: none;
+scroll-snap-type: x mandatory;
 }
 
-.mobileCard {
-  min-width: 160px;
-  max-width: 160px;
-  height: 190px;
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.mobileHorizontalScroll::-webkit-scrollbar {
+display: none;
 }
 
-.mobileCard img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  display: block;
+.mobileProjectCard {
+display: flex;
+flex: 0 0 160px;
+flex-direction: column;
+min-width: 160px;
+height: 190px;
+overflow: hidden;
+background: var(--white);
+border: 1px solid var(--lilac);
+border-radius: 16px;
+color: var(--ink);
+text-decoration: none;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+scroll-snap-align: start;
 }
 
-.mobileCard p {
-  font-size: 13px;
-  padding: 8px;
-  text-align: center;
-  font-weight: 500;
+.mobileProjectCard img {
+display: block;
+width: 100%;
+height: 140px;
+object-fit: cover;
 }
 
-.mobileCardSmall {
-  min-width: 120px;
-  max-width: 120px;
-  height: 120px;
-  padding: 0;
+.mobileProjectCard p {
+display: flex;
+align-items: center;
+justify-content: center;
+flex: 1;
+margin: 0;
+padding: 8px;
+font-size: 13px;
+font-weight: 500;
+text-align: center;
 }
 
-.mobileCardSmall img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.mobileCommunityCard {
+display: block;
+flex: 0 0 120px;
+width: 120px;
+height: 120px;
+overflow: hidden;
+background: var(--white);
+border: 1px solid var(--lilac);
+border-radius: 16px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+scroll-snap-align: start;
+}
+
+.mobileCommunityCard img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.mobileStatus {
+margin: 0;
+padding: 16px;
+color: var(--mute);
+background: var(--white);
+border: 1px solid var(--lilac);
+border-radius: 12px;
+font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+.profileCounters {
+grid-auto-flow: row;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 }
 
 @media (max-width: 768px) {
-  .layout,
-  .sidebarRight {
-    display: none;
-  }
+.desktopProfile {
+display: none;
+}
 
-  .profileMobile {
-    display: block;
-    padding: 20px;
-    padding-bottom: 90px;
-  }
+.profileMobile {
+display: block;
+width: 100%;
+padding: 16px;
+padding-bottom: 90px;
+box-sizing: border-box;
+}
+}
+
+@media (max-width: 420px) {
+.profileMobile {
+padding: 12px;
+padding-bottom: 80px;
+}
+
+.mobileHeader {
+padding: 20px 14px;
+}
+
+.mobileActions {
+flex-direction: column;
+}
+
+.mobileActions .primaryButton,
+.mobileActions .secondaryButton {
+width: 100%;
+box-sizing: border-box;
+}
+
+.mobileAvatar {
+width: 105px;
+height: 105px;
+}
+
+.mobileName {
+font-size: 1.35rem;
+}
 }

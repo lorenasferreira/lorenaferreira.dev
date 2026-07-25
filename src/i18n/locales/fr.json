@@ -119,6 +119,14 @@
 
   "communities.meta.title": "Communautés | L.Orkut",
   "communities.title": "Communautés",
+  "communities.loading": "Chargement des communautés...",
+  "communities.empty": "Aucune communauté trouvée.",
+  "communities.error": "Impossible de charger les communautés.",
+
+  "community.loading": "Chargement de la communauté...",
+  "community.error": "Impossible de charger la communauté.",
+  "community.not_found": "Communauté introuvable.",
+  "community.back_to_communities": "Retour aux communautés",
 
   "sidebar.profile": "profil",
   "sidebar.scrapbook": "livre d'or",

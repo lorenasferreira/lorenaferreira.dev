@@ -155,5 +155,14 @@
   "project.photos": "Fotos do projeto",
   "project.videos": "Vídeos do projeto",
   "project.no_photos": "Nenhuma captura de tela disponível.",
-  "project.no_videos": "Nenhum vídeo disponível."
+  "project.no_videos": "Nenhum vídeo disponível.",
+  
+  "communities.loading": "Carregando comunidades...",
+  "communities.empty": "Nenhuma comunidade encontrada.",
+  "communities.error": "Não foi possível carregar as comunidades.",
+
+  "community.loading": "Carregando comunidade...",
+  "community.error": "Não foi possível carregar a comunidade.",
+  "community.not_found": "Comunidade não encontrada.",
+  "community.back_to_communities": "Voltar para comunidades"
 }

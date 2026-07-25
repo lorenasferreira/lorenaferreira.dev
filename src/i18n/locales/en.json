@@ -154,5 +154,14 @@
   "project.photos": "Project photos",
   "project.videos": "Project videos",
   "project.no_photos": "No screenshots yet.",
-  "project.no_videos": "No videos available."
+  "project.no_videos": "No videos available.",
+
+  "communities.loading": "Loading communities...",
+  "communities.empty": "No communities found.",
+  "communities.error": "Could not load communities.",
+
+  "community.loading": "Loading community...",
+  "community.error": "Could not load the community.",
+  "community.not_found": "Community not found.",
+  "community.back_to_communities": "Back to communities"
 }

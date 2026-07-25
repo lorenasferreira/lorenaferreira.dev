@@ -1,22 +1,73 @@
 # Lorkut Roadmap
 
+## Próxima sessão
+- [ X ] Corrigir imagens quebradas do `SidebarRight` nas rotas `/projects/:slug`
+- [ X ] Criar página de comunidades
+- [ X ] Criar página individual de comunidade
+- [ X ] Conectar rotas e botões de comunidades
+- [ ] Revisar responsividade das páginas:
+  - [ X ] Home
+  - [ X ] Perfil
+  - [ ] Projects
+  - [ ] Project
+  - [ ] Communities
+  - [ ] Community
+- [ ] Revisar links e botões do site
+- [ ] Revisar traduções restantes
+- [ ] Preencher descrição curta do projeto da Mari
+- [ ] Remover ou identificar conteúdo demonstrativo
+- [ ] Fazer deploy do MVP
+
 ## MVP
 - [ ] Corrigir todos os links e botões
 - [ ] Revisar traduções
-- [ ] Finalizar projetos
+- [x] Criar listagem de projetos
+- [x] Criar página individual de projeto
 - [ ] Finalizar comunidades
 - [ ] Revisar responsividade
 - [ ] Remover conteúdo falso
 - [ ] Fazer deploy
 
-## Fase 2 — Activity Feed
-- [ ] Criar ActivityFeed model
-- [ ] Criar ActivityFeedRepository
-- [ ] Criar ActivityFeedService
-- [ ] Criar GET /api/feed
-- [ ] Gerar atividade ao criar projeto
-- [ ] Gerar atividade ao criar comunidade
-- [ ] Renderizar feed na home
+## Activity Feed
+- [x] Criar `ActivityFeed` model
+- [x] Criar `ActivityFeedRepository`
+- [x] Criar `ActivityFeedService`
+- [x] Criar `GET /api/feed`
+- [x] Renderizar feed na Home
+- [x] Exibir projetos existentes no feed
+- [x] Exibir comunidades existentes no feed
+- [ ] Gerar atividade automaticamente ao criar projeto
+- [ ] Gerar atividade automaticamente ao criar comunidade
+- [ ] Separar tipos de atividade em componentes React
+- [ ] Internacionalizar descrições vindas do banco
+
+## Projeto Mari Rodrigues
+- [ ] Corrigir pendências visuais e funcionais
+- [ ] Revisar responsividade
+- [ ] Revisar idiomas
+- [ ] Adicionar crédito no footer:
+  - [ ] “Desenvolvido por Lorena Ferreira”
+  - [ ] Link para o Lorkut/portfólio
+- [ ] Pedir depoimento à Marina
+- [ ] Definir como exibir e verificar o depoimento
+- [ ] Conectar o domínio comprado pela Marina
+- [ ] Fazer deploy final
+
+## Marca pessoal
+- [ ] Pesquisar disponibilidade de domínio
+- [ ] Avaliar nomes como `lorenadev`
+- [ ] Comprar domínio do portfólio
+- [ ] Conectar domínio ao Lorkut
+- [ ] Atualizar links profissionais
+
+## Primeira cliente paga — site professora de português
+- [ ] Reunir referências e necessidades
+- [ ] Definir páginas e funcionalidades
+- [ ] Criar sitemap
+- [ ] Criar identidade visual inicial
+- [ ] Fazer wireframe
+- [ ] Começar o design
+- [ ] Planejar desenvolvimento e prazo
 
 ## Fase 3 — Mídia
 - [ ] Criar álbuns de fotos
