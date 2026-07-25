@@ -143,17 +143,6 @@
   font-size: 14px;
 }
 
-.translateButton {
-  margin-top: 12px;
-  padding: 7px 11px;
-  border: 1px solid #c8d5e8;
-  border-radius: 8px;
-  background: white;
-  color: #78869a;
-  font: inherit;
-  cursor: not-allowed;
-}
-
 @media (max-width: 600px) {
   .testimonials {
     padding: 14px;

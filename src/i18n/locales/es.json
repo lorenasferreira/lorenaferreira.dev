@@ -155,5 +155,31 @@
   "community.loading": "Cargando comunidad...",
   "community.error": "No se pudo cargar la comunidad.",
   "community.not_found": "Comunidad no encontrada.",
-  "community.back_to_communities": "Volver a comunidades"
+  "community.back_to_communities": "Volver a comunidades",
+
+  "profile.scraps.title": "Recados",
+  "profile.scraps.total": "recados",
+  "profile.scraps.form.name": "Tu nombre",
+  "profile.scraps.form.message": "Escribe un recado...",
+  "profile.scraps.form.post": "Enviar recado",
+
+  "profile.verified_testimonials.title": "Testimonios verificados",
+  "profile.verified_testimonials.total": "testimonio",
+  "profile.verified_testimonials.verified_client": "Cliente verificado",
+  "profile.verified_testimonials.original_language": "Idioma original",
+  "profile.verified_testimonials.demo": "Demostración",
+  "profile.verified_testimonials.published_project": "Proyecto publicado",
+
+  "profile.scraps.loading": "Cargando recados...",
+  "profile.scraps.success": "Tu recado fue enviado y aparecerá después de la aprobación 💜",
+  "profile.scraps.error_loading": "No se pudieron cargar los recados.",
+  "profile.scraps.error_sending": "No se pudo enviar el recado. Inténtalo de nuevo.",
+  "profile.scraps.form.sending": "Enviando...",
+
+  "profile.scraps.form.add_photo": "Añadir foto",
+  "profile.scraps.form.change_photo": "Cambiar foto",
+  "profile.scraps.form.image_preview": "Vista previa de la foto seleccionada",
+
+  "scraps.page.title": "Recados",
+  "scraps.page.description": "Déjame un mensaje en mi perfil o mira los recados que ya he recibido."
 }

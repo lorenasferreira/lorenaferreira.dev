@@ -1,0 +1,62 @@
+.desktopPage {
+  display: block;
+}
+
+.content {
+  width: 100%;
+  min-width: 0;
+  background: var(--white);
+  font-family: "Work Sans", sans-serif;
+}
+
+.pageHeader {
+  padding: 15px 5px 10px;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Work Sans", sans-serif;
+  font-size: 23px;
+  font-weight: 450;
+}
+
+.pageHeader p {
+  margin: 6px 0 0;
+  color: var(--mute);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.mobilePage {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .desktopPage {
+    display: none;
+  }
+
+  .mobilePage {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    padding-bottom: 90px;
+    box-sizing: border-box;
+  }
+
+  .pageHeader {
+    padding: 8px 0 4px;
+  }
+
+  .pageHeader h1 {
+    font-size: 1.45rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobilePage {
+    padding: 12px;
+    padding-bottom: 80px;
+  }
+}

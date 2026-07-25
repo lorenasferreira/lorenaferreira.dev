@@ -163,5 +163,31 @@
   "community.loading": "Loading community...",
   "community.error": "Could not load the community.",
   "community.not_found": "Community not found.",
-  "community.back_to_communities": "Back to communities"
+  "community.back_to_communities": "Back to communities",
+
+  "profile.scraps.title": "Scraps",
+  "profile.scraps.total": "scraps",
+  "profile.scraps.form.name": "Your name",
+  "profile.scraps.form.message": "Write a scrap...",
+  "profile.scraps.form.post": "Post scrap",
+
+  "profile.verified_testimonials.title": "Verified testimonials",
+  "profile.verified_testimonials.total": "testimonial",
+  "profile.verified_testimonials.verified_client": "Verified client",
+  "profile.verified_testimonials.original_language": "Original language",
+  "profile.verified_testimonials.demo": "Demo",
+  "profile.verified_testimonials.published_project": "Published project",
+
+  "profile.scraps.loading": "Loading scraps...",
+  "profile.scraps.success": "Your scrap was sent and will appear after approval 💜",
+  "profile.scraps.error_loading": "The scraps could not be loaded.",
+  "profile.scraps.error_sending": "The scrap could not be sent. Please try again.",
+  "profile.scraps.form.sending": "Sending...",
+
+  "profile.scraps.form.add_photo": "Add photo",
+  "profile.scraps.form.change_photo": "Change photo",
+  "profile.scraps.form.image_preview": "Selected photo preview",
+
+  "scraps.page.title": "Scraps",
+  "scraps.page.description": "Leave a message on my profile or read the scraps I have received."
 }

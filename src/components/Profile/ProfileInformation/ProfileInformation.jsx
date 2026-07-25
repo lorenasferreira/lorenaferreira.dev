@@ -49,7 +49,7 @@ function ProfileInformation({ birthDate, linkedinUrl, githubUrl }) {
 
       <div className={styles.darkBlue}>
         <p>
-          <span className={styles.profileTitle}>
+          <span className={styles.profileTitles}>
             {t("profile.fields.interests")}
           </span>
 

@@ -7,11 +7,12 @@ const profileNavigation = [
   {
     translationKey: "sidebar.profile",
     icon: "/assets/icons/user.svg",
-    to: "/",
+    to: "/profile",
   },
   {
     translationKey: "sidebar.scrapbook",
     icon: "/assets/icons/book.svg",
+    to: "/scraps",
   },
   {
     translationKey: "sidebar.photos",

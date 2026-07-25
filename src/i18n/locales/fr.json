@@ -159,5 +159,31 @@
   "project.photos": "Photos du projet",
   "project.videos": "Vidéos du projet",
   "project.no_photos": "Aucune capture d’écran pour le moment.",
-  "project.no_videos": "Aucune vidéo disponible."
+  "project.no_videos": "Aucune vidéo disponible.",
+
+  "profile.scraps.title": "Messages",
+  "profile.scraps.total": "messages",
+  "profile.scraps.form.name": "Votre nom",
+  "profile.scraps.form.message": "Écrivez un message...",
+  "profile.scraps.form.post": "Publier",
+
+  "profile.verified_testimonials.title": "Témoignages vérifiés",
+  "profile.verified_testimonials.total": "témoignage",
+  "profile.verified_testimonials.verified_client": "Client vérifié",
+  "profile.verified_testimonials.original_language": "Langue d'origine",
+  "profile.verified_testimonials.demo": "Démonstration",
+  "profile.verified_testimonials.published_project": "Projet publié",
+
+  "profile.scraps.loading": "Chargement des messages...",
+  "profile.scraps.success": "Votre message a été envoyé et apparaîtra après validation 💜",
+  "profile.scraps.error_loading": "Impossible de charger les messages.",
+  "profile.scraps.error_sending": "Impossible d’envoyer le message. Réessayez.",
+  "profile.scraps.form.sending": "Envoi...",
+
+  "profile.scraps.form.add_photo": "Ajouter une photo",
+  "profile.scraps.form.change_photo": "Changer la photo",
+  "profile.scraps.form.image_preview": "Aperçu de la photo sélectionnée",
+
+  "scraps.page.title": "Messages",
+  "scraps.page.description": "Laissez-moi un message sur mon profil ou consultez ceux que j’ai déjà reçus."
 }

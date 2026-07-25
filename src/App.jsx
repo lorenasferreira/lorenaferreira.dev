@@ -7,6 +7,7 @@ import Projects from "./pages/Projects/Projects";
 import Project from "./pages/Project/Project";
 import Communities from "./pages/Communities/Communities";
 import Community from "./pages/Community/Community";
+import ScrapsPage from "./pages/Scraps/ScrapsPage";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path="/communities" element={<Communities />} />
 
         <Route path="/communities/:slug" element={<Community />} />
+
+        <Route path="/scraps" element={<ScrapsPage />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

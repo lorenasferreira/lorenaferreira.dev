@@ -145,20 +145,6 @@ function VerifiedTestimonials() {
                   </a>
                 )}
               </div>
-
-              {currentLanguage !== testimonial.originalLanguage &&
-                !testimonial.translations[currentLanguage] && (
-                  <button
-                    type="button"
-                    className={styles.translateButton}
-                    disabled
-                    title={t(
-                      "profile.verified_testimonials.translation_coming_soon",
-                    )}
-                  >
-                    🌐 {t("profile.verified_testimonials.translate")}
-                  </button>
-                )}
             </div>
           </article>
         ))}

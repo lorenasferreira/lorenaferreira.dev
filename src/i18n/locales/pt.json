@@ -156,7 +156,7 @@
   "project.videos": "Vídeos do projeto",
   "project.no_photos": "Nenhuma captura de tela disponível.",
   "project.no_videos": "Nenhum vídeo disponível.",
-  
+
   "communities.loading": "Carregando comunidades...",
   "communities.empty": "Nenhuma comunidade encontrada.",
   "communities.error": "Não foi possível carregar as comunidades.",
@@ -164,5 +164,31 @@
   "community.loading": "Carregando comunidade...",
   "community.error": "Não foi possível carregar a comunidade.",
   "community.not_found": "Comunidade não encontrada.",
-  "community.back_to_communities": "Voltar para comunidades"
+  "community.back_to_communities": "Voltar para comunidades",
+
+  "profile.scraps.title": "Recados",
+  "profile.scraps.total": "recados",
+  "profile.scraps.form.name": "Seu nome",
+  "profile.scraps.form.message": "Escreva um recado...",
+  "profile.scraps.form.post": "Enviar recado",
+
+  "profile.verified_testimonials.title": "Depoimentos verificados",
+  "profile.verified_testimonials.total": "depoimento",
+  "profile.verified_testimonials.verified_client": "Cliente verificado",
+  "profile.verified_testimonials.original_language": "Idioma original",
+  "profile.verified_testimonials.demo": "Demonstração",
+  "profile.verified_testimonials.published_project": "Projeto publicado",
+
+  "profile.scraps.loading": "Carregando recados...",
+  "profile.scraps.success": "Seu recado foi enviado e aparecerá depois da aprovação 💜",
+  "profile.scraps.error_loading": "Não foi possível carregar os recados.",
+  "profile.scraps.error_sending": "Não foi possível enviar o recado. Tente novamente.",
+  "profile.scraps.form.sending": "Enviando...",
+
+  "profile.scraps.form.add_photo": "Adicionar foto",
+  "profile.scraps.form.change_photo": "Trocar foto",
+  "profile.scraps.form.image_preview": "Prévia da foto escolhida",
+
+  "scraps.page.title": "Recados",
+  "scraps.page.description": "Deixe uma mensagem no meu perfil ou veja os recados que já recebi."
 }

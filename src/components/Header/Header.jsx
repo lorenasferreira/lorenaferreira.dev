@@ -68,14 +68,8 @@ function Header() {
                 <NavLink to="/profile">{t("nav.profile")}</NavLink>
               </li>
 
-              <li className={styles.locked}>
-                <span className={styles.navLink}>
-                  {t("nav.scrapbook")}
-
-                  <span className={styles.lockIcon} aria-hidden="true">
-                    🔒
-                  </span>
-                </span>
+              <li>
+                <NavLink to="/scraps">{t("nav.scrapbook")}</NavLink>
               </li>
 
               <li>
@@ -200,15 +194,9 @@ function Header() {
             {t("nav.profile")}
           </NavLink>
 
-          <span className={styles.locked}>
-            <span className={styles.navLink}>
-              {t("nav.scrapbook")}
-
-              <span className={styles.lockIcon} aria-hidden="true">
-                🔒
-              </span>
-            </span>
-          </span>
+          <NavLink to="/scraps" onClick={closeMobileMenu}>
+            {t("nav.scrapbook")}
+          </NavLink>
 
           <NavLink to="/projects" onClick={closeMobileMenu}>
             {t("nav.projects")}
