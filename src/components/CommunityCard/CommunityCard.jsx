@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./CommunityCard.module.css";
 
-const API_BASE = "http://localhost:8080";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 function getImageUrl(imagePath) {
   if (!imagePath) {

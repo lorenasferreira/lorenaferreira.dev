@@ -9,7 +9,7 @@ import SidebarRight from "../../components/SidebarRight/SidebarRight";
 
 import styles from "./Project.module.css";
 
-const API_URL = "http://localhost:8080/api/projects";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 function normalizeImagePath(path) {
   if (!path) {

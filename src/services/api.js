@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:8080/api";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+
+const API_URL = `${API_BASE}/api`;
 
 export async function getProjects() {
   const response = await fetch(`${API_URL}/projects`);

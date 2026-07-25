@@ -9,7 +9,9 @@ import CommunityCard from "../../components/CommunityCard/CommunityCard";
 
 import styles from "./Communities.module.css";
 
-const API_URL = "http://localhost:8080/api/communities";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+
+const API_URL = `${API_BASE}/api/communities`;
 
 function Communities() {
   const { t } = useTranslation();
