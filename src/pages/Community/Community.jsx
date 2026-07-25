@@ -73,16 +73,12 @@ function Community() {
 
       <PageLayout left={<SidebarLeft />} right={<SidebarRight />}>
         <section className={styles.community}>
-          {isLoading && (
-            <p className={styles.status}>{t("community.loading")}</p>
-          )}
-
           {!isLoading && error && (
             <div className={styles.state}>
               <p className={styles.status}>{error}</p>
 
               <Link className={styles.backLink} to="/communities">
-                {t("community.back_to_communities")}
+                ← {t("community.back_to_communities")}
               </Link>
             </div>
           )}
@@ -92,7 +88,7 @@ function Community() {
               <p className={styles.status}>{t("community.not_found")}</p>
 
               <Link className={styles.backLink} to="/communities">
-                {t("community.back_to_communities")}
+                ← {t("community.back_to_communities")}
               </Link>
             </div>
           )}
@@ -100,11 +96,13 @@ function Community() {
           {!isLoading && !error && community && (
             <>
               <header className={styles.pageHeader}>
-                <h1 className={styles.title}>{community.title}</h1>
+                <div>
+                  <Link className={styles.backLink} to="/communities">
+                    ← {t("community.back_to_communities")}
+                  </Link>
 
-                <Link className={styles.backLink} to="/communities">
-                  {t("community.back_to_communities")}
-                </Link>
+                  <h1 className={styles.title}>{community.title}</h1>
+                </div>
               </header>
 
               <hr className={styles.divider} />

@@ -8,10 +8,10 @@
 - [ ] Revisar responsividade das páginas:
   - [ X ] Home
   - [ X ] Perfil
-  - [ ] Projects
-  - [ ] Project
-  - [ ] Communities
-  - [ ] Community
+  - [ x ] Projects
+  - [ x ] Project
+  - [ x ] Communities
+  - [ x ] Community
 - [ ] Revisar links e botões do site
 - [ ] Revisar traduções restantes
 - [ ] Preencher descrição curta do projeto da Mari
@@ -23,9 +23,8 @@
 - [ ] Revisar traduções
 - [x] Criar listagem de projetos
 - [x] Criar página individual de projeto
-- [ ] Finalizar comunidades
-- [ ] Revisar responsividade
-- [ ] Remover conteúdo falso
+- [ X ] Finalizar comunidades
+- [ X ] Revisar responsividade
 - [ ] Fazer deploy
 
 ## Activity Feed

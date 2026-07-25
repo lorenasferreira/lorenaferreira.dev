@@ -1,0 +1,47 @@
+.profileContent {
+  width: 100%;
+  background: var(--white);
+}
+
+.desktopProfile {
+  display: block;
+}
+
+.centralProfile {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: var(--white);
+  font-family: "Work Sans", sans-serif;
+}
+
+.profileNameCentral {
+  margin: 15px 0 0 5px;
+  font-family: "Work Sans", sans-serif;
+  font-size: 23px;
+  font-weight: 450;
+}
+
+.dividerMain {
+  width: 100%;
+  max-width: 640px;
+  margin: 0;
+  border: 0;
+  border-top: 2px double var(--gray);
+  opacity: 0.6;
+}
+
+.profileStats {
+  padding: 6px 5px;
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+.profileStats p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .desktopProfile {
+    display: none;
+  }
+}

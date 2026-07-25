@@ -1,0 +1,190 @@
+.testimonials {
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid #d8e0ee;
+  border-radius: 12px;
+  background: white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.header h3 {
+  margin: 0;
+  color: #4b74b2;
+  font-size: 20px;
+}
+
+.total {
+  color: #78869a;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #e1e7f0;
+  border-radius: 12px;
+  background: #f7f9fd;
+}
+
+.avatar {
+  width: 74px;
+  height: 74px;
+  border: 3px solid white;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgb(48 68 102 / 18%);
+}
+
+.content {
+  min-width: 0;
+}
+
+.clientHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.clientName {
+  color: #365f9e;
+  font-size: 18px;
+}
+
+.clientRole {
+  margin: 3px 0 0;
+  color: #78869a;
+  font-size: 14px;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border: 1px solid #f4a7ce;
+  border-radius: 999px;
+  background: #fff0f7;
+  color: #d33682;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.stars {
+  margin-top: 10px;
+  color: #e83e8c;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 0 #ffd6eb;
+}
+
+.message {
+  margin: 12px 0;
+  color: #334;
+  line-height: 1.6;
+}
+
+.languageInformation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #78869a;
+}
+
+.demoBadge {
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #fff3cd;
+  color: #856404;
+}
+
+.projectInformation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+  color: #65758c;
+  font-size: 14px;
+}
+
+.projectInformation a,
+.externalLinks a {
+  color: #365f9e;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.projectInformation a:hover,
+.externalLinks a:hover {
+  text-decoration: underline;
+}
+
+.externalLinks {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.translateButton {
+  margin-top: 12px;
+  padding: 7px 11px;
+  border: 1px solid #c8d5e8;
+  border-radius: 8px;
+  background: white;
+  color: #78869a;
+  font: inherit;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .testimonials {
+    padding: 14px;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .card {
+    grid-template-columns: 56px 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .clientHeader {
+    flex-direction: column;
+  }
+
+  .verifiedBadge {
+    white-space: normal;
+  }
+
+  .stars {
+    font-size: 18px;
+  }
+}

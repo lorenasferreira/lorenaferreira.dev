@@ -1,0 +1,51 @@
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+.counters {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 12px;
+  margin: 5px;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.stat {
+  min-width: 0;
+}
+
+.label {
+  display: block;
+  color: var(--mute);
+  font: 500 14px/1.2 "Work Sans", Inter, sans-serif;
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 1.25em;
+  font: 700 15px/1 "Work Sans", Inter, sans-serif;
+}
+
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .counters {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

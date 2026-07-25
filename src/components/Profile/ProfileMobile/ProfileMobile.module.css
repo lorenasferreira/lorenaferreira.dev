@@ -1,0 +1,367 @@
+.profileMobile {
+  display: none;
+}
+
+/* Cabeçalho do perfil */
+
+.mobileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 24px 18px;
+  border: 1px solid var(--lilac);
+  border-radius: 18px;
+  background: var(--white);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.mobileAvatar {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 12px;
+  border: 4px solid var(--blue-bg);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 10%);
+}
+
+.mobileName {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  font-size: 1.55rem;
+}
+
+.mobileLocation {
+  margin: 6px 0 0;
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+.mobileActions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.primaryButton {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.secondaryButton {
+  background: var(--blue-bg);
+  color: var(--link);
+}
+
+/* Contadores */
+
+.mobileCounters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.mobileCounterItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 74px;
+  padding: 10px 6px;
+  border: 1px solid var(--lilac);
+  border-radius: 14px;
+  background: var(--white);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.mobileCounterItem span {
+  display: block;
+  color: var(--mute);
+  font-size: 0.72rem;
+  line-height: 1.2;
+}
+
+.mobileCounterItem strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--pink);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Abas social e profissional */
+
+.mobileTabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 20px 0 12px;
+  padding: 4px;
+  border-radius: 24px;
+  background: #eef1f6;
+}
+
+.mobileTab {
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--mute);
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.activeTab {
+  background: var(--pink);
+  color: var(--white);
+  box-shadow: 0 2px 7px rgb(0 0 0 / 12%);
+}
+
+.mobileTabContent {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--lilac);
+  border-radius: 16px;
+  background: var(--white);
+  box-sizing: border-box;
+}
+
+.mobileInformationBlock {
+  padding: 2px 0;
+}
+
+.mobileInformationBlock + .mobileInformationBlock {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray);
+}
+
+.mobileInformationBlock strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--link);
+  font-family: "Inter", sans-serif;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.mobileInformationBlock p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.mobileInformationBlock a {
+  color: var(--link);
+}
+
+/* Projetos e comunidades */
+
+.mobileSection {
+  width: 100%;
+  margin-top: 28px;
+}
+
+.mobileSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.mobileSectionHeader h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+}
+
+.mobileSectionHeader a {
+  color: var(--link);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mobileHorizontalScroll {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  width: 100%;
+  padding: 2px 2px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  box-sizing: border-box;
+}
+
+.mobileHorizontalScroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Todos os projetos ficam exatamente iguais */
+
+.mobileProjectCard {
+  display: flex;
+  flex: 0 0 170px;
+  flex-direction: column;
+  width: 170px;
+  height: 210px;
+  overflow: hidden;
+  border: 1px solid var(--lilac);
+  border-radius: 16px;
+  background: var(--white);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 6%);
+  scroll-snap-align: start;
+}
+
+.mobileProjectCard img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mobileProjectCard p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Todas as comunidades ficam exatamente iguais */
+
+.mobileCommunityCard {
+  display: block;
+  flex: 0 0 124px;
+  width: 124px;
+  height: 124px;
+  overflow: hidden;
+  border: 1px solid var(--lilac);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 6%);
+  scroll-snap-align: start;
+}
+
+.mobileCommunityCard img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mobileStatus {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--lilac);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+
+@media (max-width: 900px) {
+  .profileMobile {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    padding-bottom: 90px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileMobile {
+    padding: 12px;
+    padding-bottom: 80px;
+  }
+
+  .mobileHeader {
+    padding: 20px 14px;
+  }
+
+  .mobileAvatar {
+    width: 108px;
+    height: 108px;
+  }
+
+  .mobileName {
+    font-size: 1.35rem;
+  }
+
+  .mobileActions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .mobileCounters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mobileProjectCard {
+    flex-basis: 155px;
+    width: 155px;
+    height: 195px;
+  }
+
+  .mobileProjectCard img {
+    height: 138px;
+  }
+
+  .mobileCommunityCard {
+    flex-basis: 112px;
+    width: 112px;
+    height: 112px;
+  }
+}

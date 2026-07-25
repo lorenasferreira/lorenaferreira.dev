@@ -1,0 +1,39 @@
+.profileInformation {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.darkBlue {
+  background-color: #e7f0f9;
+  margin-top: 0;
+  padding: 3px;
+  font-size: 15px;
+}
+
+.lightBlue {
+  background-color: #f2f6fa;
+  margin-top: 0;
+  padding: 3px;
+  font-size: 15px;
+}
+
+.darkBlue p,
+.lightBlue p {
+  margin: 0;
+  padding: 0;
+}
+
+.profileTitles {
+  color: #4a4a4a;
+  margin-right: 4px;
+}
+
+.profileInformation a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.profileInformation a:hover {
+  text-decoration: underline;
+}

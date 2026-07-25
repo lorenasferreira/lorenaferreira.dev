@@ -19,6 +19,11 @@ function Header() {
     i18n.changeLanguage(language);
   }
 
+  function handleMobileLanguageChange(language) {
+    i18n.changeLanguage(language);
+    closeMobileMenu();
+  }
+
   function handleSearch(event) {
     event.preventDefault();
 
@@ -37,6 +42,7 @@ function Header() {
       vamos limpar o usuário/token aqui.
     */
 
+    closeMobileMenu();
     navigate("/");
   }
 
@@ -65,6 +71,7 @@ function Header() {
               <li className={styles.locked}>
                 <span className={styles.navLink}>
                   {t("nav.scrapbook")}
+
                   <span className={styles.lockIcon} aria-hidden="true">
                     🔒
                   </span>
@@ -193,9 +200,15 @@ function Header() {
             {t("nav.profile")}
           </NavLink>
 
-          <NavLink to="/scrapbook" onClick={closeMobileMenu}>
-            {t("nav.scrapbook")}
-          </NavLink>
+          <span className={styles.locked}>
+            <span className={styles.navLink}>
+              {t("nav.scrapbook")}
+
+              <span className={styles.lockIcon} aria-hidden="true">
+                🔒
+              </span>
+            </span>
+          </span>
 
           <NavLink to="/projects" onClick={closeMobileMenu}>
             {t("nav.projects")}
@@ -204,6 +217,39 @@ function Header() {
           <NavLink to="/communities" onClick={closeMobileMenu}>
             {t("nav.communities")}
           </NavLink>
+
+          <div className={styles.mobileNavFooter}>
+            <div
+              className={styles.mobileLangSwitch}
+              aria-label={t("nav.language")}
+            >
+              {languages.map((language) => (
+                <button
+                  key={language}
+                  type="button"
+                  className={
+                    currentLanguage === language
+                      ? styles.activeLanguage
+                      : undefined
+                  }
+                  onClick={() => handleMobileLanguageChange(language)}
+                  aria-current={
+                    currentLanguage === language ? "true" : undefined
+                  }
+                >
+                  {language.toUpperCase()}
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className={styles.mobileLogoutBtn}
+              onClick={handleLogout}
+            >
+              {t("nav.exit")}
+            </button>
+          </div>
         </nav>
       </aside>
     </>
