@@ -19,7 +19,8 @@ public class CorsConfig {
 
                 configuration.setAllowedOrigins(List.of(
                                 "http://localhost:5173",
-                                "https://lorkut-react.vercel.app"));
+                                "https://lorenaferreira.dev",
+                                "https://www.lorenaferreira.dev"));
 
                 configuration.setAllowedMethods(List.of(
                                 "GET",
