@@ -25,7 +25,7 @@ const demoScraps = [
   },
 ];
 
-function Scraps() {
+function Scraps({ onScrapsCountChange }) {
   const { t } = useTranslation();
 
   const [scraps, setScraps] = useState([]);
@@ -65,6 +65,10 @@ function Scraps() {
 
     loadScraps();
   }, [t]);
+
+  useEffect(() => {
+    onScrapsCountChange?.(scraps.length);
+  }, [scraps.length, onScrapsCountChange]);
 
   useEffect(() => {
     return () => {

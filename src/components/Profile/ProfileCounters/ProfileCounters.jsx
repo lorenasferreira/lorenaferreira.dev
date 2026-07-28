@@ -25,7 +25,7 @@ const counters = [
   },
 ];
 
-function ProfileCounters({ scraps = 2, photos = 4, videos = 2, fans = 0 }) {
+function ProfileCounters({ scraps = 0, photos = 0, videos = 0, fans = 0 }) {
   const { t } = useTranslation();
 
   const values = {
