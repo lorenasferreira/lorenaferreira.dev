@@ -44,8 +44,6 @@ The application is available at:
 
 ## Screenshots
 
-> Add the screenshots to `docs/screenshots/` and update the filenames below when necessary.
-
 ### Desktop — Home
 
 ![Portfolio Home Desktop](docs/screenshots/home-desktop.png)
