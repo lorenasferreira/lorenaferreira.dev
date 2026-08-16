@@ -203,6 +203,10 @@
     "marinarodriiphoto": {
       "shortDescription": "Un portfolio photographique multilingue conçu autour de la narration visuelle et d'une expérience raffinée.",
       "fullDescription": "MarinaRodriiPhoto est un portfolio responsive conçu pour présenter un travail photographique professionnel à travers une expérience épurée et centrée sur l'image. Reconstruit avec React et Vite, le projet comprend une navigation multilingue, du contenu dédié au portfolio et une architecture moderne pensée pour la maintenabilité, les performances et les évolutions futures. Le site est déployé sur Vercel et connecté à son propre nom de domaine."
+    },
+    "aupairnaespanha": {
+      "shortDescription": "Une plateforme multilingue proposant conseils pratiques, ressources et mentorat pour préparer une expérience au pair en Espagne.",
+      "fullDescription": "Au Pair na Espanha est une plateforme numérique multilingue créée pour aider les futures au pairs à préparer leur expérience en Espagne grâce à des informations plus claires, des ressources pratiques et des conseils réalistes. Développé avec React et Vite, le projet rassemble du contenu éducatif, des outils de planification, des informations sur le mentorat et des ressources communautaires dans une structure responsive conçue pour évoluer avec la marque."
     }
   }
 }

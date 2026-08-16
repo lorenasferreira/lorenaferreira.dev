@@ -207,6 +207,10 @@
     "marinarodriiphoto": {
       "shortDescription": "A multilingual photography portfolio designed around visual storytelling and a refined user experience.",
       "fullDescription": "MarinaRodriiPhoto is a responsive portfolio website developed to showcase professional photography through a clean, image-focused experience. Rebuilt with React and Vite, the project includes multilingual navigation, dedicated portfolio content and a modern structure designed for maintainability, performance and future growth. The site is deployed on Vercel and connected to its own custom domain."
+    },
+    "aupairnaespanha": {
+      "shortDescription": "A multilingual platform with practical guidance, resources and mentoring for people planning an au pair experience in Spain.",
+      "fullDescription": "Au Pair na Espanha is a multilingual digital platform created to help future au pairs plan their experience in Spain with clearer information, practical resources and realistic guidance. Built with React and Vite, the project brings together educational content, planning tools, mentoring information and community resources in a responsive structure designed to grow alongside the brand."
     }
   }
 }

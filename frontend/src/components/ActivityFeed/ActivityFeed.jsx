@@ -6,14 +6,13 @@ import styles from "./ActivityFeed.module.css";
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 const API_URL = `${API_BASE}/api/feed`;
-
-const response = await fetch(API_URL);
+const PROJECTS_API_URL = `${API_BASE}/api/projects`;
 
 const LOCALES = {
   en: "en-US",
   pt: "pt-BR",
   es: "es-ES",
-  ca: "ca-ES",
+  fr: "fr-FR",
 };
 
 function normalizeImagePath(path) {
@@ -49,6 +48,7 @@ function ActivityFeed() {
   const { t, i18n } = useTranslation();
 
   const [activities, setActivities] = useState([]);
+  const [projectsBySlug, setProjectsBySlug] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -104,14 +104,32 @@ function ActivityFeed() {
         setIsLoading(true);
         setError("");
 
-        const response = await fetch(API_URL);
+        const [feedResponse, projectsResponse] = await Promise.all([
+          fetch(API_URL),
+          fetch(PROJECTS_API_URL),
+        ]);
 
-        if (!response.ok) {
-          throw new Error(`Could not load feed. Status: ${response.status}`);
+        if (!feedResponse.ok) {
+          throw new Error(
+            `Could not load feed. Status: ${feedResponse.status}`,
+          );
         }
 
-        const data = await response.json();
-        setActivities(data);
+        if (!projectsResponse.ok) {
+          throw new Error(
+            `Could not load projects. Status: ${projectsResponse.status}`,
+          );
+        }
+
+        const feedData = await feedResponse.json();
+        const projectsData = await projectsResponse.json();
+
+        const projectsMap = Object.fromEntries(
+          projectsData.map((project) => [project.slug, project]),
+        );
+
+        setActivities(feedData);
+        setProjectsBySlug(projectsMap);
       } catch (requestError) {
         console.error(requestError);
         setError(t("feed.error"));
@@ -153,6 +171,8 @@ function ActivityFeed() {
         const payload = parsePayload(activity.payload);
 
         if (activity.type === "new_project") {
+          const project = projectsBySlug[payload.slug] || payload;
+
           return (
             <article className={styles.item} key={activity.id}>
               <header className={styles.header}>
@@ -177,14 +197,14 @@ function ActivityFeed() {
               <div className={styles.body}>
                 <div className={styles.thumbnail}>
                   <img
-                    src={normalizeImagePath(payload.thumbnail)}
-                    alt={payload.title}
+                    src={normalizeImagePath(project.thumbnail)}
+                    alt={project.title}
                   />
                 </div>
 
                 <div>
                   <p className={styles.text}>
-                    <strong>{payload.title}</strong>
+                    <strong>{project.title}</strong>
                   </p>
 
                   {payload.slug && (
@@ -193,14 +213,14 @@ function ActivityFeed() {
                     </p>
                   )}
 
-                  {payload.techStack && (
-                    <p className={styles.stack}>{payload.techStack}</p>
+                  {project.techStack && (
+                    <p className={styles.stack}>{project.techStack}</p>
                   )}
 
-                  {payload.liveUrl && (
+                  {project.liveUrl && (
                     <a
                       className={styles.link}
-                      href={payload.liveUrl}
+                      href={project.liveUrl}
                       target="_blank"
                       rel="noreferrer"
                     >

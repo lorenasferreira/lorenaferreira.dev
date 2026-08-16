@@ -26,12 +26,6 @@ public class Project {
     @Column(nullable = false, length = 255)
     private String thumbnail;
 
-    @Column(name = "short_description", length = 255)
-    private String shortDescription;
-
-    @Column(name = "full_description", columnDefinition = "TEXT")
-    private String fullDescription;
-
     @Column(name = "tech_stack", length = 255)
     private String techStack;
 
@@ -77,22 +71,6 @@ public class Project {
 
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
-    }
-
-    public String getShortDescription() {
-        return shortDescription;
-    }
-
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
-
-    public String getFullDescription() {
-        return fullDescription;
-    }
-
-    public void setFullDescription(String fullDescription) {
-        this.fullDescription = fullDescription;
     }
 
     public String getTechStack() {

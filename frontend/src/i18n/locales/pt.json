@@ -193,21 +193,25 @@
   "scraps.page.description": "Deixe uma mensagem no meu perfil ou veja os recados que já recebi.",
 
   "projectDetails": {
-  "lorenaferreira": {
-  "shortDescription": "Um portfólio full-stack vivo que traz a nostalgia da era do Orkut para uma experiência moderna de desenvolvimento.",
-  "fullDescription": "LorenaFerreira.dev é um portfólio full-stack vivo inspirado no Orkut, a rede social que marcou a cultura da internet nos anos 2000, especialmente no Brasil e na Índia. Em vez de simplesmente reproduzir sua interface, o projeto traz perfis, comunidades, scraps e interações sociais nostálgicas para uma experiência moderna de portfólio, onde meu trabalho, meus projetos e minha evolução profissional são continuamente atualizados. Desenvolvido com React e Vite no frontend e Spring Boot com MySQL no backend, ele conecta uma parte marcante da história das primeiras redes sociais a uma aplicação full-stack real e em constante evolução, publicada com Vercel e Railway."
-},
-  "claravision-optica": {
-    "shortDescription": "Um sistema completo de gestão para uma ótica desenvolvido com PHP e MySQL.",
-    "fullDescription": "ClaraVisión Óptica é uma aplicação CRUD responsiva desenvolvida para o gerenciamento de uma ótica. O sistema inclui gestão de produtos e categorias, operações com banco de dados, manipulação de JSON e uma interface estruturada em torno de fluxos reais de negócio. Desenvolvido com PHP, MySQL, HTML, CSS e JavaScript e publicado no InfinityFree."
-  },
-  "curiofy": {
-    "shortDescription": "Uma aplicação minimalista de curiosidades aleatórias alimentada por uma API pública.",
-    "fullDescription": "Curiofy é uma aplicação web interativa e leve que busca curiosidades aleatórias em uma API pública a cada interação do usuário. Foi desenvolvida com abordagem mobile-first, tratamento assíncrono de dados utilizando Fetch API e testes unitários automatizados com Vitest. O projeto prioriza uma arquitetura JavaScript organizada, acessibilidade, responsividade e uma experiência rápida e direta."
-  },
-  "marinarodriiphoto": {
-    "shortDescription": "Um portfólio fotográfico multilíngue desenvolvido em torno de narrativa visual e uma experiência refinada.",
-    "fullDescription": "MarinaRodriiPhoto é um site de portfólio responsivo desenvolvido para apresentar trabalhos fotográficos profissionais através de uma experiência limpa e focada nas imagens. Reconstruído com React e Vite, o projeto inclui navegação multilíngue, conteúdo dedicado ao portfólio e uma estrutura moderna pensada para manutenção, performance e crescimento futuro. O site está publicado na Vercel e conectado ao seu próprio domínio."
+    "lorenaferreira": {
+      "shortDescription": "Um portfólio full-stack vivo que traz a nostalgia da era do Orkut para uma experiência moderna de desenvolvimento.",
+      "fullDescription": "LorenaFerreira.dev é um portfólio full-stack vivo inspirado no Orkut, a rede social que marcou a cultura da internet nos anos 2000, especialmente no Brasil e na Índia. Em vez de simplesmente reproduzir sua interface, o projeto traz perfis, comunidades, scraps e interações sociais nostálgicas para uma experiência moderna de portfólio, onde meu trabalho, meus projetos e minha evolução profissional são continuamente atualizados. Desenvolvido com React e Vite no frontend e Spring Boot com MySQL no backend, ele conecta uma parte marcante da história das primeiras redes sociais a uma aplicação full-stack real e em constante evolução, publicada com Vercel e Railway."
+    },
+    "claravision-optica": {
+      "shortDescription": "Um sistema completo de gestão para uma ótica desenvolvido com PHP e MySQL.",
+      "fullDescription": "ClaraVisión Óptica é uma aplicação CRUD responsiva desenvolvida para o gerenciamento de uma ótica. O sistema inclui gestão de produtos e categorias, operações com banco de dados, manipulação de JSON e uma interface estruturada em torno de fluxos reais de negócio. Desenvolvido com PHP, MySQL, HTML, CSS e JavaScript e publicado no InfinityFree."
+    },
+    "curiofy": {
+      "shortDescription": "Uma aplicação minimalista de curiosidades aleatórias alimentada por uma API pública.",
+      "fullDescription": "Curiofy é uma aplicação web interativa e leve que busca curiosidades aleatórias em uma API pública a cada interação do usuário. Foi desenvolvida com abordagem mobile-first, tratamento assíncrono de dados utilizando Fetch API e testes unitários automatizados com Vitest. O projeto prioriza uma arquitetura JavaScript organizada, acessibilidade, responsividade e uma experiência rápida e direta."
+    },
+    "marinarodriiphoto": {
+      "shortDescription": "Um portfólio fotográfico multilíngue desenvolvido em torno de narrativa visual e uma experiência refinada.",
+      "fullDescription": "MarinaRodriiPhoto é um site de portfólio responsivo desenvolvido para apresentar trabalhos fotográficos profissionais através de uma experiência limpa e focada nas imagens. Reconstruído com React e Vite, o projeto inclui navegação multilíngue, conteúdo dedicado ao portfólio e uma estrutura moderna pensada para manutenção, performance e crescimento futuro. O site está publicado na Vercel e conectado ao seu próprio domínio."
+    },
+    "aupairnaespanha": {
+      "shortDescription": "Uma plataforma multilíngue com orientação prática, recursos e mentoria para quem planeja viver uma experiência de au pair na Espanha.",
+      "fullDescription": "Au Pair na Espanha é uma plataforma digital multilíngue criada para ajudar futuras au pairs a planejar sua experiência na Espanha com informações mais claras, recursos práticos e orientação realista. Desenvolvido com React e Vite, o projeto reúne conteúdo educativo, ferramentas de planejamento, informações sobre mentoria e recursos de comunidade em uma estrutura responsiva pensada para crescer junto com a marca."
+    }
   }
-}
 }
