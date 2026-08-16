@@ -187,8 +187,10 @@ function ActivityFeed() {
                     <strong>{payload.title}</strong>
                   </p>
 
-                  {payload.shortDescription && (
-                    <p className={styles.text}>{payload.shortDescription}</p>
+                  {payload.slug && (
+                    <p className={styles.text}>
+                      {t(`projectDetails.${payload.slug}.shortDescription`)}
+                    </p>
                   )}
 
                   {payload.techStack && (

@@ -185,9 +185,9 @@
 
   "projectDetails": {
   "lorenaferreira": {
-    "shortDescription": "Un portfolio full-stack nostálgico inspirado en la web social de los años 2000.",
-    "fullDescription": "L.Orkut es una reinterpretación full-stack moderna de la icónica red social, transformada en un portfolio personal de desarrollo. Construido con React y Vite en el frontend y Spring Boot con MySQL en el backend, combina la nostalgia de las redes sociales con funcionalidades dinámicas reales como proyectos, comunidades, scraps y estadísticas de perfil. La aplicación está desplegada con Vercel y Railway."
-  },
+  "shortDescription": "Un portfolio full-stack vivo que lleva la nostalgia de la era de Orkut a una experiencia moderna de desarrollo.",
+  "fullDescription": "LorenaFerreira.dev es un portfolio full-stack vivo inspirado en Orkut, la red social que marcó la cultura de Internet en los años 2000, especialmente en Brasil e India. En lugar de limitarse a recrear su interfaz, el proyecto traslada sus perfiles, comunidades, scraps y nostálgicas interacciones sociales a una experiencia moderna de portfolio, donde mi trabajo, mis proyectos y mi evolución profesional se actualizan continuamente. Desarrollado con React y Vite en el frontend y Spring Boot con MySQL en el backend, combina una parte reconocible de la historia de las primeras redes sociales con una aplicación full-stack real y en constante evolución, desplegada con Vercel y Railway."
+},
   "claravision-optica": {
     "shortDescription": "Un sistema completo de gestión para una óptica desarrollado con PHP y MySQL.",
     "fullDescription": "ClaraVisión Óptica es una aplicación CRUD responsive desarrollada para gestionar una óptica. El sistema incluye gestión de productos y categorías, operaciones con base de datos, manejo de JSON y una interfaz estructurada en torno a flujos de trabajo reales. Fue desarrollado con PHP, MySQL, HTML, CSS y JavaScript y está desplegado en InfinityFree."
@@ -198,7 +198,7 @@
   },
   "marinarodriiphoto": {
     "shortDescription": "Un portfolio fotográfico multilingüe centrado en la narrativa visual y una experiencia refinada.",
-    "fullDescription": "Mari Rodrigues | Fotografia es un portfolio responsive desarrollado para presentar fotografía profesional mediante una experiencia limpia y centrada en las imágenes. Reconstruido con React y Vite, el proyecto incluye navegación multilingüe, contenido dedicado al portfolio y una estructura moderna pensada para facilitar el mantenimiento, mejorar el rendimiento y permitir futuras ampliaciones. El sitio está desplegado en Vercel y conectado a su propio dominio."
+    "fullDescription": "MarinaRodriiPhoto es un portfolio responsive desarrollado para presentar fotografía profesional mediante una experiencia limpia y centrada en las imágenes. Reconstruido con React y Vite, el proyecto incluye navegación multilingüe, contenido dedicado al portfolio y una estructura moderna pensada para facilitar el mantenimiento, mejorar el rendimiento y permitir futuras ampliaciones. El sitio está desplegado en Vercel y conectado a su propio dominio."
   }
 }
 }

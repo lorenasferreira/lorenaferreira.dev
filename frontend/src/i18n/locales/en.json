@@ -191,22 +191,22 @@
   "scraps.page.title": "Scraps",
   "scraps.page.description": "Leave a message on my profile or read the scraps I have received.",
 
-"projectDetails": {
-  "lorenaferreira": {
-    "shortDescription": "A nostalgic full-stack portfolio inspired by the social web of the 2000s.",
-    "fullDescription": "L.Orkut is a modern full-stack reinterpretation of the iconic social network, transformed into a personal developer portfolio. Built with React and Vite on the frontend and Spring Boot with MySQL on the backend, it combines nostalgic social-network interactions with real dynamic features such as projects, communities, scraps and profile statistics. The application is deployed with Vercel and Railway."
-  },
-  "claravision-optica": {
-    "shortDescription": "A complete management system for an optical store built with PHP and MySQL.",
-    "fullDescription": "ClaraVisión Óptica is a responsive CRUD application developed for managing an optical store. The system includes product and category management, database operations, JSON handling and a structured interface designed around practical business workflows. Built with PHP, MySQL, HTML, CSS and JavaScript and deployed on InfinityFree."
-  },
-  "curiofy": {
-    "shortDescription": "A minimalist random-fact application powered by a public API.",
-    "fullDescription": "Curiofy is a lightweight interactive web application that retrieves random facts from a public API on demand. It was built with a mobile-first approach, asynchronous data handling with the Fetch API and automated unit testing with Vitest. The project focuses on clean JavaScript architecture, accessibility, responsive design and a fast, straightforward user experience."
-  },
-  "marinarodriiphoto": {
-    "shortDescription": "A multilingual photography portfolio designed around visual storytelling and a refined user experience.",
-    "fullDescription": "Mari Rodrigues | Fotografia is a responsive portfolio website developed to showcase professional photography through a clean, image-focused experience. Rebuilt with React and Vite, the project includes multilingual navigation, dedicated portfolio content and a modern structure designed for maintainability, performance and future growth. The site is deployed on Vercel and connected to its own custom domain."
+  "projectDetails": {
+    "lorenaferreira": {
+      "shortDescription": "A living full-stack portfolio that brings the social web nostalgia of Orkut into a modern developer experience.",
+      "fullDescription": "LorenaFerreira.dev is a living full-stack portfolio inspired by Orkut, the social network that became a defining part of internet culture in the 2000s, especially in Brazil and India. Rather than simply recreating its interface, the project brings its profiles, communities, scraps and nostalgic social interactions into a modern portfolio experience where my work, projects and professional evolution are continuously updated. Built with React and Vite on the frontend and Spring Boot with MySQL on the backend, it combines a recognizable piece of early social-web history with a real, evolving full-stack application deployed on Vercel and Railway."
+    },
+    "claravision-optica": {
+      "shortDescription": "A complete management system for an optical store built with PHP and MySQL.",
+      "fullDescription": "ClaraVisión Óptica is a responsive CRUD application developed for managing an optical store. The system includes product and category management, database operations, JSON handling and a structured interface designed around practical business workflows. Built with PHP, MySQL, HTML, CSS and JavaScript and deployed on InfinityFree."
+    },
+    "curiofy": {
+      "shortDescription": "A minimalist random-fact application powered by a public API.",
+      "fullDescription": "Curiofy is a lightweight interactive web application that retrieves random facts from a public API on demand. It was built with a mobile-first approach, asynchronous data handling with the Fetch API and automated unit testing with Vitest. The project focuses on clean JavaScript architecture, accessibility, responsive design and a fast, straightforward user experience."
+    },
+    "marinarodriiphoto": {
+      "shortDescription": "A multilingual photography portfolio designed around visual storytelling and a refined user experience.",
+      "fullDescription": "MarinaRodriiPhoto is a responsive portfolio website developed to showcase professional photography through a clean, image-focused experience. Rebuilt with React and Vite, the project includes multilingual navigation, dedicated portfolio content and a modern structure designed for maintainability, performance and future growth. The site is deployed on Vercel and connected to its own custom domain."
+    }
   }
-}
 }
