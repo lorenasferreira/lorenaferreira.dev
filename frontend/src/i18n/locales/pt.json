@@ -190,5 +190,24 @@
   "profile.scraps.form.image_preview": "Prévia da foto escolhida",
 
   "scraps.page.title": "Recados",
-  "scraps.page.description": "Deixe uma mensagem no meu perfil ou veja os recados que já recebi."
+  "scraps.page.description": "Deixe uma mensagem no meu perfil ou veja os recados que já recebi.",
+
+  "projectDetails": {
+  "lorenaferreira": {
+    "shortDescription": "Um portfólio full-stack nostálgico inspirado na web social dos anos 2000.",
+    "fullDescription": "L.Orkut é uma releitura full-stack moderna da icônica rede social, transformada em um portfólio pessoal de desenvolvimento. Construído com React e Vite no frontend e Spring Boot com MySQL no backend, o projeto combina a nostalgia das redes sociais com funcionalidades dinâmicas reais, como projetos, comunidades, scraps e estatísticas de perfil. A aplicação é publicada com Vercel e Railway."
+  },
+  "claravision-optica": {
+    "shortDescription": "Um sistema completo de gestão para uma ótica desenvolvido com PHP e MySQL.",
+    "fullDescription": "ClaraVisión Óptica é uma aplicação CRUD responsiva desenvolvida para o gerenciamento de uma ótica. O sistema inclui gestão de produtos e categorias, operações com banco de dados, manipulação de JSON e uma interface estruturada em torno de fluxos reais de negócio. Desenvolvido com PHP, MySQL, HTML, CSS e JavaScript e publicado no InfinityFree."
+  },
+  "curiofy": {
+    "shortDescription": "Uma aplicação minimalista de curiosidades aleatórias alimentada por uma API pública.",
+    "fullDescription": "Curiofy é uma aplicação web interativa e leve que busca curiosidades aleatórias em uma API pública a cada interação do usuário. Foi desenvolvida com abordagem mobile-first, tratamento assíncrono de dados utilizando Fetch API e testes unitários automatizados com Vitest. O projeto prioriza uma arquitetura JavaScript organizada, acessibilidade, responsividade e uma experiência rápida e direta."
+  },
+  "marinarodriiphoto": {
+    "shortDescription": "Um portfólio fotográfico multilíngue desenvolvido em torno de narrativa visual e uma experiência refinada.",
+    "fullDescription": "Mari Rodrigues | Fotografia é um site de portfólio responsivo desenvolvido para apresentar trabalhos fotográficos profissionais através de uma experiência limpa e focada nas imagens. Reconstruído com React e Vite, o projeto inclui navegação multilíngue, conteúdo dedicado ao portfólio e uma estrutura moderna pensada para manutenção, performance e crescimento futuro. O site está publicado na Vercel e conectado ao seu próprio domínio."
+  }
+}
 }

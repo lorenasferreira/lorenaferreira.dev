@@ -32,9 +32,9 @@ function ProjectCard({ project }) {
 
       <h2 className={styles.title}>{project.title}</h2>
 
-      {project.shortDescription && (
-        <p className={styles.description}>{project.shortDescription}</p>
-      )}
+      <p className={styles.description}>
+        {t(`projectDetails.${project.slug}.shortDescription`)}
+      </p>
 
       {project.techStack && <p className={styles.stack}>{project.techStack}</p>}
 

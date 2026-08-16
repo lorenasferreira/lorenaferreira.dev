@@ -185,5 +185,24 @@
   "profile.scraps.form.image_preview": "Aperçu de la photo sélectionnée",
 
   "scraps.page.title": "Messages",
-  "scraps.page.description": "Laissez-moi un message sur mon profil ou consultez ceux que j’ai déjà reçus."
+  "scraps.page.description": "Laissez-moi un message sur mon profil ou consultez ceux que j’ai déjà reçus.",
+
+  "projectDetails": {
+  "lorenaferreira": {
+    "shortDescription": "Un portfolio full-stack nostalgique inspiré du web social des années 2000.",
+    "fullDescription": "L.Orkut est une réinterprétation full-stack moderne du célèbre réseau social, transformée en portfolio personnel de développeuse. Construit avec React et Vite côté frontend et Spring Boot avec MySQL côté backend, le projet associe la nostalgie des réseaux sociaux à de véritables fonctionnalités dynamiques telles que les projets, les communautés, les scraps et les statistiques de profil. L'application est déployée avec Vercel et Railway."
+  },
+  "claravision-optica": {
+    "shortDescription": "Un système complet de gestion pour un magasin d'optique développé avec PHP et MySQL.",
+    "fullDescription": "ClaraVisión Óptica est une application CRUD responsive développée pour la gestion d'un magasin d'optique. Le système comprend la gestion des produits et des catégories, les opérations de base de données, la manipulation de JSON et une interface structurée autour de flux de travail concrets. Le projet a été développé avec PHP, MySQL, HTML, CSS et JavaScript et est déployé sur InfinityFree."
+  },
+  "curiofy": {
+    "shortDescription": "Une application minimaliste de faits aléatoires alimentée par une API publique.",
+    "fullDescription": "Curiofy est une application web interactive et légère qui récupère des faits aléatoires depuis une API publique à la demande. Elle a été développée selon une approche mobile-first, avec gestion asynchrone des données via Fetch API et tests unitaires automatisés avec Vitest. Le projet met l'accent sur une architecture JavaScript claire, l'accessibilité, le responsive design et une expérience utilisateur rapide et simple."
+  },
+  "marinarodriiphoto": {
+    "shortDescription": "Un portfolio photographique multilingue conçu autour de la narration visuelle et d'une expérience raffinée.",
+    "fullDescription": "Mari Rodrigues | Fotografia est un portfolio responsive conçu pour présenter un travail photographique professionnel à travers une expérience épurée et centrée sur l'image. Reconstruit avec React et Vite, le projet comprend une navigation multilingue, du contenu dédié au portfolio et une architecture moderne pensée pour la maintenabilité, les performances et les évolutions futures. Le site est déployé sur Vercel et connecté à son propre nom de domaine."
+  }
+}
 }

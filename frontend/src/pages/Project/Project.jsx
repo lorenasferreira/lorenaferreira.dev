@@ -129,17 +129,13 @@ function Project() {
                 </div>
 
                 <div className={styles.heroContent}>
-                  {project.shortDescription && (
-                    <p className={styles.shortDescription}>
-                      {project.shortDescription}
-                    </p>
-                  )}
+                  <p className={styles.shortDescription}>
+                    {t(`projectDetails.${project.slug}.shortDescription`)}
+                  </p>
 
-                  {project.fullDescription && (
-                    <p className={styles.description}>
-                      {project.fullDescription}
-                    </p>
-                  )}
+                  <p className={styles.description}>
+                    {t(`projectDetails.${project.slug}.fullDescription`)}
+                  </p>
 
                   <div className={styles.buttons}>
                     {project.githubUrl && (
