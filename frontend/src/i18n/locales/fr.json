@@ -170,9 +170,16 @@
   "profile.verified_testimonials.title": "Témoignages vérifiés",
   "profile.verified_testimonials.total": "témoignage",
   "profile.verified_testimonials.verified_client": "Client vérifié",
-  "profile.verified_testimonials.original_language": "Langue d'origine",
-  "profile.verified_testimonials.demo": "Démonstration",
+
   "profile.verified_testimonials.published_project": "Projet publié",
+
+  "profile.verified_testimonials.original_in_english": "Recommandation originale en anglais",
+  "profile.verified_testimonials.translated_from_english": "Traduit de la recommandation originale en anglais",
+  "profile.verified_testimonials.translate": "Traduire",
+  "profile.verified_testimonials.view_original": "Voir l'original",
+  "profile.verified_testimonials.published_on": "Recommandation publiée sur",
+  "profile.verified_testimonials.view_source": "Voir la source",
+  "profile.verified_testimonials.visit_website": "Visiter le site",
 
   "profile.scraps.loading": "Chargement des messages...",
   "profile.scraps.success": "Votre message a été envoyé et apparaîtra après validation 💜",

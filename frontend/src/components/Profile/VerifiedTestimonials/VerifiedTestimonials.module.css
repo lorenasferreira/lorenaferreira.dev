@@ -143,6 +143,13 @@
   font-size: 14px;
 }
 
+.verification {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 600px) {
   .testimonials {
     padding: 14px;

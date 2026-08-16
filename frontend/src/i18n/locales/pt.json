@@ -175,9 +175,15 @@
   "profile.verified_testimonials.title": "Depoimentos verificados",
   "profile.verified_testimonials.total": "depoimento",
   "profile.verified_testimonials.verified_client": "Cliente verificado",
-  "profile.verified_testimonials.original_language": "Idioma original",
-  "profile.verified_testimonials.demo": "Demonstração",
   "profile.verified_testimonials.published_project": "Projeto publicado",
+
+  "profile.verified_testimonials.original_in_english": "Recomendação original em inglês",
+  "profile.verified_testimonials.translated_from_english": "Traduzido da recomendação original em inglês",
+  "profile.verified_testimonials.translate": "Traduzir",
+  "profile.verified_testimonials.view_original": "Ver original",
+  "profile.verified_testimonials.published_on": "Recomendação publicada no",
+  "profile.verified_testimonials.view_source": "Ver fonte",
+  "profile.verified_testimonials.visit_website": "Visitar site",
 
   "profile.scraps.loading": "Carregando recados...",
   "profile.scraps.success": "Seu recado foi enviado e aparecerá depois da aprovação 💜",

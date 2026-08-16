@@ -5,26 +5,6 @@ import { createScrap, getScraps } from "../../../services/scraps";
 
 import styles from "./Scraps.module.css";
 
-const demoScraps = [
-  {
-    id: "demo-marina",
-    author: "Marina B.",
-    avatar: "/assets/img/mandy.png",
-    message:
-      "Muito orgulho de acompanhar toda essa evolução! O site ficou lindo e ainda tem muito sucesso pela frente 💜",
-    approved: true,
-    createdAt: "2026-07-20",
-  },
-  {
-    id: "demo-lucas",
-    author: "Lucas M.",
-    avatar: "/assets/img/avatar1.png",
-    message: "Parabéns pelo projeto! Tá ficando cada vez mais profissional.",
-    approved: true,
-    createdAt: "2026-07-18",
-  },
-];
-
 function Scraps({ onScrapsCountChange }) {
   const { t } = useTranslation();
 
@@ -52,12 +32,12 @@ function Scraps({ onScrapsCountChange }) {
         const data = await getScraps();
         const approvedScraps = Array.isArray(data) ? data : [];
 
-        setScraps([...approvedScraps, ...demoScraps]);
+        setScraps(approvedScraps);
       } catch (requestError) {
         console.error("Erro ao carregar recados:", requestError);
 
         setError(t("profile.scraps.error_loading"));
-        setScraps(demoScraps);
+        setScraps([]);
       } finally {
         setIsLoading(false);
       }

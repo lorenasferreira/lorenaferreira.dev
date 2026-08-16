@@ -11,7 +11,7 @@ import VerifiedTestimonials from "../VerifiedTestimonials/VerifiedTestimonials";
 
 import styles from "./ProfileDesktop.module.css";
 
-function ProfileDesktop() {
+function ProfileDesktop({ counters }) {
   const { t } = useTranslation();
 
   return (
@@ -25,7 +25,12 @@ function ProfileDesktop() {
 
             <hr className={styles.dividerMain} />
 
-            <ProfileCounters scraps={2} photos={4} videos={2} fans={0} />
+            <ProfileCounters
+              scraps={counters.scraps}
+              photos={counters.photos}
+              videos={counters.videos}
+              fans={counters.fans}
+            />
 
             <hr className={styles.dividerMain} />
 

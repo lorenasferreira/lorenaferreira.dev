@@ -2,27 +2,38 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+import VerifiedTestimonials from "../VerifiedTestimonials/VerifiedTestimonials";
+import Scraps from "../Scraps/Scraps";
+
 import styles from "./ProfileMobile.module.css";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
-
-function getImageUrl(imagePath) {
+function normalizeImagePath(imagePath) {
   if (!imagePath) {
     return "";
   }
 
-  if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+  if (
+    imagePath.startsWith("http://") ||
+    imagePath.startsWith("https://") ||
+    imagePath.startsWith("/")
+  ) {
     return imagePath;
   }
 
-  const normalizedPath = imagePath.startsWith("/")
-    ? imagePath
-    : `/${imagePath}`;
-
-  return `${API_BASE}${normalizedPath}`;
+  return `/${imagePath}`;
 }
 
-function ProfileMobile({ projects = [], communities = [], isLoading = true }) {
+function ProfileMobile({
+  projects = [],
+  communities = [],
+  counters = {
+    scraps: 0,
+    photos: 0,
+    videos: 0,
+    fans: 0,
+  },
+  isLoading = true,
+}) {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("social");
 
@@ -53,22 +64,22 @@ function ProfileMobile({ projects = [], communities = [], isLoading = true }) {
       <section className={styles.mobileCounters}>
         <div className={styles.mobileCounterItem}>
           <span>{t("profile.counters.scraps")}</span>
-          <strong>2</strong>
+          <strong>{counters.scraps}</strong>
         </div>
 
         <div className={styles.mobileCounterItem}>
           <span>{t("profile.counters.photos")}</span>
-          <strong>4</strong>
+          <strong>{counters.photos}</strong>
         </div>
 
         <div className={styles.mobileCounterItem}>
           <span>{t("profile.counters.videos")}</span>
-          <strong>2</strong>
+          <strong>{counters.videos}</strong>
         </div>
 
         <div className={styles.mobileCounterItem}>
           <span>{t("profile.counters.fans")}</span>
-          <strong>0</strong>
+          <strong>{counters.fans}</strong>
         </div>
       </section>
 
@@ -168,13 +179,24 @@ function ProfileMobile({ projects = [], communities = [], isLoading = true }) {
                 to={`/projects/${project.slug}`}
                 className={styles.mobileProjectCard}
               >
-                <img src={getImageUrl(project.thumbnail)} alt={project.title} />
+                <img
+                  src={normalizeImagePath(project.thumbnail)}
+                  alt={project.title}
+                />
 
                 <p>{project.title}</p>
               </Link>
             ))}
           </div>
         )}
+      </section>
+
+      <section className={styles.mobileSection}>
+        <VerifiedTestimonials />
+      </section>
+
+      <section className={styles.mobileSection}>
+        <Scraps />
       </section>
 
       <section className={styles.mobileSection}>
@@ -196,7 +218,7 @@ function ProfileMobile({ projects = [], communities = [], isLoading = true }) {
                 title={community.title}
               >
                 <img
-                  src={getImageUrl(community.thumbnail)}
+                  src={normalizeImagePath(community.thumbnail)}
                   alt={community.title}
                 />
               </Link>
