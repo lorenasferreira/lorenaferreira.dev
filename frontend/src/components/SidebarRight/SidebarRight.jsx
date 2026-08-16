@@ -6,22 +6,20 @@ import { getCommunities, getProjects } from "../../services/api";
 
 import styles from "./SidebarRight.module.css";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
-
-function getImageUrl(imagePath) {
+function normalizeImagePath(imagePath) {
   if (!imagePath) {
     return "";
   }
 
-  if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+  if (
+    imagePath.startsWith("http://") ||
+    imagePath.startsWith("https://") ||
+    imagePath.startsWith("/")
+  ) {
     return imagePath;
   }
 
-  const normalizedPath = imagePath.startsWith("/")
-    ? imagePath
-    : `/${imagePath}`;
-
-  return `${API_BASE}${normalizedPath}`;
+  return `/${imagePath}`;
 }
 
 function SidebarRight() {
@@ -79,7 +77,7 @@ function SidebarRight() {
               title={project.title}
             >
               <img
-                src={getImageUrl(project.thumbnail)}
+                src={normalizeImagePath(project.thumbnail)}
                 alt={project.title}
                 className={styles.thumbnail}
               />
@@ -106,7 +104,7 @@ function SidebarRight() {
               title={community.title}
             >
               <img
-                src={getImageUrl(community.thumbnail)}
+                src={normalizeImagePath(community.thumbnail)}
                 alt={community.title}
                 className={styles.thumbnail}
               />
