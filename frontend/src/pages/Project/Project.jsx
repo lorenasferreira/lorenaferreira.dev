@@ -52,7 +52,9 @@ function Project() {
         setIsLoading(true);
         setError("");
 
-        const response = await fetch(`${API_URL}/${encodeURIComponent(slug)}`);
+        const response = await fetch(
+          `${API_BASE}/api/projects/${encodeURIComponent(slug)}`,
+        );
 
         if (response.status === 404) {
           setError(t("project.not_found"));
