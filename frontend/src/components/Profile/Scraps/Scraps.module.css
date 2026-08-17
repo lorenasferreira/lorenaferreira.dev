@@ -78,6 +78,9 @@
 
 .card p {
   margin: 6px 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .card small {

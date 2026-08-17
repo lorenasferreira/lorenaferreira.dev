@@ -206,7 +206,7 @@ function Scraps({ onScrapsCountChange }) {
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           placeholder={t("profile.scraps.form.message")}
-          maxLength={280}
+          maxLength={780}
           disabled={isSubmitting}
           required
         />

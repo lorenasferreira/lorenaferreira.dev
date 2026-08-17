@@ -21,7 +21,7 @@ public class Scrap {
     @Column(nullable = false, length = 100)
     private String author;
 
-    @Column(nullable = false, length = 280)
+    @Column(nullable = false, length = 780)
     private String message;
 
     @Column(length = 500)
