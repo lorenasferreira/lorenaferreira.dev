@@ -8,6 +8,9 @@ import Project from "./pages/Project/Project";
 import Communities from "./pages/Communities/Communities";
 import Community from "./pages/Community/Community";
 import ScrapsPage from "./pages/Scraps/ScrapsPage";
+import TestimonialsPage from "./pages/Testimonials/TestimonialsPage";
+
+import MobileBottomNav from "./components/MobileBottomNav/MobileBottomNav";
 
 function App() {
   return (
@@ -29,8 +32,12 @@ function App() {
 
         <Route path="/scraps" element={<ScrapsPage />} />
 
+        <Route path="/testimonials" element={<TestimonialsPage />} />
+
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+
+      <MobileBottomNav />
     </BrowserRouter>
   );
 }

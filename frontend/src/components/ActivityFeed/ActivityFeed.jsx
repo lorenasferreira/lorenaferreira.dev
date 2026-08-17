@@ -7,6 +7,7 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 const API_URL = `${API_BASE}/api/feed`;
 const PROJECTS_API_URL = `${API_BASE}/api/projects`;
+const COMMUNITIES_API_URL = `${API_BASE}/api/communities`;
 
 const LOCALES = {
   en: "en-US",
@@ -49,6 +50,7 @@ function ActivityFeed() {
 
   const [activities, setActivities] = useState([]);
   const [projectsBySlug, setProjectsBySlug] = useState({});
+  const [communitiesBySlug, setCommunitiesBySlug] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -104,10 +106,12 @@ function ActivityFeed() {
         setIsLoading(true);
         setError("");
 
-        const [feedResponse, projectsResponse] = await Promise.all([
-          fetch(API_URL),
-          fetch(PROJECTS_API_URL),
-        ]);
+        const [feedResponse, projectsResponse, communitiesResponse] =
+          await Promise.all([
+            fetch(API_URL),
+            fetch(PROJECTS_API_URL),
+            fetch(COMMUNITIES_API_URL),
+          ]);
 
         if (!feedResponse.ok) {
           throw new Error(
@@ -121,15 +125,27 @@ function ActivityFeed() {
           );
         }
 
+        if (!communitiesResponse.ok) {
+          throw new Error(
+            `Could not load communities. Status: ${communitiesResponse.status}`,
+          );
+        }
+
         const feedData = await feedResponse.json();
         const projectsData = await projectsResponse.json();
+        const communitiesData = await communitiesResponse.json();
 
         const projectsMap = Object.fromEntries(
           projectsData.map((project) => [project.slug, project]),
         );
 
+        const communitiesMap = Object.fromEntries(
+          communitiesData.map((community) => [community.slug, community]),
+        );
+
         setActivities(feedData);
         setProjectsBySlug(projectsMap);
+        setCommunitiesBySlug(communitiesMap);
       } catch (requestError) {
         console.error(requestError);
         setError(t("feed.error"));
@@ -234,6 +250,8 @@ function ActivityFeed() {
         }
 
         if (activity.type === "new_community") {
+          const community = communitiesBySlug[payload.slug] || payload;
+
           return (
             <article className={styles.item} key={activity.id}>
               <header className={styles.header}>
@@ -258,18 +276,22 @@ function ActivityFeed() {
               <div className={styles.body}>
                 <div className={styles.thumbnail}>
                   <img
-                    src={normalizeImagePath(payload.thumbnail)}
-                    alt={payload.title}
+                    src={normalizeImagePath(community.thumbnail)}
+                    alt={community.title}
                   />
                 </div>
 
                 <div>
                   <p className={styles.text}>
-                    <strong>{payload.title}</strong>
+                    <strong>
+                      {t(`communityDetails.${community.slug}.title`)}
+                    </strong>
                   </p>
 
-                  {payload.description && (
-                    <p className={styles.text}>{payload.description}</p>
+                  {payload.slug && (
+                    <p className={styles.text}>
+                      {t(`communityDetails.${payload.slug}.description`)}
+                    </p>
                   )}
                 </div>
               </div>

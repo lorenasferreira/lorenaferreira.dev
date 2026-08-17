@@ -11,20 +11,20 @@ import styles from "./Community.module.css";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
-function getImageUrl(imagePath) {
+function normalizeImagePath(imagePath) {
   if (!imagePath) {
     return "";
   }
 
-  if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+  if (
+    imagePath.startsWith("http://") ||
+    imagePath.startsWith("https://") ||
+    imagePath.startsWith("/")
+  ) {
     return imagePath;
   }
 
-  const normalizedPath = imagePath.startsWith("/")
-    ? imagePath
-    : `/${imagePath}`;
-
-  return `${API_BASE}${normalizedPath}`;
+  return `/${imagePath}`;
 }
 
 function Community() {
@@ -41,7 +41,9 @@ function Community() {
         setIsLoading(true);
         setError("");
 
-        const response = await fetch(`${API_BASE}/api/communities/${slug}`);
+        const response = await fetch(
+          `${API_BASE}/api/communities/${encodeURIComponent(slug)}`,
+        );
 
         if (response.status === 404) {
           setCommunity(null);
@@ -101,7 +103,9 @@ function Community() {
                     ← {t("community.back_to_communities")}
                   </Link>
 
-                  <h1 className={styles.title}>{community.title}</h1>
+                  <h1 className={styles.title}>
+                    {t(`communityDetails.${community.slug}.title`)}
+                  </h1>
                 </div>
               </header>
 
@@ -109,12 +113,14 @@ function Community() {
 
               <div className={styles.content}>
                 <img
-                  src={getImageUrl(community.thumbnail)}
+                  src={normalizeImagePath(community.thumbnail)}
                   alt={community.title}
                   className={styles.thumbnail}
                 />
 
-                <p className={styles.description}>{community.description}</p>
+                <p className={styles.description}>
+                  {t(`communityDetails.${community.slug}.description`)}
+                </p>
               </div>
             </>
           )}

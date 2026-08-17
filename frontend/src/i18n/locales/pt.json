@@ -75,7 +75,7 @@
   "profile.fake_testimonials.1.message": "Criativa e acolhedora. Me fez sentir saudade da antiga internet 🩵",
 
   "profile.mobile.view_projects": "Ver Projetos",
-  "profile.mobile.message": "Mensagem",
+  "profile.mobile.scrap": "Scrap",
   "profile.mobile.tab_social": "Social",
   "profile.mobile.tab_professional": "Profissional",
   "profile.mobile.my_projects": "Meus Projetos",
@@ -219,5 +219,34 @@
       "shortDescription": "Uma plataforma multilíngue com orientação prática, recursos e mentoria para quem planeja viver uma experiência de au pair na Espanha.",
       "fullDescription": "Au Pair na Espanha é uma plataforma digital multilíngue criada para ajudar futuras au pairs a planejar sua experiência na Espanha com informações mais claras, recursos práticos e orientação realista. Desenvolvido com React e Vite, o projeto reúne conteúdo educativo, ferramentas de planejamento, informações sobre mentoria e recursos de comunidade em uma estrutura responsiva pensada para crescer junto com a marca."
     }
+  },
+  "testimonials.page.title": "Depoimentos verificados",
+  "testimonials.page.description": "Veja recomendações verificadas de clientes com quem já trabalhei.",
+
+ "communityDetails": {
+  "i-hate-waking-up-early": {
+    "title": "Eu Odeio Acordar Cedo",
+    "description": "Para quem acredita que o dia só começa depois do meio-dia.\n\n“Eu faço samba e amor até mais tarde\ne tenho muito sono de manhã.”\n— Chico Buarque\n\n(╯°□°）╯︵ ┻━┻ manhãs NÃO, OBRIGADA"
+  },
+  "php-never-dies": {
+    "title": "PHP Nunca Morre",
+    "description": "Para quem sabe que PHP não está morrendo — continua discretamente sustentando uma enorme parte da web enquanto as pessoas seguem anunciando sua morte."
+  },
+  "i-survived-msn": {
+    "title": "Eu Sobrevivi ao MSN",
+    "description": "Se você sobreviveu ao MSN Messenger, aos chamamentos de atenção, status misteriosos, emoticons personalizados e pessoas entrando e saindo só para serem notadas, você consegue sobreviver a qualquer coisa."
+  },
+  "i-open-the-fridge-to-think": {
+    "title": "Eu Abro a Geladeira pra Pensar",
+    "description": "Para quem abre a geladeira não porque está com fome, mas porque está confuso, entediado, procrastinando ou atravessando uma pequena crise emocional."
+  },
+  "i-look-snobby-but-im-actually-nice": {
+    "title": "Pareço Metida, mas Sou Legal",
+    "description": "Para quem já ouviu que parece arrogante, sério ou inacessível antes mesmo de abrir a boca. No fundo, você é uma pessoa super legal. Bem-vindo ao clube!"
+  },
+  "god-told-me-go-down-there-and-slay": {
+    "title": "Deus Disse: Desce e Arrasa",
+    "description": "Para quem acredita que veio ao mundo com propósito, brilho e atitude. Se sua missão é aparecer e arrasar, essa comunidade é para você."
+  }
   }
 }

@@ -75,7 +75,7 @@
   "profile.fake_testimonials.1.message": "Créative et chaleureuse. Ça me fait regretter l’Internet d’avant 🩵",
 
   "profile.mobile.view_projects": "Voir les Projets",
-  "profile.mobile.message": "Message",
+  "profile.mobile.scrap": "Scrap",
   "profile.mobile.tab_social": "Social",
   "profile.mobile.tab_professional": "Professionnel",
   "profile.mobile.my_projects": "Mes Projets",
@@ -215,5 +215,33 @@
       "shortDescription": "Une plateforme multilingue proposant conseils pratiques, ressources et mentorat pour préparer une expérience au pair en Espagne.",
       "fullDescription": "Au Pair na Espanha est une plateforme numérique multilingue créée pour aider les futures au pairs à préparer leur expérience en Espagne grâce à des informations plus claires, des ressources pratiques et des conseils réalistes. Développé avec React et Vite, le projet rassemble du contenu éducatif, des outils de planification, des informations sur le mentorat et des ressources communautaires dans une structure responsive conçue pour évoluer avec la marque."
     }
+  },
+  "testimonials.page.title": "Témoignages vérifiés",
+  "testimonials.page.description": "Découvrez des recommandations vérifiées de clients avec lesquels j’ai travaillé.",
+
+"communityDetails": {
+  "i-hate-waking-up-early": {
+    "title": "Je Déteste Me Lever Tôt",
+    "description": "Pour tous ceux qui pensent que la journée ne commence qu'après midi.\n\n“Je fais de la samba et l'amour jusque tard\net j'ai toujours sommeil le matin.”\n— Chico Buarque\n\n(╯°□°）╯︵ ┻━┻ les matins NON MERCI"
+  },
+  "php-never-dies": {
+    "title": "PHP Ne Meurt Jamais",
+    "description": "Pour tous ceux qui savent que PHP n'est pas en train de mourir — il continue discrètement à faire fonctionner une immense partie du web pendant que certains annoncent encore sa disparition."
+  },
+  "i-survived-msn": {
+    "title": "J'ai Survécu à MSN",
+    "description": "Si vous avez survécu à MSN Messenger, aux wizz, aux statuts mystérieux, aux émoticônes personnalisées et aux gens qui se connectaient et se déconnectaient juste pour attirer l'attention, vous pouvez survivre à tout."
+  },
+  "i-open-the-fridge-to-think": {
+    "title": "J'Ouvre le Frigo pour Réfléchir",
+    "description": "Pour ceux qui ouvrent le réfrigérateur non pas parce qu'ils ont faim, mais parce qu'ils sont perdus, ennuyés, en pleine procrastination ou au milieu d'une petite crise existentielle."
+  },
+  "i-look-snobby-but-im-actually-nice": {
+    "title": "J'ai l'Air Hautaine mais Je Suis Sympa",
+    "description": "Pour tous ceux à qui l'on a déjà dit qu'ils avaient l'air arrogants, sérieux ou difficiles à approcher avant même d'avoir parlé. Au fond, vous êtes vraiment sympa. Bienvenue au club !"
+  },
+  "god-told-me-go-down-there-and-slay": {
+    "title": "Dieu M'a Dit : Descends et Déchire Tout",
+    "description": "Pour tous ceux qui pensent être venus au monde avec une mission, de l'éclat et de l'attitude. Si votre destinée est d'arriver et de tout déchirer, cette communauté est faite pour vous."
   }
-}
+}}

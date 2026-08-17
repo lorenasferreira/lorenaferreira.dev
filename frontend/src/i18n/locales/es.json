@@ -75,7 +75,7 @@
   "profile.fake_testimonials.1.message": "Tan creativa y acogedora. Me hizo extrañar el internet de antes 🩵",
 
   "profile.mobile.view_projects": "Ver Proyectos",
-  "profile.mobile.message": "Mensaje",
+  "profile.mobile.scrap": "Scrap",
   "profile.mobile.tab_social": "Social",
   "profile.mobile.tab_professional": "Profesional",
   "profile.mobile.my_projects": "Mis Proyectos",
@@ -210,5 +210,33 @@
       "shortDescription": "Una plataforma multilingüe con orientación práctica, recursos y mentoría para quienes planean una experiencia au pair en España.",
       "fullDescription": "Au Pair na Espanha es una plataforma digital multilingüe creada para ayudar a futuras au pairs a planificar su experiencia en España con información más clara, recursos prácticos y orientación realista. Desarrollado con React y Vite, el proyecto reúne contenido educativo, herramientas de planificación, información sobre mentoría y recursos de comunidad en una estructura responsive pensada para crecer junto con la marca."
     }
+  },
+  "testimonials.page.title": "Testimonios verificados",
+  "testimonials.page.description": "Lee recomendaciones verificadas de clientes con los que he trabajado.",
+
+ "communityDetails": {
+  "i-hate-waking-up-early": {
+    "title": "Odio Madrugar",
+    "description": "Para quienes creen que el día solo empieza después del mediodía.\n\n“Hago samba y hago el amor hasta tarde\ny siempre tengo sueño por la mañana.”\n— Chico Buarque\n\n(╯°□°）╯︵ ┻━┻ mañanas NO GRACIAS"
+  },
+  "php-never-dies": {
+    "title": "PHP Nunca Muere",
+    "description": "Para quienes saben que PHP no está muriendo — sigue impulsando discretamente una enorme parte de la web mientras la gente continúa anunciando su muerte."
+  },
+  "i-survived-msn": {
+    "title": "Sobreviví a MSN",
+    "description": "Si sobreviviste a MSN Messenger, los zumbidos, los estados misteriosos, los emoticonos personalizados y la gente conectándose y desconectándose solo para llamar la atención, puedes sobrevivir a cualquier cosa."
+  },
+  "i-open-the-fridge-to-think": {
+    "title": "Abro la Nevera para Pensar",
+    "description": "Para quienes abren la nevera no porque tengan hambre, sino porque están confundidos, aburridos, procrastinando o atravesando una pequeña crisis emocional."
+  },
+  "i-look-snobby-but-im-actually-nice": {
+    "title": "Parezco Creída, pero Soy Buena Gente",
+    "description": "Para quienes alguna vez escucharon que parecen arrogantes, serios o poco accesibles antes incluso de hablar. En el fondo, eres una persona encantadora. ¡Bienvenido al club!"
+  },
+  "god-told-me-go-down-there-and-slay": {
+    "title": "Dios Me Dijo: Baja y Arrasa",
+    "description": "Para quienes creen que llegaron al mundo con propósito, brillo y actitud. Si tu misión es aparecer y arrasar, esta comunidad es para ti."
   }
-}
+}}

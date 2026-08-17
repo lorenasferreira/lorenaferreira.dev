@@ -55,8 +55,8 @@ function ProfileMobile({
             {t("profile.mobile.view_projects")}
           </a>
 
-          <a href="mailto:you@email.com" className={styles.secondaryButton}>
-            {t("profile.mobile.message")}
+          <a href="#mobile-scraps" className={styles.secondaryButton}>
+            {t("profile.mobile.scrap")}
           </a>
         </div>
       </section>
@@ -195,7 +195,7 @@ function ProfileMobile({
         <VerifiedTestimonials />
       </section>
 
-      <section className={styles.mobileSection}>
+      <section className={styles.mobileSection} id="mobile-scraps">
         <Scraps />
       </section>
 
@@ -215,11 +215,11 @@ function ProfileMobile({
                 key={community.id ?? community.slug}
                 to={`/communities/${community.slug}`}
                 className={styles.mobileCommunityCard}
-                title={community.title}
+                title={t(`communityDetails.${community.slug}.title`)}
               >
                 <img
                   src={normalizeImagePath(community.thumbnail)}
-                  alt={community.title}
+                  alt={t(`communityDetails.${community.slug}.title`)}
                 />
               </Link>
             ))}

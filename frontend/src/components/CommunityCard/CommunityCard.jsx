@@ -1,35 +1,37 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import styles from "./CommunityCard.module.css";
-
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 function getImageUrl(imagePath) {
   if (!imagePath) {
     return "/images/community-placeholder.png";
   }
 
-  if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+  if (
+    imagePath.startsWith("http://") ||
+    imagePath.startsWith("https://") ||
+    imagePath.startsWith("/")
+  ) {
     return imagePath;
   }
 
-  const normalizedPath = imagePath.startsWith("/")
-    ? imagePath
-    : `/${imagePath}`;
-
-  return `${API_BASE}${normalizedPath}`;
+  return `/${imagePath}`;
 }
 
 function CommunityCard({ community }) {
+  const { t } = useTranslation();
+
+  const translatedTitle = t(`communityDetails.${community.slug}.title`);
   return (
     <Link to={`/communities/${community.slug}`} className={styles.card}>
       <img
         src={getImageUrl(community.thumbnail)}
-        alt={community.title}
+        alt={translatedTitle}
         className={styles.image}
       />
 
-      <h3 className={styles.title}>{community.title}</h3>
+      <h3 className={styles.title}>{translatedTitle}</h3>
     </Link>
   );
 }

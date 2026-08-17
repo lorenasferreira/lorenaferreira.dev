@@ -96,20 +96,26 @@ function SidebarRight() {
         </header>
 
         <div className={styles.thumbnails}>
-          {communities.map((community) => (
-            <Link
-              key={community.id ?? community.slug}
-              to={`/communities/${community.slug}`}
-              className={styles.thumbnailLink}
-              title={community.title}
-            >
-              <img
-                src={normalizeImagePath(community.thumbnail)}
-                alt={community.title}
-                className={styles.thumbnail}
-              />
-            </Link>
-          ))}
+          {communities.map((community) => {
+            const translatedTitle = t(
+              `communityDetails.${community.slug}.title`,
+            );
+
+            return (
+              <Link
+                key={community.id ?? community.slug}
+                to={`/communities/${community.slug}`}
+                className={styles.thumbnailLink}
+                title={translatedTitle}
+              >
+                <img
+                  src={normalizeImagePath(community.thumbnail)}
+                  alt={translatedTitle}
+                  className={styles.thumbnail}
+                />
+              </Link>
+            );
+          })}
         </div>
       </section>
     </div>

@@ -39,12 +39,12 @@ function Profile() {
     loadProfileContent();
   }, []);
 
-  const counters = {
-    scraps: scraps.length,
-    photos: 4,
-    videos: 2,
-    fans: 0,
-  };
+const counters = {
+  scraps: scraps.length,
+  photos: 0,
+  videos: 0,
+  fans: 0,
+};
 
   return (
     <>

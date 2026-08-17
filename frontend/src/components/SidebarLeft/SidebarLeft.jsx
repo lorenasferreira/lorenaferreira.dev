@@ -25,7 +25,7 @@ const profileNavigation = [
   {
     translationKey: "sidebar.testimonials",
     icon: "/assets/icons/sun.svg",
-    to: "/#testimonies",
+    to: "/testimonials",
   },
 ];
 

@@ -26,9 +26,6 @@ public class Community {
     @Column(nullable = false, length = 255)
     private String thumbnail;
 
-    @Column(columnDefinition = "TEXT")
-    private String description;
-
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -65,14 +62,6 @@ public class Community {
 
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public LocalDateTime getCreatedAt() {

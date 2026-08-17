@@ -75,7 +75,7 @@
   "profile.fake_testimonials.1.message": "So creative and warm. Makes me miss the old internet 🩵",
 
   "profile.mobile.view_projects": "View Projects",
-  "profile.mobile.message": "Message",
+  "profile.mobile.scrap": "Scrap",
   "profile.mobile.tab_social": "Social",
   "profile.mobile.tab_professional": "Professional",
   "profile.mobile.my_projects": "My Projects",
@@ -215,6 +215,34 @@
     "aupairnaespanha": {
       "shortDescription": "A multilingual platform with practical guidance, resources and mentoring for people planning an au pair experience in Spain.",
       "fullDescription": "Au Pair na Espanha is a multilingual digital platform created to help future au pairs plan their experience in Spain with clearer information, practical resources and realistic guidance. Built with React and Vite, the project brings together educational content, planning tools, mentoring information and community resources in a responsive structure designed to grow alongside the brand."
+    }
+  },
+  "testimonials.page.title": "Verified testimonials",
+  "testimonials.page.description": "Read verified recommendations from clients I have worked with.",
+  "communityDetails": {
+   "i-hate-waking-up-early": {
+     "title": "I Hate Waking Up Early",
+  "description": "For everyone who believes the day only begins after noon.\n\n“I make samba and love until late\nand I’m always sleepy in the morning.”\n— Chico Buarque\n\n(╯°□°）╯︵ ┻━┻ mornings NO THANKS"
+},
+    "php-never-dies": {
+      "title": "PHP Never Dies",
+      "description": "For everyone who knows PHP isn't dying — it's quietly powering a huge part of the web while people keep announcing its death."
+    },
+    "i-survived-msn": {
+      "title": "I Survived MSN",
+      "description": "If you survived MSN Messenger, nudges, mysterious status messages, custom emoticons and people constantly going online and offline for attention, you can survive anything."
+    },
+    "i-open-the-fridge-to-think": {
+      "title": "I open the fridge to think",
+      "description": "For those who open the fridge not because they're hungry, but because they're confused, bored, procrastinating or going through a small emotional crisis."
+    },
+    "i-look-snobby-but-im-actually-nice": {
+      "title": "I look snobby but I'm actually nice",
+      "description": "For everyone who has been told they look arrogant, serious or unapproachable before anyone even speaks to them. Deep down, you're actually nice. Welcome to the club!"
+    },
+    "god-told-me-go-down-there-and-slay": {
+      "title": "God Told Me: Go Down There and Slay",
+      "description": "For everyone who believes they were sent into the world with purpose, glow and attitude. If your mission is to show up and slay, this community is for you."
     }
   }
 }
