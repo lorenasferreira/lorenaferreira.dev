@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 
 import { createScrap, getScraps } from "../../../services/scraps";
 
+import ScrapCard from "./ScrapCard";
+
 import styles from "./Scraps.module.css";
 
 function Scraps({ onScrapsCountChange }) {
@@ -21,7 +23,7 @@ function Scraps({ onScrapsCountChange }) {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  const remainingCharacters = 280 - message.length;
+  const remainingCharacters = 780 - message.length;
 
   useEffect(() => {
     async function loadScraps() {
@@ -231,24 +233,18 @@ function Scraps({ onScrapsCountChange }) {
       {isLoading ? (
         <p className={styles.status}>{t("profile.scraps.loading")}</p>
       ) : (
-        <div className={styles.list}>
-          {scraps.map((scrap) => (
-            <article key={scrap.id} className={styles.card}>
-              <img
-                src={scrap.avatar || "/assets/img/default-avatar.png"}
-                alt={scrap.author}
-              />
-
-              <div>
-                <strong>{scrap.author}</strong>
-
-                <p>{scrap.message}</p>
-
-                <small>{formatDate(scrap.createdAt)}</small>
-              </div>
-            </article>
-          ))}
-        </div>
+        <>
+          <p className={styles.swipeHint}>{t("scrap.swipe")}</p>
+          <div className={styles.list} tabIndex={0} role="region" aria-label={t("profile.scraps.title")} onKeyDown={event => {
+            if (event.target !== event.currentTarget || !window.matchMedia("(max-width: 600px)").matches) return;
+            if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+              event.preventDefault();
+              event.currentTarget.scrollBy({ left: event.currentTarget.clientWidth * .88 * (event.key === "ArrowRight" ? 1 : -1), behavior: "auto" });
+            }
+          }}>
+            {scraps.map(scrap => <ScrapCard key={scrap.id} scrap={scrap} formatDate={formatDate} />)}
+          </div>
+        </>
       )}
     </section>
   );

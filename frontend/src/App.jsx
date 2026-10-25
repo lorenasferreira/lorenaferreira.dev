@@ -12,6 +12,8 @@ import TestimonialsPage from "./pages/Testimonials/TestimonialsPage";
 
 import MobileBottomNav from "./components/MobileBottomNav/MobileBottomNav";
 
+import BackToTop from "./components/BackToTop/BackToTop";
+
 function App() {
   return (
     <BrowserRouter>
@@ -38,6 +40,7 @@ function App() {
       </Routes>
 
       <MobileBottomNav />
+      <BackToTop />
     </BrowserRouter>
   );
 }

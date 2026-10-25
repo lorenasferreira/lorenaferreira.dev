@@ -239,4 +239,16 @@
     "title": "Dios Me Dijo: Baja y Arrasa",
     "description": "Para quienes creen que llegaron al mundo con propósito, brillo y actitud. Si tu misión es aparecer y arrasar, esta comunidad es para ti."
   }
-}}
+},
+  "search.empty": "No se encontraron resultados.",
+  "search.error": "Búsqueda de proyectos no disponible; mostrando contenido local.",
+  "common.back_top": "Volver arriba",
+  "scrap.more": "Ver más",
+  "scrap.less": "Ver menos",
+  "scrap.translate": "Traducir",
+  "scrap.original": "Ver original",
+  "scrap.loading": "Traduciendo…",
+  "scrap.automatic": "Traducción automática",
+  "scrap.error": "Traducción no disponible. Inténtalo de nuevo.",
+  "scrap.swipe": "Desliza o usa las flechas para leer más mensajes."
+}

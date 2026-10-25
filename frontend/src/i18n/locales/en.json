@@ -244,5 +244,16 @@
       "title": "God Told Me: Go Down There and Slay",
       "description": "For everyone who believes they were sent into the world with purpose, glow and attitude. If your mission is to show up and slay, this community is for you."
     }
-  }
+  },
+  "search.empty": "No results found.",
+  "search.error": "Project search unavailable; showing local content.",
+  "common.back_top": "Back to top",
+  "scrap.more": "Read more",
+  "scrap.less": "Read less",
+  "scrap.translate": "Translate",
+  "scrap.original": "View original",
+  "scrap.loading": "Translating…",
+  "scrap.automatic": "Automatic translation",
+  "scrap.error": "Translation unavailable. Try again.",
+  "scrap.swipe": "Swipe or use arrow keys to read more scraps."
 }

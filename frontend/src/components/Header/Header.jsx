@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+import SiteSearch from "./SiteSearch";
+
 import styles from "./Header.module.css";
 
 const languages = ["en", "pt", "es", "fr"];
@@ -10,7 +12,6 @@ function Header() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
-  const [searchTerm, setSearchTerm] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const currentLanguage = i18n.resolvedLanguage?.split("-")[0] || "en";
@@ -22,18 +23,6 @@ function Header() {
   function handleMobileLanguageChange(language) {
     i18n.changeLanguage(language);
     closeMobileMenu();
-  }
-
-  function handleSearch(event) {
-    event.preventDefault();
-
-    const trimmedSearchTerm = searchTerm.trim();
-
-    if (!trimmedSearchTerm) {
-      return;
-    }
-
-    navigate(`/search?q=${encodeURIComponent(trimmedSearchTerm)}`);
   }
 
   function handleLogout() {
@@ -109,40 +98,7 @@ function Header() {
               {t("nav.exit")}
             </button>
 
-            <form
-              className={styles.search}
-              role="search"
-              onSubmit={handleSearch}
-            >
-              <input
-                className={styles.searchInput}
-                type="search"
-                name="q"
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-                placeholder={t("nav.search_placeholder")}
-                aria-label={t("nav.search")}
-              />
-
-              <button
-                type="submit"
-                className={styles.searchBtn}
-                aria-label={t("nav.search")}
-              >
-                <svg
-                  width="29"
-                  height="29"
-                  viewBox="0 0 39 39"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M31.85 34.125L21.6125 23.8875C20.8 24.5375 19.8656 25.0521 18.8094 25.4313C17.7531 25.8104 16.6292 26 15.4375 26C12.4854 26 9.98698 24.9776 7.94219 22.9328C5.8974 20.888 4.875 18.3896 4.875 15.4375C4.875 12.4854 5.8974 9.98698 7.94219 7.94219C9.98698 5.8974 12.4854 4.875 15.4375 4.875C18.3896 4.875 20.888 5.8974 22.9328 7.94219C24.9776 9.98698 26 12.4854 26 15.4375C26 16.6292 25.8104 17.7531 25.4313 18.8094C25.0521 19.8656 24.5375 20.8 23.8875 21.6125L34.125 31.85L31.85 34.125Z"
-                    fill="#d2cfcf"
-                  />
-                </svg>
-              </button>
-            </form>
+            <SiteSearch />
 
             <button
               className={styles.mobileNavBtn}
@@ -171,6 +127,7 @@ function Header() {
           isMobileMenuOpen ? styles.mobileNavDrawerOpen : ""
         }`}
         aria-hidden={!isMobileMenuOpen}
+        inert={!isMobileMenuOpen}
       >
         <div className={styles.mobileNavHead}>
           <strong>l.orkut</strong>

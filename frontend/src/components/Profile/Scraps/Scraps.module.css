@@ -170,3 +170,17 @@
     height: 50px;
   }
 }
+.cardContent { min-width: 0; }
+.textAction { padding: 5px 0; border: 0; background: transparent; color: #34578a; cursor: pointer; text-decoration: underline; font: inherit; font-size: 13px; }
+.textAction:disabled { opacity: .65; cursor: wait; }
+.textAction:focus-visible, .list:focus-visible { outline: 3px solid #c94b9c; outline-offset: 3px; }
+.translationActions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 13px; }
+.expand, .swipeHint { display: none; }
+@media (max-width: 600px) {
+  .list { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 2px 12px; align-items: flex-start; }
+  .list::-webkit-scrollbar { display: none; }
+  .card { flex: 0 0 88%; box-sizing: border-box; scroll-snap-align: start; min-width: 0; gap: 10px; }
+  .collapsed { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+  .expand { display: inline-block; }
+  .swipeHint { display: block; margin-bottom: -12px; color: #667; font-size: 12px; }
+}

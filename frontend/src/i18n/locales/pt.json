@@ -248,5 +248,16 @@
     "title": "Deus Disse: Desce e Arrasa",
     "description": "Para quem acredita que veio ao mundo com propósito, brilho e atitude. Se sua missão é aparecer e arrasar, essa comunidade é para você."
   }
-  }
+  },
+  "search.empty": "Nenhum resultado encontrado.",
+  "search.error": "Busca de projetos indisponível; exibindo conteúdo local.",
+  "common.back_top": "Voltar ao topo",
+  "scrap.more": "Ver mais",
+  "scrap.less": "Ver menos",
+  "scrap.translate": "Traduzir",
+  "scrap.original": "Ver original",
+  "scrap.loading": "Traduzindo…",
+  "scrap.automatic": "Tradução automática",
+  "scrap.error": "Tradução indisponível. Tente novamente.",
+  "scrap.swipe": "Deslize ou use as setas para ler outros recados."
 }

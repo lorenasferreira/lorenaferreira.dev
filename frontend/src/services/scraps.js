@@ -27,3 +27,15 @@ export async function createScrap(scrap) {
 
   return response.json();
 }
+
+const translations = new Map();
+export async function translateScrap(id, language) {
+  const key = `${id}:${language}`;
+  if (!translations.has(key)) {
+    const request = fetch(`${API_URL}/${encodeURIComponent(id)}/translations/${encodeURIComponent(language)}`, { method: "POST" })
+      .then(response => { if (!response.ok) throw new Error("Translation unavailable"); return response.json(); })
+      .catch(error => { translations.delete(key); throw error; });
+    translations.set(key, request);
+  }
+  return translations.get(key);
+}

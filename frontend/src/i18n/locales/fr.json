@@ -244,4 +244,16 @@
     "title": "Dieu M'a Dit : Descends et Déchire Tout",
     "description": "Pour tous ceux qui pensent être venus au monde avec une mission, de l'éclat et de l'attitude. Si votre destinée est d'arriver et de tout déchirer, cette communauté est faite pour vous."
   }
-}}
+},
+  "search.empty": "Aucun résultat.",
+  "search.error": "Recherche de projets indisponible ; affichage du contenu local.",
+  "common.back_top": "Retour en haut",
+  "scrap.more": "Voir plus",
+  "scrap.less": "Voir moins",
+  "scrap.translate": "Traduire",
+  "scrap.original": "Voir original",
+  "scrap.loading": "Traduction…",
+  "scrap.automatic": "Traduction automatique",
+  "scrap.error": "Traduction indisponible. Réessayez.",
+  "scrap.swipe": "Balayez ou utilisez les flèches pour lire les autres messages."
+}
