@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { getProjects } from "../../services/api";
@@ -8,6 +8,7 @@ const normalize = (value) => String(value).normalize("NFD").replace(/\p{M}/gu, "
 export default function SiteSearch() {
   const { t, i18n } = useTranslation();
   const id = useId();
+  const formRef = useRef(null);
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [projects, setProjects] = useState([]);
@@ -17,6 +18,13 @@ export default function SiteSearch() {
     getProjects().then(data => { if (active) setProjects(Array.isArray(data) ? data : []); })
       .catch(() => { if (active) setFailed(true); });
     return () => { active = false; };
+  }, []);
+  useEffect(() => {
+    function closeOnOutsidePointer(event) {
+      if (!formRef.current?.contains(event.target)) setOpen(false);
+    }
+    document.addEventListener("pointerdown", closeOnOutsidePointer);
+    return () => document.removeEventListener("pointerdown", closeOnOutsidePointer);
   }, []);
   const details = i18n.getResourceBundle(i18n.resolvedLanguage?.split("-")[0] || "en", "translation")?.projectDetails || {};
   const communityDetails = i18n.getResourceBundle(i18n.resolvedLanguage?.split("-")[0] || "en", "translation")?.communityDetails || {};
@@ -31,7 +39,9 @@ export default function SiteSearch() {
   ];
   const terms = normalize(query.trim()).split(/\s+/).filter(Boolean);
   const results = terms.length ? entries.filter(entry => terms.every(term => normalize(`${entry.title} ${entry.text}`).includes(term))).sort((a,b) => (Number(normalize(b.title).includes(normalize(query.trim()))) * 10 + b.priority) - (Number(normalize(a.title).includes(normalize(query.trim()))) * 10 + a.priority)).slice(0, 8) : [];
-  return <form className={styles.search} role="search" onSubmit={event => { event.preventDefault(); setOpen(true); }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }} onKeyDown={event => {
+  return <form ref={formRef} className={styles.search} role="search" onSubmit={event => { event.preventDefault(); setOpen(true); }} onBlur={event => { // Some browsers report no relatedTarget when a pointer focuses a link.
+    // Outside pointer presses are handled separately so blur cannot remove the link before click.
+    if (event.relatedTarget && !event.currentTarget.contains(event.relatedTarget)) setOpen(false); }} onKeyDown={event => {
     if (event.key === "Escape") { setOpen(false); event.currentTarget.querySelector("input").focus(); }
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
       const links = [...event.currentTarget.querySelectorAll("input, ." + styles.results + " a")];
