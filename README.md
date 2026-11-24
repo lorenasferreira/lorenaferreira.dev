@@ -9,10 +9,10 @@
 <p align="center">
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge\&logo=react\&logoColor=white)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge\&logo=vite\&logoColor=white)](https://vite.dev)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge\&logo=vite\&logoColor=white)](https://vite.dev)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Java](https://img.shields.io/badge/Java-Backend-ED8B00?style=for-the-badge\&logo=openjdk\&logoColor=white)](https://www.java.com)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-3-6DB33F?style=for-the-badge\&logo=springboot\&logoColor=white)](https://spring.io/projects/spring-boot)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-4-6DB33F?style=for-the-badge\&logo=springboot\&logoColor=white)](https://spring.io/projects/spring-boot)
 [![Cloudinary](https://img.shields.io/badge/Cloudinary-Media-3448C5?style=for-the-badge\&logo=cloudinary\&logoColor=white)](https://cloudinary.com)
 [![Railway](https://img.shields.io/badge/Railway-Backend-0B0D0E?style=for-the-badge\&logo=railway\&logoColor=white)](https://railway.com)
 [![Vercel](https://img.shields.io/badge/Vercel-Frontend-000000?style=for-the-badge\&logo=vercel\&logoColor=white)](https://vercel.com)
@@ -69,7 +69,7 @@ The application is available at:
 * Dynamic project feed
 * Full-stack frontend and backend integration
 * REST API communication
-* Project images hosted with Cloudinary
+* Bundled project screenshots and Cloudinary-hosted media
 * Backend deployed on Railway
 * Frontend deployed on Vercel
 * Responsive project cards
@@ -104,7 +104,7 @@ The application is available at:
 
 ### Database
 
-* PostgreSQL
+* MySQL
 * Railway-hosted database
 
 ### Media Storage
@@ -148,7 +148,7 @@ The portfolio follows a full-stack architecture with a clear separation between 
                │ JPA
                ▼
 ┌──────────────────────────────┐
-│     PostgreSQL Database      │
+│     MySQL Database      │
 │      Hosted on Railway       │
 └──────────────────────────────┘
 
@@ -162,7 +162,7 @@ The portfolio follows a full-stack architecture with a clear separation between 
 └──────────────────────────────┘
 ```
 
-The React application requests project information from the Spring Boot API. Project data is stored in PostgreSQL, while image files are hosted on Cloudinary and referenced through secure URLs.
+The projects service combines records from the Spring Boot API with the curated entries in `frontend/src/data/portfolioProjects.js`. Curated project pages use localized copy from `frontend/src/i18n/locales/` and bundled screenshots. API-backed records remain available alongside the curated entries. The curated catalog and its detail pages can be opened without MySQL.
 
 ---
 
@@ -212,7 +212,7 @@ The frontend retrieves project information from the Spring Boot backend through 
 Example request:
 
 ```javascript
-fetch(`${import.meta.env.VITE_API_URL}/api/feed`)
+fetch(`${import.meta.env.VITE_API_BASE_URL}/api/feed`)
   .then((response) => {
     if (!response.ok) {
       throw new Error("Unable to load projects");
@@ -231,7 +231,7 @@ fetch(`${import.meta.env.VITE_API_URL}/api/feed`)
 The production API URL is stored in an environment variable and is not hardcoded into the application.
 
 ```env
-VITE_API_URL=https://your-backend-url.up.railway.app
+VITE_API_BASE_URL=https://your-backend-url.up.railway.app
 ```
 
 ---
@@ -247,7 +247,7 @@ git clone https://github.com/lorenasferreira/lorenaferreira.dev.git
 ### 2. Open the project directory
 
 ```bash
-cd lorenaferreira.dev
+cd lorenaferreira.dev/frontend
 ```
 
 ### 3. Install the dependencies
@@ -258,10 +258,10 @@ npm install
 
 ### 4. Create the environment file
 
-Create a `.env` file in the project root:
+Create a `.env` file in `frontend/`:
 
 ```env
-VITE_API_URL=http://localhost:8080
+VITE_API_BASE_URL=http://localhost:8080
 ```
 
 ### 5. Start the development server
@@ -280,7 +280,7 @@ http://localhost:5173
 
 ## Running the Backend Locally
 
-The backend must be started separately from its own repository or project directory.
+Start the backend from `backend/` with Java 21. Use a local MySQL instance with an existing Lorkut schema.
 
 ### Using Maven Wrapper
 
@@ -302,21 +302,7 @@ The API will normally be available at:
 http://localhost:8080
 ```
 
-Before starting the backend, configure the required database and Cloudinary environment variables.
-
-Example:
-
-```env
-DATABASE_URL=your_database_url
-DATABASE_USERNAME=your_database_username
-DATABASE_PASSWORD=your_database_password
-
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-```
-
-Sensitive credentials must never be committed to the repository.
+Spring Boot defaults to MySQL on `localhost:8889` and the `lorkut` schema. Override the connection using the backend environment variables below. The application expects the schema to exist and uses `ddl-auto=none`.
 
 ---
 
@@ -331,7 +317,7 @@ Every push to the production branch triggers a new deployment.
 The frontend environment includes:
 
 ```env
-VITE_API_URL=https://your-backend-url.up.railway.app
+VITE_API_BASE_URL=https://your-backend-url.up.railway.app
 ```
 
 ### Backend — Railway
@@ -343,22 +329,12 @@ Railway is responsible for:
 * Building the Java application
 * Running the Spring Boot server
 * Managing backend environment variables
-* Hosting the PostgreSQL database
+* Hosting the MySQL database
 * Providing the production API URL
 
 ### Images — Cloudinary
 
-Cloudinary is used to host and deliver project images.
-
-Instead of storing large image files directly in the database, the application stores Cloudinary URLs associated with each project.
-
-This improves:
-
-* Repository size
-* Image delivery performance
-* Media organization
-* Future content management
-* Deployment scalability
+Cloudinary hosts media referenced by the application and handles image uploads from the scrapbook. Featured project screenshots are bundled with the frontend.
 
 ---
 
@@ -369,18 +345,19 @@ The project uses environment variables to protect credentials and separate local
 Frontend:
 
 ```env
-VITE_API_URL=
+VITE_API_BASE_URL=
 ```
 
 Backend:
 
 ```env
-DATABASE_URL=
-DATABASE_USERNAME=
-DATABASE_PASSWORD=
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
+MYSQLHOST=
+MYSQLPORT=
+MYSQLDATABASE=
+MYSQLUSER=
+MYSQLPASSWORD=
+PORT=
+DEEPL_API_KEY=
 ```
 
 Environment files containing real credentials must be included in `.gitignore`.
@@ -415,7 +392,7 @@ Some of the main technical challenges included:
 * Building a Spring Boot REST API
 * Connecting the frontend to a production backend
 * Configuring CORS between Vercel and Railway
-* Connecting Spring Boot to PostgreSQL
+* Connecting Spring Boot to MySQL
 * Managing environment variables securely
 * Deploying a Java backend to Railway
 * Integrating Cloudinary for image hosting
@@ -425,44 +402,19 @@ These challenges helped strengthen my understanding of full-stack application de
 
 ---
 
-## Future Improvements
+## Featured Projects
 
-* Authentication system
-* Protected administration dashboard
-* Project creation and editing interface
-* Direct image uploads to Cloudinary
-* Project deletion and visibility controls
-* Contact form connected to the backend
-* Improved loading and error states
-* Automated tests
-* Accessibility improvements
-* Search engine optimization
-* Performance monitoring
-* Analytics integration
-* Docker support
-* Continuous integration workflow
-* Content management features
-* Blog or development journal
+- [BMV Makeup](https://www.bmvmakeup.com/) — multilingual editorial portfolio, filterable gallery and Instagram integration.
+- [Portuguese with Thais](https://portuguesewiththais.com/) — lesson booking, a 30-question placement test and a Brazilian culture guide.
+- [Marina Rodrigues Photography](https://www.marinarodriiphoto.com/) — multilingual photography portfolio with a Spring Boot API and a client admin area in development.
+- [Au Pair na Espanha](https://www.aupairnaespanha.com.br/) — resource platform with a host-family PDF guide and Brevo signup.
 
----
+## Documentation
 
-## Related Projects
-
-### Marina Rodrii Photo
-
-Photography portfolio developed with React and Vite.
-
-* [Live Website](http://www.marinarodriiphoto.com/)
-* [GitHub Repository](https://github.com/lorenasferreira/marinarodriiphoto)
-
-### Au Pair na Espanha
-
-Informational platform and digital project focused on helping au pairs understand the program in Spain.
-
-* [Live Website](https://aupairnaespanha.com.br)
-* [GitHub Repository](https://github.com/lorenasferreira/aupairnaespanha)
-
----
+- [Roadmap](ROADMAP.md)
+- [Project context](docs/PROJECT_CONTEXT.md)
+- [Design system](docs/DESIGN_SYSTEM.md)
+- [Scrap translation](backend/TRANSLATION.md)
 
 ## Author
 
@@ -475,5 +427,5 @@ Designed and developed by **Lorena Ferreira**.
 ---
 
 <p align="center">
-  Built with React, Spring Boot, PostgreSQL, Cloudinary, Vercel, and Railway.
+  Built with React, Spring Boot, MySQL, Cloudinary, Vercel, and Railway.
 </p>

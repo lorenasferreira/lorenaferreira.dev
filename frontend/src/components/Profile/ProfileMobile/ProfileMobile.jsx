@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import VerifiedTestimonials from "../VerifiedTestimonials/VerifiedTestimonials";
 import Scraps from "../Scraps/Scraps";
 
+import ProjectThumbnail from "../../ProjectThumbnail/ProjectThumbnail";
+
 import styles from "./ProfileMobile.module.css";
 
 function normalizeImagePath(imagePath) {
@@ -48,7 +50,7 @@ function ProfileMobile({
 
         <h1 className={styles.mobileName}>{t("common.name")}</h1>
 
-        <p className={styles.mobileLocation}>{t("profile.values.hometown")}</p>
+        <p className={styles.mobileLocation}>{t("profile.values.location")}</p>
 
         <div className={styles.mobileActions}>
           <a href="#mobile-projects" className={styles.primaryButton}>
@@ -179,8 +181,8 @@ function ProfileMobile({
                 to={`/projects/${project.slug}`}
                 className={styles.mobileProjectCard}
               >
-                <img
-                  src={normalizeImagePath(project.thumbnail)}
+                <ProjectThumbnail
+                  project={project}
                   alt={project.title}
                 />
 

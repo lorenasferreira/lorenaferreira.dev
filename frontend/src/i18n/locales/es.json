@@ -58,6 +58,7 @@
 
   "profile.values.interests": "playlists que se convierten en sesión de terapia, café, journaling",
   "profile.values.who_am_i": "Crecí en los días coloridos de internet — una época sincera, divertida y un poquito kitsch. Hoy convierto código en historias — diseñando experiencias que hacen sonreír, recordar y sentir.",
+  "profile.values.location": "Zúrich, Suiza",
   "profile.values.hometown": "Río de Janeiro, Brasil",
 
   "profile.links.linkedin": "LinkedIn",
@@ -105,6 +106,7 @@
   "home.fortune.error": "No se pudo cargar la suerte de hoy.",
   "home.fortune.default": "Hoy es un buen día para construir algo significativo.",
 
+  "feed.catalog_project.title": "destaca en su portafolio",
   "feed.new_project.title": "ha comenzado un nuevo proyecto",
   "feed.new_community.title": "se ha unido a una nueva comunidad",
   "feed.new_testimonial.title": "ha recibido un nuevo testimonio",
@@ -168,7 +170,10 @@
   "profile.verified_testimonials.verified_client": "Cliente verificado",
   "profile.verified_testimonials.published_project": "Proyecto publicado",
 
+  "profile.verified_testimonials.bmv_client": "Cliente / BMV Makeup",
+  "profile.verified_testimonials.original_in_portuguese": "Original en portugués",
   "profile.verified_testimonials.original_in_english": "Recomendación original en inglés",
+  "profile.verified_testimonials.translated_from_portuguese": "Traducido del portugués",
   "profile.verified_testimonials.translated_from_english": "Traducido de la recomendación original en inglés",
   "profile.verified_testimonials.translate": "Traducir",
   "profile.verified_testimonials.view_original": "Ver original",
@@ -189,28 +194,77 @@
   "scraps.page.title": "Recados",
   "scraps.page.description": "Déjame un mensaje en mi perfil o mira los recados que ya he recibido.",
 
-  "projectDetails": {
-    "lorenaferreira": {
-      "shortDescription": "Un portfolio full-stack vivo que lleva la nostalgia de la era de Orkut a una experiencia moderna de desarrollo.",
-      "fullDescription": "LorenaFerreira.dev es un portfolio full-stack vivo inspirado en Orkut, la red social que marcó la cultura de Internet en los años 2000, especialmente en Brasil e India. En lugar de limitarse a recrear su interfaz, el proyecto traslada sus perfiles, comunidades, scraps y nostálgicas interacciones sociales a una experiencia moderna de portfolio, donde mi trabajo, mis proyectos y mi evolución profesional se actualizan continuamente. Desarrollado con React y Vite en el frontend y Spring Boot con MySQL en el backend, combina una parte reconocible de la historia de las primeras redes sociales con una aplicación full-stack real y en constante evolución, desplegada con Vercel y Railway."
+    "project.features": "Funciones principales",
+    "project.screenshots": "Capturas de pantalla",
+    "project.status.completed": "Finalizado",
+    "project.status.in_development": "En desarrollo",
+    "project.status.maintained": "En mantenimiento",
+
+    "projectDetails": {
+      "lorenaferreira": {
+        "shortDescription": "Un portfolio full-stack vivo que lleva la nostalgia de la era de Orkut a una experiencia moderna de desarrollo.",
+        "fullDescription": "LorenaFerreira.dev es un portfolio full-stack vivo inspirado en Orkut, la red social que marcó la cultura de Internet en los años 2000, especialmente en Brasil e India. En lugar de limitarse a recrear su interfaz, el proyecto traslada sus perfiles, comunidades, scraps y nostálgicas interacciones sociales a una experiencia moderna de portfolio, donde mi trabajo, mis proyectos y mi evolución profesional se actualizan continuamente. Desarrollado con React y Vite en el frontend y Spring Boot con MySQL en el backend, combina una parte reconocible de la historia de las primeras redes sociales con una aplicación full-stack real y en constante evolución, desplegada con Vercel y Railway."
+      },
+      "claravision-optica": {
+        "shortDescription": "Un sistema completo de gestión para una óptica desarrollado con PHP y MySQL.",
+        "fullDescription": "ClaraVisión Óptica es una aplicación CRUD responsive desarrollada para gestionar una óptica. El sistema incluye gestión de productos y categorías, operaciones con base de datos, manejo de JSON y una interfaz estructurada en torno a flujos de trabajo reales. Fue desarrollado con PHP, MySQL, HTML, CSS y JavaScript y está desplegado en InfinityFree."
+      },
+      "curiofy": {
+        "shortDescription": "Una aplicación minimalista de curiosidades aleatorias conectada a una API pública.",
+        "fullDescription": "Curiofy es una aplicación web interactiva y ligera que obtiene datos curiosos aleatorios desde una API pública bajo demanda. Fue desarrollada con un enfoque mobile-first, gestión asíncrona de datos mediante Fetch API y pruebas unitarias automatizadas con Vitest. El proyecto prioriza una arquitectura JavaScript limpia, accesibilidad, diseño responsive y una experiencia rápida y sencilla."
+      },
+      "marinarodriiphoto": {
+        "shortDescription": "Portfolio fotográfico multilingüe con gestión de contenidos en desarrollo.",
+        "fullDescription": "Desarrollé el frontend con React y Vite y una API Java con Spring Boot y MySQL para organizar la colección. Estoy ampliando el área de administración para que Marina gestione sus propias fotos y publicaciones.",
+        "features": [
+          "Galerías y proyectos personales con fotos y vídeos",
+          "API REST con migraciones Flyway e integración con Cloudinary",
+          "Área de administración en desarrollo para subir, editar y publicar fotos"
+        ]
+      },
+      "aupairnaespanha": {
+        "shortDescription": "Plataforma de recursos para quienes planean ser au pair en España.",
+        "fullDescription": "Desarrollo y mantengo la plataforma en React, con páginas adaptables sobre el programa, cursos y seguros. La guía gratuita para evaluar familias anfitrionas integra un formulario de Brevo y una página de descarga.",
+        "features": [
+          "Guía en PDF y registro integrado con Brevo",
+          "Metadatos SEO por ruta generados durante la compilación y sitemap",
+          "Pruebas unitarias y de navegador para rutas, navegación y diseño adaptable"
+        ],
+        "coverAlt": "Inicio de Au Pair na Espanha",
+        "screenshotCaptions": [
+          "Sección de recursos de la página Au Pair",
+          "Página de la guía de familias anfitrionas"
+        ]
+      },
+      "bmv-makeup": {
+        "shortDescription": "Portfolio editorial adaptable para el maquillador Bruno Mënezess.",
+        "fullDescription": "Desarrollé un sitio en cuatro idiomas para presentar servicios, trabajos y cursos de maquillaje. La navegación organiza las especialidades y dirige las solicitudes de presupuesto a WhatsApp.",
+        "features": [
+          "Galería con filtros por categoría",
+          "Feed de Instagram con función serverless y contenido alternativo",
+          "Imágenes WebP adaptables y pruebas con Playwright"
+        ],
+        "coverAlt": "Inicio de BMV Makeup en escritorio",
+        "screenshotCaptions": [
+          "Galería del portfolio en escritorio",
+          "Página de bodas en móvil"
+        ]
+      },
+      "portuguese-with-thais": {
+        "shortDescription": "Sitio de clases de portugués brasileño con reservas y prueba de nivel.",
+        "fullDescription": "Desarrollé el sitio adaptable en inglés para presentar el método de la profesora, comparar clases y reservar a través de Cal.com. The Brazilian Soul reúne recursos culturales para estudiantes.",
+        "features": [
+          "Prueba de nivel de 30 preguntas con resultado inmediato",
+          "Selección de planes y reservas con Cal.com",
+          "Guía cultural, metadatos por ruta y pruebas con Playwright"
+        ],
+        "coverAlt": "Inicio de Portuguese with Thais en escritorio",
+        "screenshotCaptions": [
+          "The Brazilian Soul en escritorio",
+          "Página de reservas en móvil"
+        ]
+      }
     },
-    "claravision-optica": {
-      "shortDescription": "Un sistema completo de gestión para una óptica desarrollado con PHP y MySQL.",
-      "fullDescription": "ClaraVisión Óptica es una aplicación CRUD responsive desarrollada para gestionar una óptica. El sistema incluye gestión de productos y categorías, operaciones con base de datos, manejo de JSON y una interfaz estructurada en torno a flujos de trabajo reales. Fue desarrollado con PHP, MySQL, HTML, CSS y JavaScript y está desplegado en InfinityFree."
-    },
-    "curiofy": {
-      "shortDescription": "Una aplicación minimalista de curiosidades aleatorias conectada a una API pública.",
-      "fullDescription": "Curiofy es una aplicación web interactiva y ligera que obtiene datos curiosos aleatorios desde una API pública bajo demanda. Fue desarrollada con un enfoque mobile-first, gestión asíncrona de datos mediante Fetch API y pruebas unitarias automatizadas con Vitest. El proyecto prioriza una arquitectura JavaScript limpia, accesibilidad, diseño responsive y una experiencia rápida y sencilla."
-    },
-    "marinarodriiphoto": {
-      "shortDescription": "Un portfolio fotográfico multilingüe centrado en la narrativa visual y una experiencia refinada.",
-      "fullDescription": "MarinaRodriiPhoto es un portfolio responsive desarrollado para presentar fotografía profesional mediante una experiencia limpia y centrada en las imágenes. Reconstruido con React y Vite, el proyecto incluye navegación multilingüe, contenido dedicado al portfolio y una estructura moderna pensada para facilitar el mantenimiento, mejorar el rendimiento y permitir futuras ampliaciones. El sitio está desplegado en Vercel y conectado a su propio dominio."
-    },
-    "aupairnaespanha": {
-      "shortDescription": "Una plataforma multilingüe con orientación práctica, recursos y mentoría para quienes planean una experiencia au pair en España.",
-      "fullDescription": "Au Pair na Espanha es una plataforma digital multilingüe creada para ayudar a futuras au pairs a planificar su experiencia en España con información más clara, recursos prácticos y orientación realista. Desarrollado con React y Vite, el proyecto reúne contenido educativo, herramientas de planificación, información sobre mentoría y recursos de comunidad en una estructura responsive pensada para crecer junto con la marca."
-    }
-  },
   "testimonials.page.title": "Testimonios verificados",
   "testimonials.page.description": "Lee recomendaciones verificadas de clientes con los que he trabajado.",
 

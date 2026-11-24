@@ -1,33 +1,54 @@
 # Lorkut Roadmap
 
-## Próxima sessão
-- [ X ] Corrigir imagens quebradas do `SidebarRight` nas rotas `/projects/:slug`
-- [ X ] Criar página de comunidades
-- [ X ] Criar página individual de comunidade
-- [ X ] Conectar rotas e botões de comunidades
-- [ ] Revisar responsividade das páginas:
-  - [ X ] Home
-  - [ X ] Perfil
-  - [ x ] Projects
-  - [ x ] Project
-  - [ x ] Communities
-  - [ x ] Community
-- [ ] Revisar links e botões do site
-- [ ] Revisar traduções restantes
-- [ ] Preencher descrição curta do projeto da Mari
-- [ ] Remover ou identificar conteúdo demonstrativo
-- [ ] Fazer deploy do MVP
+## Agora — revisão e qualidade do portfólio
 
-## MVP
-- [ ] Corrigir todos os links e botões
-- [ ] Revisar traduções
-- [x] Criar listagem de projetos
-- [x] Criar página individual de projeto
-- [ X ] Finalizar comunidades
-- [ X ] Revisar responsividade
-- [ ] Fazer deploy
+- [x] Melhorar estado ativo do seletor de idiomas
+- [x] Corrigir aparência do ícone de busca
+- [x] Implementar busca do site
+- [x] Corrigir navegação dos resultados da busca
+- [x] Adicionar botão de voltar ao topo
+- [x] Melhorar experiência dos recados no mobile
+- [x] Adicionar “Ver mais / Ver menos” aos recados longos
+- [ ] Testar busca, botão de topo e recados após deploy
+- [ ] Ativar tradução automática dos recados
+  - [ ] Criar tabela `scrap_translations` no MySQL de produção
+  - [ ] Criar/configurar chave da API DeepL
+  - [ ] Adicionar `DEEPL_API_KEY` ao backend na Railway
+  - [ ] Testar tradução real
+  - [ ] Testar “Ver original”
+  - [ ] Confirmar funcionamento do cache
+- [ ] Fazer controle de qualidade técnico geral
+- [ ] Revisar links e botões restantes
+- [ ] Revisar traduções restantes
+- [ ] Revisar console e erros de produção
+
+## Privacidade e dados dos usuários
+
+- [ ] Auditar quais dados o site coleta e onde são armazenados
+- [ ] Revisar fluxo de envio dos recados
+- [ ] Revisar upload e armazenamento das fotos no Cloudinary
+- [ ] Definir processo para solicitação de remoção de foto/recado
+- [ ] Definir texto de consentimento no envio de recados/fotos
+- [ ] Criar ou revisar Política de Privacidade
+- [ ] Auditar cookies, localStorage, analytics e serviços externos
+- [ ] Determinar se o site realmente precisa de banner de cookies
+- [ ] Implementar consentimento de cookies apenas se necessário
+
+## Documentação e organização técnica
+
+- [x] Revisar os arquivos Markdown e atualizar o README e o contexto do projeto
+- [x] Referenciar `backend/TRANSLATION.md` pelo README e manter a configuração detalhada no guia
+- [ ] Revisar scripts SQL e documentação do banco
+
+## Conteúdo e projetos
+
+- [x] Adicionar BMV Makeup e Portuguese with Thais ao catálogo do Lorkut
+- [x] Atualizar o conteúdo e a stack de Marina Rodrigues Photography e Au Pair na Espanha
+- [x] Padronizar status, recursos e capturas dos projetos em destaque em quatro idiomas
+- [ ] Conferir projetos e comunidades com os dados publicados
 
 ## Activity Feed
+
 - [x] Criar `ActivityFeed` model
 - [x] Criar `ActivityFeedRepository`
 - [x] Criar `ActivityFeedService`
@@ -40,51 +61,28 @@
 - [ ] Separar tipos de atividade em componentes React
 - [ ] Internacionalizar descrições vindas do banco
 
-## Projeto Mari Rodrigues
-- [ ] Corrigir pendências visuais e funcionais
-- [ ] Revisar responsividade
-- [ ] Revisar idiomas
-- [ ] Adicionar crédito no footer:
-  - [ ] “Desenvolvido por Lorena Ferreira”
-  - [ ] Link para o Lorkut/portfólio
-- [ ] Pedir depoimento à Marina
-- [ ] Definir como exibir e verificar o depoimento
-- [ ] Conectar o domínio comprado pela Marina
-- [ ] Fazer deploy final
+## Admin — evolução futura
 
-## Marca pessoal
-- [ ] Pesquisar disponibilidade de domínio
-- [ ] Avaliar nomes como `lorenadev`
-- [ ] Comprar domínio do portfólio
-- [ ] Conectar domínio ao Lorkut
-- [ ] Atualizar links profissionais
-
-## Primeira cliente paga — site professora de português
-- [ ] Reunir referências e necessidades
-- [ ] Definir páginas e funcionalidades
-- [ ] Criar sitemap
-- [ ] Criar identidade visual inicial
-- [ ] Fazer wireframe
-- [ ] Começar o design
-- [ ] Planejar desenvolvimento e prazo
-
-## Fase 3 — Mídia
-- [ ] Criar álbuns de fotos
-- [ ] Criar vídeos e álbuns
-- [ ] Integrar mídia ao feed
-
-## Fase 4 — Depoimentos
-- [ ] Remover depoimentos demonstrativos
-- [ ] Adicionar fonte e URL externa
-- [ ] Integrar depoimentos ao feed
-
-## Fase 5 — Admin
 - [ ] Autenticação
 - [ ] CRUD de projetos
 - [ ] CRUD de comunidades
 - [ ] CRUD de fotos e vídeos
 - [ ] CRUD de depoimentos
 
-## Fase 6 — Jogos
+## Mídia — evolução futura
+
+- [ ] Criar álbuns de fotos
+- [ ] Criar vídeos e álbuns
+- [ ] Integrar mídia ao feed
+
+## Jogos — evolução futura
+
 - [ ] Definir primeiro jogo
 - [ ] Criar módulo separado
+
+## Estudos técnicos
+
+- [ ] Começar prática de TypeScript em uma tarefa ou projeto adequado
+- [ ] Praticar tipagem de objetos e props
+- [ ] Praticar consumo de APIs com tipos
+- [ ] Construir experiência suficiente para usar TypeScript em projetos profissionais

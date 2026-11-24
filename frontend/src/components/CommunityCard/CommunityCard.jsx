@@ -5,7 +5,7 @@ import styles from "./CommunityCard.module.css";
 
 function getImageUrl(imagePath) {
   if (!imagePath) {
-    return "/images/community-placeholder.png";
+    return "/assets/img/default-avatar.png";
   }
 
   if (

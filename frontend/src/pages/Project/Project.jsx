@@ -7,9 +7,9 @@ import PageLayout from "../../components/PageLayout/PageLayout";
 import SidebarLeft from "../../components/SidebarLeft/SidebarLeft";
 import SidebarRight from "../../components/SidebarRight/SidebarRight";
 
-import styles from "./Project.module.css";
+import { getProjectBySlug } from "../../services/api";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+import styles from "./Project.module.css";
 
 function normalizeImagePath(path) {
   if (!path) {
@@ -47,35 +47,34 @@ function Project() {
   }, [project]);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     async function loadProject() {
       try {
         setIsLoading(true);
         setError("");
+        setProject(null);
 
-        const response = await fetch(
-          `${API_BASE}/api/projects/${encodeURIComponent(slug)}`,
-        );
+        const data = await getProjectBySlug(slug, { signal: controller.signal });
+        if (controller.signal.aborted) return;
 
-        if (response.status === 404) {
+        if (!data) {
           setError(t("project.not_found"));
           return;
         }
 
-        if (!response.ok) {
-          throw new Error(`Could not load project. Status: ${response.status}`);
-        }
-
-        const data = await response.json();
         setProject(data);
       } catch (requestError) {
+        if (controller.signal.aborted) return;
         console.error(requestError);
         setError(t("project.error"));
       } finally {
-        setIsLoading(false);
+        if (!controller.signal.aborted) setIsLoading(false);
       }
     }
 
     loadProject();
+    return () => controller.abort();
   }, [slug, t]);
 
   useEffect(() => {
@@ -87,6 +86,15 @@ function Project() {
       document.title = t("projects.meta.title");
     };
   }, [project, t]);
+
+  const details = project ? `projectDetails.${project.slug}` : "";
+  const shortDescription = project
+    ? t(`${details}.shortDescription`, { defaultValue: project.description || "" })
+    : "";
+  const fullDescription = project
+    ? t(`${details}.fullDescription`, { defaultValue: "" })
+    : "";
+  const features = project && t(`${details}.features`, { returnObjects: true });
 
   return (
     <>
@@ -121,21 +129,27 @@ function Project() {
               <hr className={styles.divider} />
 
               <div className={styles.hero}>
-                <div className={styles.heroImage}>
-                  <img
-                    src={normalizeImagePath(project.thumbnail)}
-                    alt={project.title}
-                  />
-                </div>
+                {(project.cover || project.thumbnail) && (
+                  <div className={styles.heroImage}>
+                    <img
+                      src={normalizeImagePath(project.cover || project.thumbnail)}
+                      alt={t(`${details}.coverAlt`, { defaultValue: project.title })}
+                    />
+                  </div>
+                )}
 
                 <div className={styles.heroContent}>
-                  <p className={styles.shortDescription}>
-                    {t(`projectDetails.${project.slug}.shortDescription`)}
-                  </p>
-
-                  <p className={styles.description}>
-                    {t(`projectDetails.${project.slug}.fullDescription`)}
-                  </p>
+                  {project.status && (
+                    <span className={styles.techChip}>
+                      {t(`project.status.${project.status}`)}
+                    </span>
+                  )}
+                  {shortDescription && (
+                    <p className={styles.shortDescription}>{shortDescription}</p>
+                  )}
+                  {fullDescription && (
+                    <p className={styles.description}>{fullDescription}</p>
+                  )}
 
                   <div className={styles.buttons}>
                     {project.githubUrl && (
@@ -179,17 +193,35 @@ function Project() {
                 </section>
               )}
 
-              <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>{t("project.photos")}</h2>
+              {Array.isArray(features) && features.length > 0 && (
+                <section className={styles.section}>
+                  <h2 className={styles.sectionTitle}>{t("project.features")}</h2>
+                  <ul className={styles.features}>
+                    {features.map((feature) => <li key={feature}>{feature}</li>)}
+                  </ul>
+                </section>
+              )}
 
-                <p className={styles.muted}>{t("project.no_photos")}</p>
-              </section>
+              {project.screenshots?.length > 0 && (
+                <section className={styles.section}>
+                  <h2 className={styles.sectionTitle}>{t("project.screenshots")}</h2>
+                  <div className={styles.gallery}>
+                    {project.screenshots.map((filename, index) => {
+                      const src = `/assets/img/projects/${project.slug}/${filename}`;
+                      const caption = t(`${details}.screenshotCaptions.${index}`);
 
-              <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>{t("project.videos")}</h2>
-
-                <p className={styles.muted}>{t("project.no_videos")}</p>
-              </section>
+                      return (
+                        <figure key={filename}>
+                          <a href={src}>
+                            <img src={src} alt={caption} loading="lazy" decoding="async" />
+                          </a>
+                          <figcaption>{caption}</figcaption>
+                        </figure>
+                      );
+                    })}
+                  </div>
+                </section>
+              )}
             </>
           )}
         </section>

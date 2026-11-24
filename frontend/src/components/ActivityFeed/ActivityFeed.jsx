@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { portfolioProjects } from "../../data/portfolioProjects";
+import { getCommunities, getProjects } from "../../services/api";
+
+import ProjectThumbnail from "../ProjectThumbnail/ProjectThumbnail";
+
 import styles from "./ActivityFeed.module.css";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 const API_URL = `${API_BASE}/api/feed`;
-const PROJECTS_API_URL = `${API_BASE}/api/projects`;
-const COMMUNITIES_API_URL = `${API_BASE}/api/communities`;
+const catalogBySlug = Object.fromEntries(
+  portfolioProjects.map((project) => [project.slug, project]),
+);
 
 const LOCALES = {
   en: "en-US",
@@ -45,14 +51,20 @@ function parsePayload(payload) {
   }
 }
 
+async function getActivities() {
+  const response = await fetch(API_URL);
+  if (!response.ok) {
+    throw new Error(`Could not load feed. Status: ${response.status}`);
+  }
+  return response.json();
+}
+
 function ActivityFeed() {
   const { t, i18n } = useTranslation();
 
   const [activities, setActivities] = useState([]);
   const [projectsBySlug, setProjectsBySlug] = useState({});
   const [communitiesBySlug, setCommunitiesBySlug] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
 
   function formatDate(dateValue) {
     if (!dateValue) {
@@ -101,93 +113,66 @@ function ActivityFeed() {
   }
 
   useEffect(() => {
-    async function loadFeed() {
-      try {
-        setIsLoading(true);
-        setError("");
+    let active = true;
 
-        const [feedResponse, projectsResponse, communitiesResponse] =
-          await Promise.all([
-            fetch(API_URL),
-            fetch(PROJECTS_API_URL),
-            fetch(COMMUNITIES_API_URL),
-          ]);
+    getActivities()
+      .then((feed) => {
+        if (active && Array.isArray(feed)) setActivities(feed);
+      })
+      .catch((error) => console.warn("Could not load feed activities:", error));
 
-        if (!feedResponse.ok) {
-          throw new Error(
-            `Could not load feed. Status: ${feedResponse.status}`,
-          );
-        }
-
-        if (!projectsResponse.ok) {
-          throw new Error(
-            `Could not load projects. Status: ${projectsResponse.status}`,
-          );
-        }
-
-        if (!communitiesResponse.ok) {
-          throw new Error(
-            `Could not load communities. Status: ${communitiesResponse.status}`,
-          );
-        }
-
-        const feedData = await feedResponse.json();
-        const projectsData = await projectsResponse.json();
-        const communitiesData = await communitiesResponse.json();
-
-        const projectsMap = Object.fromEntries(
-          projectsData.map((project) => [project.slug, project]),
-        );
-
-        const communitiesMap = Object.fromEntries(
-          communitiesData.map((community) => [community.slug, community]),
-        );
-
-        setActivities(feedData);
-        setProjectsBySlug(projectsMap);
-        setCommunitiesBySlug(communitiesMap);
-      } catch (requestError) {
-        console.error(requestError);
-        setError(t("feed.error"));
-      } finally {
-        setIsLoading(false);
+    getProjects().then((projects) => {
+      if (active) {
+        setProjectsBySlug(Object.fromEntries(
+          projects.map((project) => [project.slug, project]),
+        ));
       }
+    });
+
+    getCommunities()
+      .then((communities) => {
+        if (active && Array.isArray(communities)) {
+          setCommunitiesBySlug(Object.fromEntries(
+            communities.map((community) => [community.slug, community]),
+          ));
+        }
+      })
+      .catch((error) => console.warn("Could not load feed communities:", error));
+
+    return () => { active = false; };
+  }, []);
+
+  const projectSlugs = new Set();
+  const feedItems = activities
+    .map((activity) => ({ ...activity, payload: parsePayload(activity.payload) || {} }))
+    .filter(({ type, payload }) => {
+      if (type !== "new_project" || !payload.slug) return true;
+      if (projectSlugs.has(payload.slug)) return false;
+      projectSlugs.add(payload.slug);
+      return true;
+    });
+
+  for (const project of portfolioProjects) {
+    if (!projectSlugs.has(project.slug)) {
+      feedItems.push({
+        id: `portfolio-${project.slug}`,
+        type: "new_project",
+        payload: project,
+        fromCatalog: true,
+      });
     }
-
-    loadFeed();
-  }, [t]);
-
-  if (isLoading) {
-    return (
-      <section className={styles.feed}>
-        <p>{t("feed.loading")}</p>
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section className={styles.feed}>
-        <p>{error}</p>
-      </section>
-    );
-  }
-
-  if (activities.length === 0) {
-    return (
-      <section className={styles.feed}>
-        <p>{t("feed.empty")}</p>
-      </section>
-    );
   }
 
   return (
     <section className={styles.feed}>
-      {activities.map((activity) => {
-        const payload = parsePayload(activity.payload);
+      {feedItems.map((activity) => {
+        const { payload } = activity;
 
         if (activity.type === "new_project") {
-          const project = projectsBySlug[payload.slug] || payload;
+          const project = projectsBySlug[payload.slug] || catalogBySlug[payload.slug] || payload;
+          const description = t(`projectDetails.${payload.slug}.shortDescription`, {
+            defaultValue: project.description || "",
+          });
 
           return (
             <article className={styles.item} key={activity.id}>
@@ -201,19 +186,21 @@ function ActivityFeed() {
                 <div>
                   <p className={styles.title}>
                     <strong>{t("common.name")}</strong>{" "}
-                    {t("feed.new_project.title")}
+                    {t(activity.fromCatalog ? "feed.catalog_project.title" : "feed.new_project.title")}
                   </p>
 
-                  <time className={styles.meta} dateTime={activity.createdAt}>
-                    {formatDate(activity.createdAt)}
-                  </time>
+                  {activity.createdAt && (
+                    <time className={styles.meta} dateTime={activity.createdAt}>
+                      {formatDate(activity.createdAt)}
+                    </time>
+                  )}
                 </div>
               </header>
 
               <div className={styles.body}>
                 <div className={styles.thumbnail}>
-                  <img
-                    src={normalizeImagePath(project.thumbnail)}
+                  <ProjectThumbnail
+                    project={project}
                     alt={project.title}
                   />
                 </div>
@@ -223,11 +210,7 @@ function ActivityFeed() {
                     <strong>{project.title}</strong>
                   </p>
 
-                  {payload.slug && (
-                    <p className={styles.text}>
-                      {t(`projectDetails.${payload.slug}.shortDescription`)}
-                    </p>
-                  )}
+                  {description && <p className={styles.text}>{description}</p>}
 
                   {project.techStack && (
                     <p className={styles.stack}>{project.techStack}</p>

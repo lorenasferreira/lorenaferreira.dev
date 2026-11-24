@@ -169,7 +169,7 @@ Sensitive credentials must never be committed to Git.
 
 ## Projects
 
-Portfolio projects are stored dynamically and consumed by the frontend through the backend API.
+Project records from the Spring Boot API are combined by slug with the curated catalog in `frontend/src/data/portfolioProjects.js`. The catalog takes precedence for its four featured projects, pairs with localized content in `frontend/src/i18n/locales/`, and remains available when the project API is unavailable. Screenshots for featured projects are served from `frontend/public/assets/img/projects/`.
 
 The application supports:
 
@@ -309,68 +309,16 @@ Production database credentials are provided through environment variables.
 
 ---
 
-## Current Refactoring
-
-The repository originally stored the frontend directly in the project root while the backend already had its own directory.
-
-The frontend has now been moved into:
-
-`frontend/`
-
-Goal:
-
-Create a clear full-stack repository structure without changing application behavior.
-
-After structural changes always verify:
-
-- Local frontend
-- Local backend
-- Database connection
-- API requests
-- React Router routes
-- Production frontend deployment
-- Production backend deployment
-
----
-
 ## Documentation
 
 - `README.md` → public project overview displayed on GitHub
 - `PROJECT_CONTEXT.md` → current architecture, decisions and development context
 - `ROADMAP.md` → development progress and future work
-- `frontend/DESIGN_SYSTEM.md` → visual system and reusable UI rules
+- `docs/DESIGN_SYSTEM.md` → visual system and reusable UI rules
 - `docs/screenshots/` → screenshots used by project documentation
 
 ---
 
 ## Next Steps
 
-Current priority:
-
-1. Finish repository restructuring
-2. Verify Vercel configuration after frontend move
-3. Verify Railway configuration
-4. Review repository root for misplaced files
-5. Create/update Project Context
-6. Create Design System documentation
-7. Review Roadmap against current application state
-8. Review README against current architecture
-9. Test all frontend routes
-10. Test all API-dependent features
-11. Review responsive behavior
-12. Review accessibility
-13. Review SEO and metadata
-14. Review production performance
-15. Continue feature development only after structural cleanup is stable
-
----
-
-## Resume From Here
-
-**The portfolio is already a working full-stack application.**
-
-Do not restart or unnecessarily rewrite working features.
-
-The current phase is repository cleanup, architectural organization and documentation.
-
-After restructuring, continue development from the existing application and improve features incrementally.
+See the [roadmap](../ROADMAP.md) for current priorities and deployment checks.

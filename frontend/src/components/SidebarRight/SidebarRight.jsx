@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 
 import { getCommunities, getProjects } from "../../services/api";
 
+import ProjectThumbnail from "../ProjectThumbnail/ProjectThumbnail";
+
 import styles from "./SidebarRight.module.css";
 
 function normalizeImagePath(imagePath) {
@@ -76,8 +78,8 @@ function SidebarRight() {
               className={styles.thumbnailLink}
               title={project.title}
             >
-              <img
-                src={normalizeImagePath(project.thumbnail)}
+              <ProjectThumbnail
+                project={project}
                 alt={project.title}
                 className={styles.thumbnail}
               />

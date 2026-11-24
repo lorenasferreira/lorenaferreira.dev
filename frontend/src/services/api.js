@@ -1,27 +1,45 @@
+import { mergePortfolioProjects, portfolioProjects } from "../data/portfolioProjects";
+
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 const API_URL = `${API_BASE}/api`;
 
 export async function getProjects() {
-  const response = await fetch(`${API_URL}/projects`);
+  try {
+    const response = await fetch(`${API_URL}/projects`);
+    if (!response.ok) {
+      throw new Error(`Could not load projects. Status: ${response.status}`);
+    }
 
-  if (!response.ok) {
-    throw new Error("Não foi possível carregar os projetos.");
+    return mergePortfolioProjects(await response.json());
+  } catch (error) {
+    console.warn("Showing local portfolio projects:", error);
+    return portfolioProjects;
   }
-
-  return response.json();
 }
 
-export async function getProjectBySlug(slug) {
-  const response = await fetch(
-    `${API_URL}/projects/${encodeURIComponent(slug)}`,
-  );
+export async function getProjectBySlug(slug, { signal } = {}) {
+  const curated = portfolioProjects.find((project) => project.slug === slug);
+  try {
+    const response = await fetch(
+      `${API_URL}/projects/${encodeURIComponent(slug)}`,
+      { signal },
+    );
 
-  if (!response.ok) {
-    throw new Error("Projeto não encontrado.");
+    if (response.status === 404) {
+      return curated ?? null;
+    }
+
+    if (!response.ok) {
+      throw new Error(`Could not load project. Status: ${response.status}`);
+    }
+
+    const project = await response.json();
+    return curated ? { ...project, ...curated } : project;
+  } catch (error) {
+    if (!curated || signal?.aborted) throw error;
+    return curated;
   }
-
-  return response.json();
 }
 
 export async function getCommunities() {

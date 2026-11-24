@@ -57,7 +57,7 @@ function SidebarLeft() {
       <div className={styles.profileCard}>
         <h1 className={styles.profileName}>{t("common.name")}</h1>
 
-        <h2 className={styles.location}>Barcelona, Spain</h2>
+        <h2 className={styles.location}>{t("profile.values.location")}</h2>
 
         <hr className={styles.divider} />
 

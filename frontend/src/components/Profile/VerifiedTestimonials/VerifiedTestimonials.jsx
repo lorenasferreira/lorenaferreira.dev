@@ -30,13 +30,34 @@ const testimonials = [
       fr: "Je suis extrêmement satisfaite du site web que Lorena a développé pour moi. Non seulement il m'a aidée à augmenter mes ventes, mais le design correspond également exactement à ce que j'avais imaginé.\n\nUn autre aspect très positif de son service est qu'elle me tient informée de chaque modification et amélioration apportée au site tout au long du processus. Elle m'a également aidée à acheter mon nom de domaine en me fournissant des instructions claires, étape par étape, pour effectuer l'achat et finaliser la configuration.\n\nJe suis vraiment très reconnaissante pour tout le travail qu'elle a réalisé. Merci beaucoup, Lorena !\n\nJe recommande vivement ses services à toute personne à la recherche d'une professionnelle dévouée, respectueuse des délais et toujours prête à adapter son travail à vos idées et aux besoins de votre activité.",
     },
 
-    projectName: "MarinaRodriiPhoto",
+    projectName: "Marina Rodrigues Photography",
     projectSlug: "marinarodriiphoto",
 
     recommendationSource: "LinkedIn",
     linkedinUrl:
       "https://www.linkedin.com/in/lorenasferreira/details/recommendations/?detailScreenTabIndex=0",
     websiteUrl: "https://www.marinarodriiphoto.com",
+  },
+  {
+    id: 2,
+    clientName: "Bruno Mënezess",
+    clientRoleKey: "profile.verified_testimonials.bmv_client",
+    clientAvatar: "/assets/img/default-avatar.png",
+    verified: true,
+    originalLanguage: "pt",
+    originalMessage:
+      "Lorena e seu profesionalismo me entregaram o site dos meus sonhos. Cada detalhe, paleta de cores, textos… ela consegui captar e entregar o que realmente queria.",
+    translations: {
+      en: "Lorena and her professionalism gave me the website of my dreams. Every detail, the colour palette, the copy… she managed to capture and deliver what I really wanted.",
+      es: "Lorena y su profesionalidad me dieron el sitio web de mis sueños. Cada detalle, la paleta de colores, los textos… logró captar y entregar lo que realmente quería.",
+      fr: "Lorena et son professionnalisme m’ont offert le site web de mes rêves. Chaque détail, la palette de couleurs, les textes… elle a su saisir et réaliser ce que je voulais vraiment.",
+    },
+    projectName: "BMV Makeup",
+    projectSlug: "bmv-makeup",
+    recommendationSource: "LinkedIn",
+    linkedinUrl: "https://www.linkedin.com/in/bruno-de-menezes-6a6728286/",
+    websiteUrl: "https://www.bmvmakeup.com/",
+    publishedAt: "2026-11-18",
   },
 ];
 
@@ -85,7 +106,8 @@ function VerifiedTestimonials() {
 
       <div className={styles.list}>
         {testimonials.map((testimonial) => {
-          const isTranslated = translatedTestimonials[testimonial.id] || false;
+          const isTranslated = canTranslate(testimonial) && Boolean(translatedTestimonials[testimonial.id]);
+          const sourceLanguage = testimonial.originalLanguage === "pt" ? "portuguese" : "english";
 
           return (
             <article key={testimonial.id} className={styles.card}>
@@ -103,7 +125,7 @@ function VerifiedTestimonials() {
                     </strong>
 
                     <p className={styles.clientRole}>
-                      {testimonial.clientRole}
+                      {testimonial.clientRoleKey ? t(testimonial.clientRoleKey) : testimonial.clientRole}
                     </p>
                   </div>
 
@@ -114,18 +136,20 @@ function VerifiedTestimonials() {
                   )}
                 </div>
 
-                <div
-                  className={styles.stars}
-                  aria-label={`${testimonial.rating} / 5`}
-                >
-                  {Array.from({
-                    length: testimonial.rating,
-                  }).map((_, index) => (
-                    <span key={index} aria-hidden="true">
-                      ★
-                    </span>
-                  ))}
-                </div>
+                {testimonial.rating && (
+                  <div
+                    className={styles.stars}
+                    aria-label={`${testimonial.rating} / 5`}
+                  >
+                    {Array.from({
+                      length: testimonial.rating,
+                    }).map((_, index) => (
+                      <span key={index} aria-hidden="true">
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 <p className={styles.message}>
                   “{getDisplayedMessage(testimonial)}”
@@ -133,11 +157,7 @@ function VerifiedTestimonials() {
 
                 <div className={styles.languageInformation}>
                   <small>
-                    {isTranslated
-                      ? t(
-                          "profile.verified_testimonials.translated_from_english",
-                        )
-                      : t("profile.verified_testimonials.original_in_english")}
+                    {t(`profile.verified_testimonials.${isTranslated ? "translated_from" : "original_in"}_${sourceLanguage}`)}
                   </small>
 
                   {canTranslate(testimonial) && (
@@ -158,6 +178,17 @@ function VerifiedTestimonials() {
                     {t("profile.verified_testimonials.published_on")}{" "}
                     {testimonial.recommendationSource}
                   </span>
+
+                  {testimonial.publishedAt && (
+                    <time dateTime={testimonial.publishedAt}>
+                      {new Intl.DateTimeFormat(currentLanguage, {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                        timeZone: "UTC",
+                      }).format(new Date(testimonial.publishedAt))}
+                    </time>
+                  )}
 
                   <a
                     href={testimonial.linkedinUrl}

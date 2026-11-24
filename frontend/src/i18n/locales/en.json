@@ -58,6 +58,7 @@
 
   "profile.values.interests": "playlists that turn into therapy sessions, coffee, journaling",
   "profile.values.who_am_i": "I grew up in the colorful days of the internet — a time when it was sincere, playful, and a little bit tacky. Now, I turn code into stories — designing experiences that make people smile, remember, and feel.",
+  "profile.values.location": "Zurich, Switzerland",
   "profile.values.hometown": "Rio de Janeiro, Brazil",
 
   "profile.links.linkedin": "LinkedIn",
@@ -105,6 +106,7 @@
   "home.fortune.error": "Could not load today's luck.",
   "home.fortune.default": "Today is a good day to build something meaningful.",
 
+  "feed.catalog_project.title": "features in her portfolio",
   "feed.new_project.title": "started a new project",
   "feed.new_community.title": "joined a new community",
   "feed.new_testimonial.title": "received a new testimonial",
@@ -175,7 +177,10 @@
   "profile.verified_testimonials.total": "testimonial",
   "profile.verified_testimonials.verified_client": "Verified client",
   "profile.verified_testimonials.published_project": "Published project",
+  "profile.verified_testimonials.bmv_client": "Client / BMV Makeup",
+  "profile.verified_testimonials.original_in_portuguese": "Original in Portuguese",
   "profile.verified_testimonials.original_in_english": "Original recommendation in English",
+  "profile.verified_testimonials.translated_from_portuguese": "Translated from Portuguese",
   "profile.verified_testimonials.translated_from_english": "Translated from the original English recommendation",
   "profile.verified_testimonials.translate": "Translate",
   "profile.verified_testimonials.view_original": "View original",
@@ -195,28 +200,77 @@
   "scraps.page.title": "Scraps",
   "scraps.page.description": "Leave a message on my profile or read the scraps I have received.",
 
-  "projectDetails": {
-    "lorenaferreira": {
-      "shortDescription": "A living full-stack portfolio that brings the social web nostalgia of Orkut into a modern developer experience.",
-      "fullDescription": "LorenaFerreira.dev is a living full-stack portfolio inspired by Orkut, the social network that became a defining part of internet culture in the 2000s, especially in Brazil and India. Rather than simply recreating its interface, the project brings its profiles, communities, scraps and nostalgic social interactions into a modern portfolio experience where my work, projects and professional evolution are continuously updated. Built with React and Vite on the frontend and Spring Boot with MySQL on the backend, it combines a recognizable piece of early social-web history with a real, evolving full-stack application deployed on Vercel and Railway."
+    "project.features": "Key features",
+    "project.screenshots": "Screenshots",
+    "project.status.completed": "Completed",
+    "project.status.in_development": "In development",
+    "project.status.maintained": "Maintained",
+
+    "projectDetails": {
+      "lorenaferreira": {
+        "shortDescription": "A living full-stack portfolio that brings the social web nostalgia of Orkut into a modern developer experience.",
+        "fullDescription": "LorenaFerreira.dev is a living full-stack portfolio inspired by Orkut, the social network that became a defining part of internet culture in the 2000s, especially in Brazil and India. Rather than simply recreating its interface, the project brings its profiles, communities, scraps and nostalgic social interactions into a modern portfolio experience where my work, projects and professional evolution are continuously updated. Built with React and Vite on the frontend and Spring Boot with MySQL on the backend, it combines a recognizable piece of early social-web history with a real, evolving full-stack application deployed on Vercel and Railway."
+      },
+      "claravision-optica": {
+        "shortDescription": "A complete management system for an optical store built with PHP and MySQL.",
+        "fullDescription": "ClaraVisión Óptica is a responsive CRUD application developed for managing an optical store. The system includes product and category management, database operations, JSON handling and a structured interface designed around practical business workflows. Built with PHP, MySQL, HTML, CSS and JavaScript and deployed on InfinityFree."
+      },
+      "curiofy": {
+        "shortDescription": "A minimalist random-fact application powered by a public API.",
+        "fullDescription": "Curiofy is a lightweight interactive web application that retrieves random facts from a public API on demand. It was built with a mobile-first approach, asynchronous data handling with the Fetch API and automated unit testing with Vitest. The project focuses on clean JavaScript architecture, accessibility, responsive design and a fast, straightforward user experience."
+      },
+      "marinarodriiphoto": {
+        "shortDescription": "Multilingual photography portfolio with content management in development.",
+        "fullDescription": "I built the React and Vite frontend and a Java API with Spring Boot and MySQL to organize the collection. I’m extending the admin area so Marina can manage her own imagery and publications.",
+        "features": [
+          "Photo galleries and personal projects with photos and videos",
+          "REST API with Flyway migrations and Cloudinary media integration",
+          "Admin area in development for uploading, editing and publishing photos"
+        ]
+      },
+      "aupairnaespanha": {
+        "shortDescription": "Resource platform for people planning to become au pairs in Spain.",
+        "fullDescription": "I build and maintain the React platform, including responsive pages about the program, courses and insurance. The free host-family guide uses a Brevo signup form and a dedicated download page.",
+        "features": [
+          "PDF guide and Brevo signup integration",
+          "Build-generated SEO metadata for individual routes and a sitemap",
+          "Unit and browser tests for routes, navigation and responsive layouts"
+        ],
+        "coverAlt": "Au Pair na Espanha homepage",
+        "screenshotCaptions": [
+          "Resources section on the Au Pair page",
+          "Host-family guide page"
+        ]
+      },
+      "bmv-makeup": {
+        "shortDescription": "Responsive editorial portfolio for makeup artist Bruno Mënezess.",
+        "fullDescription": "I built a four-language site to showcase makeup services, selected work and courses. The navigation guides visitors through each specialty and directs booking enquiries to WhatsApp.",
+        "features": [
+          "Filterable portfolio gallery",
+          "Instagram feed with a serverless endpoint and fallback content",
+          "Responsive WebP images and Playwright tests"
+        ],
+        "coverAlt": "BMV Makeup desktop homepage",
+        "screenshotCaptions": [
+          "Desktop portfolio gallery",
+          "Mobile weddings page"
+        ]
+      },
+      "portuguese-with-thais": {
+        "shortDescription": "Brazilian Portuguese lessons website with booking and a placement test.",
+        "fullDescription": "I built the responsive English-language site to present the teacher’s method, help visitors compare lesson options and book through Cal.com. The Brazilian Soul section collects cultural resources for learners.",
+        "features": [
+          "30-question placement test with an immediate result",
+          "Plan selection and Cal.com booking",
+          "Cultural guide, route metadata and Playwright tests"
+        ],
+        "coverAlt": "Portuguese with Thais desktop homepage",
+        "screenshotCaptions": [
+          "The Brazilian Soul on desktop",
+          "Mobile booking page"
+        ]
+      }
     },
-    "claravision-optica": {
-      "shortDescription": "A complete management system for an optical store built with PHP and MySQL.",
-      "fullDescription": "ClaraVisión Óptica is a responsive CRUD application developed for managing an optical store. The system includes product and category management, database operations, JSON handling and a structured interface designed around practical business workflows. Built with PHP, MySQL, HTML, CSS and JavaScript and deployed on InfinityFree."
-    },
-    "curiofy": {
-      "shortDescription": "A minimalist random-fact application powered by a public API.",
-      "fullDescription": "Curiofy is a lightweight interactive web application that retrieves random facts from a public API on demand. It was built with a mobile-first approach, asynchronous data handling with the Fetch API and automated unit testing with Vitest. The project focuses on clean JavaScript architecture, accessibility, responsive design and a fast, straightforward user experience."
-    },
-    "marinarodriiphoto": {
-      "shortDescription": "A multilingual photography portfolio designed around visual storytelling and a refined user experience.",
-      "fullDescription": "MarinaRodriiPhoto is a responsive portfolio website developed to showcase professional photography through a clean, image-focused experience. Rebuilt with React and Vite, the project includes multilingual navigation, dedicated portfolio content and a modern structure designed for maintainability, performance and future growth. The site is deployed on Vercel and connected to its own custom domain."
-    },
-    "aupairnaespanha": {
-      "shortDescription": "A multilingual platform with practical guidance, resources and mentoring for people planning an au pair experience in Spain.",
-      "fullDescription": "Au Pair na Espanha is a multilingual digital platform created to help future au pairs plan their experience in Spain with clearer information, practical resources and realistic guidance. Built with React and Vite, the project brings together educational content, planning tools, mentoring information and community resources in a responsive structure designed to grow alongside the brand."
-    }
-  },
   "testimonials.page.title": "Verified testimonials",
   "testimonials.page.description": "Read verified recommendations from clients I have worked with.",
   "communityDetails": {

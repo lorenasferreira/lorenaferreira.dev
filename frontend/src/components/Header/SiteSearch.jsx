@@ -12,11 +12,9 @@ export default function SiteSearch() {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [projects, setProjects] = useState([]);
-  const [failed, setFailed] = useState(false);
   useEffect(() => {
     let active = true;
-    getProjects().then(data => { if (active) setProjects(Array.isArray(data) ? data : []); })
-      .catch(() => { if (active) setFailed(true); });
+    getProjects().then(data => { if (active) setProjects(data); });
     return () => { active = false; };
   }, []);
   useEffect(() => {
@@ -30,11 +28,12 @@ export default function SiteSearch() {
   const communityDetails = i18n.getResourceBundle(i18n.resolvedLanguage?.split("-")[0] || "en", "translation")?.communityDetails || {};
   const entries = [
     ...Object.entries(communityDetails).map(([slug, content]) => ({ to: `/communities/${encodeURIComponent(slug)}`, title: content.title, text: content.description, priority: 0 })),
-    ...Object.entries(details).map(([slug, content]) => {
-      const project = projects.find(item => item.slug === slug);
-      return { to: `/projects/${encodeURIComponent(slug)}`, title: project?.title || slug.replaceAll("-", " "), text: `${Object.values(content).join(" ")} ${project?.techStack || ""}`, priority: 2 };
-    }),
-    ...projects.filter(project => !details[project.slug]).map(project => ({ to: `/projects/${encodeURIComponent(project.slug)}`, title: project.title, text: `${project.description || ""} ${project.techStack || ""}`, priority: 2 })),
+    ...projects.map(project => ({
+      to: `/projects/${encodeURIComponent(project.slug)}`,
+      title: project.title,
+      text: `${Object.values(details[project.slug] || {}).join(" ")} ${project.description || ""} ${project.techStack || ""}`,
+      priority: 2,
+    })),
     ...[ ["/profile", "nav.profile", "profile.values.who_am_i"], ["/projects", "nav.projects", "projects.title"], ["/scraps", "nav.scrapbook", "scraps.page.description"], ["/testimonials", "testimonials.page.title", "testimonials.page.description"], ["/home", "nav.home", "about.paragraph.1"], ["/communities", "nav.communities", "communities.title"] ].map(([to, title, text]) => ({ to, title: t(title), text: t(text), priority: 1 })),
   ];
   const terms = normalize(query.trim()).split(/\s+/).filter(Boolean);
@@ -51,6 +50,6 @@ export default function SiteSearch() {
   }}>
     <input className={styles.searchInput} type="search" value={query} onChange={event => { setQuery(event.target.value); setOpen(true); }} onFocus={() => setOpen(true)} placeholder={t("nav.search_placeholder")} aria-label={t("nav.search")} aria-expanded={open && terms.length > 0} aria-controls={id} />
     <button className={styles.searchBtn} type="submit" aria-label={t("nav.search")}><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button>
-    {open && terms.length > 0 && <div id={id} className={styles.results}><p role="status">{results.length ? `${t("nav.search")}: ${results.length}` : t("search.empty")}</p>{failed && <p>{t("search.error")}</p>}<ul>{results.map(result => <li key={result.to}><Link to={result.to} onClick={() => { setOpen(false); setQuery(""); }}>{result.title}</Link></li>)}</ul></div>}
+    {open && terms.length > 0 && <div id={id} className={styles.results}><p role="status">{results.length ? `${t("nav.search")}: ${results.length}` : t("search.empty")}</p><ul>{results.map(result => <li key={result.to}><Link to={result.to} onClick={() => { setOpen(false); setQuery(""); }}>{result.title}</Link></li>)}</ul></div>}
   </form>;
 }

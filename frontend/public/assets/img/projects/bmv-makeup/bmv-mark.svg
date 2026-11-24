@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 256" role="img" aria-labelledby="title">
+  <title id="title">BMV Makeup mark</title>
+  <g fill="none" stroke="#173605" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M70 42 V214
+             M70 42 H125
+             C165 42 176 63 176 85
+             C176 110 159 128 126 128
+             H70
+             M126 128
+             C166 128 183 145 183 171
+             C183 198 164 214 126 214
+             H70"/>
+    <path d="M215 214 V48
+             L272 154
+             L329 48
+             V214"/>
+    <path d="M350 48 L410 214 L470 48"/>
+  </g>
+</svg>

@@ -699,7 +699,7 @@ Do not hardcode production API URLs throughout components.
 Use environment configuration such as:
 
 ```text
-VITE_API_URL
+VITE_API_BASE_URL
 ```
 
 Local and production environments may point to different backend URLs.

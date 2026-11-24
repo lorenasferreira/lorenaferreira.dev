@@ -7,11 +7,9 @@ import SidebarLeft from "../../components/SidebarLeft/SidebarLeft";
 import SidebarRight from "../../components/SidebarRight/SidebarRight";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
+import { getProjects } from "../../services/api";
+
 import styles from "./Projects.module.css";
-
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
-
-const API_URL = `${API_BASE}/api/projects`;
 
 function Projects() {
   const { t } = useTranslation();
@@ -26,16 +24,7 @@ function Projects() {
         setIsLoading(true);
         setError("");
 
-        const response = await fetch(API_URL);
-
-        if (!response.ok) {
-          throw new Error(
-            `Could not load projects. Status: ${response.status}`,
-          );
-        }
-
-        const data = await response.json();
-        setProjects(data);
+        setProjects(await getProjects());
       } catch (requestError) {
         console.error(requestError);
         setError(t("projects.error"));
@@ -72,7 +61,7 @@ function Projects() {
           {!isLoading && !error && projects.length > 0 && (
             <div className={styles.grid}>
               {projects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard key={project.slug} project={project} />
               ))}
             </div>
           )}

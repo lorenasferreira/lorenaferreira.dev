@@ -58,3 +58,9 @@
 .link:hover {
   text-decoration: underline;
 }
+.status {
+  margin: 0 0 8px;
+  color: var(--link);
+  font-size: 0.8rem;
+  font-weight: 600;
+}

@@ -1,0 +1,6 @@
+img.logo[src] {
+  box-sizing: border-box;
+  padding: min(10%, 18px);
+  background: var(--white);
+  object-fit: contain;
+}

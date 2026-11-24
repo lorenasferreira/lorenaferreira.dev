@@ -58,6 +58,7 @@
 
   "profile.values.interests": "playlists qui deviennent des séances de thérapie, café, journaling",
   "profile.values.who_am_i": "J’ai grandi dans les jours colorés d’Internet — une époque sincère, ludique et un peu kitsch. Aujourd’hui, je transforme le code en histoires — en créant des expériences qui font sourire, se souvenir et ressentir.",
+  "profile.values.location": "Zurich, Suisse",
   "profile.values.hometown": "Rio de Janeiro, Brésil",
 
   "profile.links.linkedin": "LinkedIn",
@@ -105,6 +106,7 @@
   "home.fortune.error": "Impossible de charger la chance d’aujourd’hui.",
   "home.fortune.default": "Aujourd’hui est une bonne journée pour construire quelque chose de significatif.",
 
+  "feed.catalog_project.title": "présente dans son portfolio",
   "feed.new_project.title": "a commencé un nouveau projet",
   "feed.new_community.title": "a rejoint une nouvelle communauté",
   "feed.new_testimonial.title": "a reçu un nouveau témoignage",
@@ -173,7 +175,10 @@
 
   "profile.verified_testimonials.published_project": "Projet publié",
 
+  "profile.verified_testimonials.bmv_client": "Client / BMV Makeup",
+  "profile.verified_testimonials.original_in_portuguese": "Original en portugais",
   "profile.verified_testimonials.original_in_english": "Recommandation originale en anglais",
+  "profile.verified_testimonials.translated_from_portuguese": "Traduit du portugais",
   "profile.verified_testimonials.translated_from_english": "Traduit de la recommandation originale en anglais",
   "profile.verified_testimonials.translate": "Traduire",
   "profile.verified_testimonials.view_original": "Voir l'original",
@@ -194,28 +199,77 @@
   "scraps.page.title": "Messages",
   "scraps.page.description": "Laissez-moi un message sur mon profil ou consultez ceux que j’ai déjà reçus.",
 
-  "projectDetails": {
-    "lorenaferreira": {
-      "shortDescription": "Un portfolio full-stack vivant qui transpose la nostalgie de l'époque Orkut dans une expérience moderne de développement.",
-      "fullDescription": "LorenaFerreira.dev est un portfolio full-stack vivant inspiré d'Orkut, le réseau social qui a marqué la culture d'Internet dans les années 2000, particulièrement au Brésil et en Inde. Plutôt que de simplement reproduire son interface, le projet transpose ses profils, communautés, scraps et interactions sociales nostalgiques dans une expérience de portfolio moderne, où mon travail, mes projets et mon évolution professionnelle sont continuellement mis à jour. Développé avec React et Vite côté frontend et Spring Boot avec MySQL côté backend, il associe une partie emblématique de l'histoire des premiers réseaux sociaux à une véritable application full-stack en constante évolution, déployée avec Vercel et Railway."
+    "project.features": "Fonctionnalités principales",
+    "project.screenshots": "Captures d’écran",
+    "project.status.completed": "Terminé",
+    "project.status.in_development": "En développement",
+    "project.status.maintained": "En maintenance",
+
+    "projectDetails": {
+      "lorenaferreira": {
+        "shortDescription": "Un portfolio full-stack vivant qui transpose la nostalgie de l'époque Orkut dans une expérience moderne de développement.",
+        "fullDescription": "LorenaFerreira.dev est un portfolio full-stack vivant inspiré d'Orkut, le réseau social qui a marqué la culture d'Internet dans les années 2000, particulièrement au Brésil et en Inde. Plutôt que de simplement reproduire son interface, le projet transpose ses profils, communautés, scraps et interactions sociales nostalgiques dans une expérience de portfolio moderne, où mon travail, mes projets et mon évolution professionnelle sont continuellement mis à jour. Développé avec React et Vite côté frontend et Spring Boot avec MySQL côté backend, il associe une partie emblématique de l'histoire des premiers réseaux sociaux à une véritable application full-stack en constante évolution, déployée avec Vercel et Railway."
+      },
+      "claravision-optica": {
+        "shortDescription": "Un système complet de gestion pour un magasin d'optique développé avec PHP et MySQL.",
+        "fullDescription": "ClaraVisión Óptica est une application CRUD responsive développée pour la gestion d'un magasin d'optique. Le système comprend la gestion des produits et des catégories, les opérations de base de données, la manipulation de JSON et une interface structurée autour de flux de travail concrets. Le projet a été développé avec PHP, MySQL, HTML, CSS et JavaScript et est déployé sur InfinityFree."
+      },
+      "curiofy": {
+        "shortDescription": "Une application minimaliste de faits aléatoires alimentée par une API publique.",
+        "fullDescription": "Curiofy est une application web interactive et légère qui récupère des faits aléatoires depuis une API publique à la demande. Elle a été développée selon une approche mobile-first, avec gestion asynchrone des données via Fetch API et tests unitaires automatisés avec Vitest. Le projet met l'accent sur une architecture JavaScript claire, l'accessibilité, le responsive design et une expérience utilisateur rapide et simple."
+      },
+      "marinarodriiphoto": {
+        "shortDescription": "Portfolio photo multilingue avec gestion de contenu en développement.",
+        "fullDescription": "J’ai développé le frontend React et Vite et une API Java avec Spring Boot et MySQL pour organiser la collection. Je fais évoluer l’espace d’administration pour que Marina puisse gérer ses propres photos et publications.",
+        "features": [
+          "Galeries et projets personnels avec photos et vidéos",
+          "API REST avec migrations Flyway et intégration Cloudinary",
+          "Espace d’administration en développement pour importer, modifier et publier les photos"
+        ]
+      },
+      "aupairnaespanha": {
+        "shortDescription": "Plateforme de ressources pour préparer un séjour au pair en Espagne.",
+        "fullDescription": "Je développe et maintiens cette plateforme React, avec des pages adaptatives sur le programme, les cours et les assurances. Le guide gratuit pour évaluer les familles d’accueil utilise un formulaire Brevo et une page de téléchargement.",
+        "features": [
+          "Guide PDF et inscription via Brevo",
+          "Métadonnées SEO générées par route à la compilation et sitemap",
+          "Tests unitaires et de navigateur pour les routes, la navigation et la mise en page adaptative"
+        ],
+        "coverAlt": "Accueil de Au Pair na Espanha",
+        "screenshotCaptions": [
+          "Section ressources de la page Au Pair",
+          "Page du guide des familles d’accueil"
+        ]
+      },
+      "bmv-makeup": {
+        "shortDescription": "Portfolio éditorial adaptatif pour le maquilleur Bruno Mënezess.",
+        "fullDescription": "J’ai développé un site en quatre langues pour présenter ses prestations, ses réalisations et ses formations. La navigation organise les spécialités et oriente les demandes de devis vers WhatsApp.",
+        "features": [
+          "Galerie filtrable par catégorie",
+          "Flux Instagram avec fonction serverless et contenu de secours",
+          "Images WebP adaptatives et tests Playwright"
+        ],
+        "coverAlt": "Accueil de BMV Makeup sur ordinateur",
+        "screenshotCaptions": [
+          "Galerie du portfolio sur ordinateur",
+          "Page mariage sur mobile"
+        ]
+      },
+      "portuguese-with-thais": {
+        "shortDescription": "Site de cours de portugais brésilien avec réservation et test de niveau.",
+        "fullDescription": "J’ai développé le site adaptatif en anglais pour présenter la méthode de l’enseignante, comparer les cours et réserver via Cal.com. La rubrique The Brazilian Soul rassemble des ressources culturelles pour les élèves.",
+        "features": [
+          "Test de niveau de 30 questions avec résultat immédiat",
+          "Choix des formules et réservation via Cal.com",
+          "Guide culturel, métadonnées par page et tests Playwright"
+        ],
+        "coverAlt": "Accueil de Portuguese with Thais sur ordinateur",
+        "screenshotCaptions": [
+          "The Brazilian Soul sur ordinateur",
+          "Page de réservation sur mobile"
+        ]
+      }
     },
-    "claravision-optica": {
-      "shortDescription": "Un système complet de gestion pour un magasin d'optique développé avec PHP et MySQL.",
-      "fullDescription": "ClaraVisión Óptica est une application CRUD responsive développée pour la gestion d'un magasin d'optique. Le système comprend la gestion des produits et des catégories, les opérations de base de données, la manipulation de JSON et une interface structurée autour de flux de travail concrets. Le projet a été développé avec PHP, MySQL, HTML, CSS et JavaScript et est déployé sur InfinityFree."
-    },
-    "curiofy": {
-      "shortDescription": "Une application minimaliste de faits aléatoires alimentée par une API publique.",
-      "fullDescription": "Curiofy est une application web interactive et légère qui récupère des faits aléatoires depuis une API publique à la demande. Elle a été développée selon une approche mobile-first, avec gestion asynchrone des données via Fetch API et tests unitaires automatisés avec Vitest. Le projet met l'accent sur une architecture JavaScript claire, l'accessibilité, le responsive design et une expérience utilisateur rapide et simple."
-    },
-    "marinarodriiphoto": {
-      "shortDescription": "Un portfolio photographique multilingue conçu autour de la narration visuelle et d'une expérience raffinée.",
-      "fullDescription": "MarinaRodriiPhoto est un portfolio responsive conçu pour présenter un travail photographique professionnel à travers une expérience épurée et centrée sur l'image. Reconstruit avec React et Vite, le projet comprend une navigation multilingue, du contenu dédié au portfolio et une architecture moderne pensée pour la maintenabilité, les performances et les évolutions futures. Le site est déployé sur Vercel et connecté à son propre nom de domaine."
-    },
-    "aupairnaespanha": {
-      "shortDescription": "Une plateforme multilingue proposant conseils pratiques, ressources et mentorat pour préparer une expérience au pair en Espagne.",
-      "fullDescription": "Au Pair na Espanha est une plateforme numérique multilingue créée pour aider les futures au pairs à préparer leur expérience en Espagne grâce à des informations plus claires, des ressources pratiques et des conseils réalistes. Développé avec React et Vite, le projet rassemble du contenu éducatif, des outils de planification, des informations sur le mentorat et des ressources communautaires dans une structure responsive conçue pour évoluer avec la marque."
-    }
-  },
   "testimonials.page.title": "Témoignages vérifiés",
   "testimonials.page.description": "Découvrez des recommandations vérifiées de clients avec lesquels j’ai travaillé.",
 
