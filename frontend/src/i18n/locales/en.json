@@ -106,8 +106,7 @@
   "home.fortune.error": "Could not load today's luck.",
   "home.fortune.default": "Today is a good day to build something meaningful.",
 
-  "feed.catalog_project.title": "features in her portfolio",
-  "feed.new_project.title": "started a new project",
+  "feed.new_project.title": "added a project to her portfolio",
   "feed.new_community.title": "joined a new community",
   "feed.new_testimonial.title": "received a new testimonial",
   "feed.new_profile_photo.title": "updated their profile photo",

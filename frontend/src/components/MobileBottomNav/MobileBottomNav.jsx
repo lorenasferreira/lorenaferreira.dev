@@ -50,10 +50,7 @@ function MobileBottomNav() {
   useEffect(() => {
     const scrapsSection = document.getElementById("mobile-scraps");
 
-    if (!scrapsSection) {
-      setIsScrapsVisible(false);
-      return;
-    }
+    if (!scrapsSection) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {

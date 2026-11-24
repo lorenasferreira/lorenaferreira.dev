@@ -106,8 +106,7 @@
   "home.fortune.error": "No se pudo cargar la suerte de hoy.",
   "home.fortune.default": "Hoy es un buen día para construir algo significativo.",
 
-  "feed.catalog_project.title": "destaca en su portafolio",
-  "feed.new_project.title": "ha comenzado un nuevo proyecto",
+  "feed.new_project.title": "añadió un proyecto a su portafolio",
   "feed.new_community.title": "se ha unido a una nueva comunidad",
   "feed.new_testimonial.title": "ha recibido un nuevo testimonio",
   "feed.new_profile_photo.title": "ha actualizado su foto de perfil",

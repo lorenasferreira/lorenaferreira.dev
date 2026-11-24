@@ -15,6 +15,7 @@ export const portfolioProjects = [
   {
     slug: "portuguese-with-thais",
     title: "Portuguese with Thais",
+    completedAt: "2026-11-19", // Website finalization in the project repository (f3dac24).
     status: "completed",
     techStack: "React, Vite, JavaScript, CSS Modules, Cal.com, Playwright",
     liveUrl: "https://portuguesewiththais.com/",

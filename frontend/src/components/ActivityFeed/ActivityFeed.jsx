@@ -24,7 +24,7 @@ const LOCALES = {
 
 function normalizeImagePath(path) {
   if (!path) {
-    return "";
+    return undefined;
   }
 
   if (
@@ -66,6 +66,13 @@ function ActivityFeed() {
   const [projectsBySlug, setProjectsBySlug] = useState({});
   const [communitiesBySlug, setCommunitiesBySlug] = useState({});
 
+  const language = i18n.resolvedLanguage || i18n.language || "en";
+  const locale = LOCALES[language] || "en-US";
+  const projectDateFormatter = new Intl.DateTimeFormat(locale, {
+    dateStyle: "medium",
+    timeZone: "UTC",
+  });
+
   function formatDate(dateValue) {
     if (!dateValue) {
       return "";
@@ -89,9 +96,6 @@ function ActivityFeed() {
     const differenceInDays = Math.round(
       (currentDay - activityDay) / (1000 * 60 * 60 * 24),
     );
-
-    const language = i18n.resolvedLanguage || i18n.language || "en";
-    const locale = LOCALES[language] || "en-US";
 
     const formattedTime = new Intl.DateTimeFormat(locale, {
       hour: "2-digit",
@@ -143,25 +147,49 @@ function ActivityFeed() {
   }, []);
 
   const projectSlugs = new Set();
-  const feedItems = activities
+  const featuredActivities = new Map();
+  const history = activities
     .map((activity) => ({ ...activity, payload: parsePayload(activity.payload) || {} }))
-    .filter(({ type, payload }) => {
-      if (type !== "new_project" || !payload.slug) return true;
-      if (projectSlugs.has(payload.slug)) return false;
-      projectSlugs.add(payload.slug);
+    .filter((activity) => {
+      const { type, payload: { slug } } = activity;
+      if (type !== "new_project" || !slug) return true;
+      if (projectSlugs.has(slug)) return false;
+      projectSlugs.add(slug);
+
+      if (Object.hasOwn(catalogBySlug, slug)) {
+        featuredActivities.set(slug, activity);
+        return false;
+      }
+
       return true;
     });
 
-  for (const project of portfolioProjects) {
-    if (!projectSlugs.has(project.slug)) {
-      feedItems.push({
-        id: `portfolio-${project.slug}`,
-        type: "new_project",
-        payload: project,
-        fromCatalog: true,
-      });
-    }
-  }
+  const feedItems = [
+    ...portfolioProjects.map((project) => featuredActivities.get(project.slug) ?? {
+      id: `portfolio-${project.slug}`,
+      type: "new_project",
+      payload: project,
+    }),
+    ...history,
+  ].map((activity) => {
+    if (activity.type !== "new_project") return activity;
+
+    const { slug } = activity.payload;
+    const project = {
+      ...activity.payload,
+      ...catalogBySlug[slug],
+      ...projectsBySlug[slug],
+    };
+
+    return {
+      ...activity,
+      project,
+      description: t(`projectDetails.${slug}.shortDescription`, {
+        defaultValue: project.description || "",
+      }),
+      date: activity.createdAt ?? project.completedAt,
+    };
+  });
 
   return (
     <section className={styles.feed}>
@@ -169,10 +197,7 @@ function ActivityFeed() {
         const { payload } = activity;
 
         if (activity.type === "new_project") {
-          const project = projectsBySlug[payload.slug] || catalogBySlug[payload.slug] || payload;
-          const description = t(`projectDetails.${payload.slug}.shortDescription`, {
-            defaultValue: project.description || "",
-          });
+          const { project, description, date } = activity;
 
           return (
             <article className={styles.item} key={activity.id}>
@@ -186,12 +211,12 @@ function ActivityFeed() {
                 <div>
                   <p className={styles.title}>
                     <strong>{t("common.name")}</strong>{" "}
-                    {t(activity.fromCatalog ? "feed.catalog_project.title" : "feed.new_project.title")}
+                    {t("feed.new_project.title")}
                   </p>
 
-                  {activity.createdAt && (
-                    <time className={styles.meta} dateTime={activity.createdAt}>
-                      {formatDate(activity.createdAt)}
+                  {date && (
+                    <time className={styles.meta} dateTime={date}>
+                      {projectDateFormatter.format(new Date(date.slice(0, 10)))}
                     </time>
                   )}
                 </div>

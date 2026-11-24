@@ -106,8 +106,7 @@
   "home.fortune.error": "Impossible de charger la chance d’aujourd’hui.",
   "home.fortune.default": "Aujourd’hui est une bonne journée pour construire quelque chose de significatif.",
 
-  "feed.catalog_project.title": "présente dans son portfolio",
-  "feed.new_project.title": "a commencé un nouveau projet",
+  "feed.new_project.title": "a ajouté un projet à son portfolio",
   "feed.new_community.title": "a rejoint une nouvelle communauté",
   "feed.new_testimonial.title": "a reçu un nouveau témoignage",
   "feed.new_profile_photo.title": "a mis à jour sa photo de profil",
