@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { createScrap, getScraps } from "../../../services/scraps";
@@ -13,6 +14,7 @@ function Scraps({ onScrapsCountChange }) {
   const [scraps, setScraps] = useState([]);
   const [author, setAuthor] = useState("");
   const [message, setMessage] = useState("");
+  const [confirmed, setConfirmed] = useState(false);
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
@@ -63,48 +65,29 @@ function Scraps({ onScrapsCountChange }) {
   function handleImageChange(event) {
     const file = event.target.files?.[0];
 
-    if (!file) {
-      return;
-    }
+    if (!file) return;
 
-    if (previewImage) {
-      URL.revokeObjectURL(previewImage);
+    setError("");
+    if (!["image/jpeg", "image/png"].includes(file.type) || file.size > 5 * 1024 * 1024) {
+      event.target.value = "";
+      setSelectedImage(null);
+      setPreviewImage(null);
+      setError(t("privacy.photo_error"));
+      return;
     }
 
     setSelectedImage(file);
     setPreviewImage(URL.createObjectURL(file));
   }
 
-  async function uploadImage(file) {
-    const formData = new FormData();
-
-    formData.append("file", file);
-    formData.append("upload_preset", "lorkut_scraps");
-
-    const response = await fetch(
-      "https://api.cloudinary.com/v1_1/nea7lj3p/image/upload",
-      {
-        method: "POST",
-        body: formData,
-      },
-    );
-
-    if (!response.ok) {
-      throw new Error("Could not upload image.");
-    }
-
-    const data = await response.json();
-
-    return data.secure_url;
-  }
-
   async function handleSubmit(event) {
     event.preventDefault();
+    const form = event.currentTarget;
 
     const trimmedAuthor = author.trim();
     const trimmedMessage = message.trim();
 
-    if (!trimmedAuthor || !trimmedMessage) {
+    if (!trimmedAuthor || !trimmedMessage || !confirmed) {
       return;
     }
 
@@ -113,22 +96,15 @@ function Scraps({ onScrapsCountChange }) {
       setError("");
       setSuccessMessage("");
 
-      let avatar = null;
-
-      if (selectedImage) {
-        avatar = await uploadImage(selectedImage);
-      }
-
       await createScrap({
         author: trimmedAuthor,
         message: trimmedMessage,
-        avatar,
+        confirmed,
+        photo: selectedImage,
       });
 
-      if (previewImage) {
-        URL.revokeObjectURL(previewImage);
-      }
-
+      form.reset();
+      setConfirmed(false);
       setAuthor("");
       setMessage("");
       setSelectedImage(null);
@@ -186,8 +162,8 @@ function Scraps({ onScrapsCountChange }) {
 
             <input
               type="file"
-              accept="image/*"
-              hidden
+              accept="image/jpeg,image/png"
+              className={styles.fileInput}
               disabled={isSubmitting}
               onChange={handleImageChange}
             />
@@ -198,6 +174,7 @@ function Scraps({ onScrapsCountChange }) {
           type="text"
           value={author}
           onChange={(event) => setAuthor(event.target.value)}
+          aria-label={t("profile.scraps.form.name")}
           placeholder={t("profile.scraps.form.name")}
           maxLength={100}
           disabled={isSubmitting}
@@ -207,11 +184,25 @@ function Scraps({ onScrapsCountChange }) {
         <textarea
           value={message}
           onChange={(event) => setMessage(event.target.value)}
+          aria-label={t("profile.scraps.form.message")}
           placeholder={t("profile.scraps.form.message")}
           maxLength={780}
           disabled={isSubmitting}
           required
         />
+
+        <label className={styles.confirmation}>
+          <input
+            type="checkbox"
+            checked={confirmed}
+            onChange={(event) => setConfirmed(event.target.checked)}
+            disabled={isSubmitting}
+            required
+          />
+          <span>{t("privacy.confirmation")}</span>
+        </label>
+
+        <Link className={styles.privacyLink} to="/privacy">{t("footer.privacy")}</Link>
 
         <div className={styles.actions}>
           <small>{remainingCharacters}</small>
@@ -225,10 +216,10 @@ function Scraps({ onScrapsCountChange }) {
       </form>
 
       {successMessage && (
-        <p className={styles.successMessage}>{successMessage}</p>
+        <p className={styles.successMessage} role="status">{successMessage}</p>
       )}
 
-      {error && <p className={styles.errorMessage}>{error}</p>}
+      {error && <p className={styles.errorMessage} role="alert">{error}</p>}
 
       {isLoading ? (
         <p className={styles.status}>{t("profile.scraps.loading")}</p>

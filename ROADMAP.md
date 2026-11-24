@@ -11,7 +11,7 @@
 - [x] Adicionar “Ver mais / Ver menos” aos recados longos
 - [ ] Testar busca, botão de topo e recados após deploy
 - [ ] Ativar tradução automática dos recados
-  - [ ] Criar tabela `scrap_translations` no MySQL de produção
+  - [ ] Aplicar e verificar a migration Flyway V3 na primeira inicialização autorizada em produção
   - [ ] Criar/configurar chave da API DeepL
   - [ ] Adicionar `DEEPL_API_KEY` ao backend na Railway
   - [ ] Testar tradução real
@@ -24,13 +24,15 @@
 
 ## Privacidade e dados dos usuários
 
-- [ ] Auditar quais dados o site coleta e onde são armazenados
-- [ ] Revisar fluxo de envio dos recados
-- [ ] Revisar upload e armazenamento das fotos no Cloudinary
-- [ ] Definir processo para solicitação de remoção de foto/recado
-- [ ] Definir texto de consentimento no envio de recados/fotos
-- [ ] Criar ou revisar Política de Privacidade
-- [ ] Auditar cookies, localStorage, analytics e serviços externos
+- [x] Auditar quais dados o site coleta e onde são armazenados
+- [x] Revisar fluxo de envio dos recados
+- [x] Revisar upload e armazenamento das fotos no Cloudinary
+- [x] Definir processo para solicitação de remoção de foto/recado
+- [x] Definir texto de consentimento no envio de recados/fotos
+- [x] Criar ou revisar Política de Privacidade
+- [x] Auditar cookies, localStorage, analytics e serviços externos
+- [ ] Validar o contato de privacidade, a retenção e as configurações de produção dos provedores
+- [ ] Preparar a ativação coordenada do fluxo de fotos e moderação
 - [ ] Determinar se o site realmente precisa de banner de cookies
 - [ ] Implementar consentimento de cookies apenas se necessário
 

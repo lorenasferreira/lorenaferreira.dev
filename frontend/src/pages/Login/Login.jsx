@@ -1,5 +1,6 @@
 import styles from "./Login.module.css";
 import { useTranslation, Trans } from "react-i18next";
+import { contactUrl } from "../../services/contact";
 
 export default function Login() {
   const { t, i18n } = useTranslation();
@@ -7,9 +8,7 @@ export default function Login() {
   const currentYear = new Date().getFullYear();
   const currentLanguage = i18n.resolvedLanguage || i18n.language;
 
-  const whatsappMessage = encodeURIComponent(t("footer.contact_message"));
-
-  const whatsappLink = `https://wa.me/34662321407?text=${whatsappMessage}`;
+  const whatsappLink = contactUrl(t("footer.contact_message"));
 
   return (
     <main className={styles.shell}>

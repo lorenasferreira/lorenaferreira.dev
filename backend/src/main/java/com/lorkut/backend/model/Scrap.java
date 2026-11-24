@@ -27,6 +27,9 @@ public class Scrap {
     @Column(length = 500)
     private String avatar;
 
+    @Column(name = "avatar_public_id", length = 100)
+    private String avatarPublicId;
+
     @Column(nullable = false)
     private Boolean approved = false;
 
@@ -87,6 +90,14 @@ public class Scrap {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getAvatarPublicId() {
+        return avatarPublicId;
+    }
+
+    public void setAvatarPublicId(String avatarPublicId) {
+        this.avatarPublicId = avatarPublicId;
     }
 
     public Boolean getApproved() {

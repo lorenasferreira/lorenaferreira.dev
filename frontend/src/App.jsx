@@ -7,6 +7,7 @@ import Projects from "./pages/Projects/Projects";
 import Project from "./pages/Project/Project";
 import Communities from "./pages/Communities/Communities";
 import Community from "./pages/Community/Community";
+import Privacy from "./pages/Privacy/Privacy";
 import ScrapsPage from "./pages/Scraps/ScrapsPage";
 import TestimonialsPage from "./pages/Testimonials/TestimonialsPage";
 
@@ -31,6 +32,8 @@ function App() {
         <Route path="/communities" element={<Communities />} />
 
         <Route path="/communities/:slug" element={<Community />} />
+
+        <Route path="/privacy" element={<Privacy />} />
 
         <Route path="/scraps" element={<ScrapsPage />} />
 

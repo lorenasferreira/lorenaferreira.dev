@@ -9,9 +9,11 @@ import java.util.Map;
 import java.util.Locale;
 import java.net.http.HttpClient;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.JdkClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.server.ResponseStatusException;
 import com.lorkut.backend.model.ScrapTranslation;
@@ -20,6 +22,7 @@ import com.lorkut.backend.repository.ScrapTranslationRepository;
 
 @Service
 public class ScrapTranslationService {
+    private static final List<String> TARGETS = List.of("pt", "en", "es", "fr");
     private final ScrapRepository scraps;
     private final ScrapTranslationRepository cache;
     private final String apiKey;
@@ -40,18 +43,21 @@ public class ScrapTranslationService {
     }
 
     // Serialize misses in this instance to avoid duplicate paid requests on concurrent clicks.
+    @Transactional
     public synchronized Translation translate(Integer id, String target) {
         target = target.toLowerCase(Locale.ROOT);
-        if (!List.of("pt", "en", "es", "fr").contains(target))
+        if (!TARGETS.contains(target))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unsupported language");
         var scrap = scraps.findById(id).filter(item -> Boolean.TRUE.equals(item.getApproved()))
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         String message = scrap.getMessage();
-        String key;
+        String key = messageHash(message) + ":" + target;
+        java.util.Optional<ScrapTranslation> cached;
         try {
-            key = HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(message.getBytes(StandardCharsets.UTF_8))) + ":" + target;
-        } catch (java.security.NoSuchAlgorithmException exception) { throw new IllegalStateException(exception); }
-        var cached = cache.findById(key);
+            cached = cache.findById(key);
+        } catch (DataAccessException exception) {
+            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Translation cache unavailable");
+        }
         if (cached.isPresent()) return new Translation(cached.get().getTranslatedText(), cached.get().getSourceLanguage());
         if (apiKey.isBlank()) throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Translation not configured");
         try {
@@ -86,6 +92,19 @@ public class ScrapTranslationService {
         } catch (Exception exception) {
             // Do not expose upstream responses, credentials or visitor messages.
             throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "Translation unavailable");
+        }
+    }
+    static List<String> translationKeys(String message) {
+        String hash = messageHash(message);
+        return TARGETS.stream().map(target -> hash + ":" + target).toList();
+    }
+
+    private static String messageHash(String message) {
+        try {
+            return HexFormat.of().formatHex(
+                    MessageDigest.getInstance("SHA-256").digest(message.getBytes(StandardCharsets.UTF_8)));
+        } catch (java.security.NoSuchAlgorithmException exception) {
+            throw new IllegalStateException(exception);
         }
     }
 }

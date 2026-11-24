@@ -280,7 +280,7 @@ http://localhost:5173
 
 ## Running the Backend Locally
 
-Start the backend from `backend/` with Java 21. Use a local MySQL instance with an existing Lorkut schema.
+Start the backend from `backend/` with Java 21 and a local MySQL instance. Load the [local backend environment](#local-backend) before running Maven.
 
 ### Using Maven Wrapper
 
@@ -302,7 +302,7 @@ The API will normally be available at:
 http://localhost:8080
 ```
 
-Spring Boot defaults to MySQL on `localhost:8889` and the `lorkut` schema. Override the connection using the backend environment variables below. The application expects the schema to exist and uses `ddl-auto=none`.
+Spring Boot defaults to MySQL on `localhost:8889` and the `lorkut` schema. Override the connection using the backend environment variables below. Create the target MySQL database before startup. Flyway manages its tables, and Hibernate keeps `spring.jpa.hibernate.ddl-auto=none`.
 
 ---
 
@@ -340,27 +340,36 @@ Cloudinary hosts media referenced by the application and handles image uploads f
 
 ## Environment Variables
 
-The project uses environment variables to protect credentials and separate local and production configurations.
+### Local backend
 
-Frontend:
+Use [`backend/.env.example`](backend/.env.example) as the template for the ignored `backend/.env`. If the local file is missing, copy the template and fill in the MySQL fields and any optional integrations you use. The template leaves `PORT` blank. Set it to the desired local HTTP port or remove the assignment to use Spring Boot's default. Quote shell values containing spaces or special characters, and source only your own trusted local file.
 
-```env
-VITE_API_BASE_URL=
+Spring Boot reads exported environment variables. It does not load `.env` automatically. From the repository root, run in zsh or Bash:
+
+```sh
+(
+  cd backend || exit 1
+  set -a
+  . ./.env || exit 1
+  set +a
+  ./mvnw spring-boot:run
+)
 ```
 
-Backend:
+The frontend uses only `VITE_API_BASE_URL` for the backend's public URL. Keep all backend credentials out of frontend variables.
 
-```env
-MYSQLHOST=
-MYSQLPORT=
-MYSQLDATABASE=
-MYSQLUSER=
-MYSQLPASSWORD=
-PORT=
-DEEPL_API_KEY=
-```
+### Railway backend service
 
-Environment files containing real credentials must be included in `.gitignore`.
+| Requirement | Variables |
+| --- | --- |
+| Required for MySQL | `MYSQLHOST`, `MYSQLPORT`, `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD`. Reference the MySQL service variables in the backend service. |
+| Optional HTTP port override | `PORT`. Use the platform-provided value when available and ensure it matches the backend's target port. |
+| Optional moderation | `SCRAP_MODERATION_TOKEN`. Required to enable the protected moderation routes. |
+| Optional photos | `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`. Supply all three to enable photo uploads and removal. |
+| Optional translation | `DEEPL_API_KEY`. Required to request new translations from DeepL. |
+| Temporary for the first authorized startup only | `LORKUT_FLYWAY_BASELINE_ON_MIGRATE=true` only for an existing database without Flyway history, after the schema and target have been checked. Unset it after verifying the baseline and migrations. |
+
+The backend builds its JDBC URL from the separate `MYSQL*` variables. See [Railway MySQL variables](https://docs.railway.com/databases/mysql) and [service references](https://docs.railway.com/variables#reference-variables).
 
 ---
 
@@ -408,6 +417,38 @@ These challenges helped strengthen my understanding of full-stack application de
 - [Portuguese with Thais](https://portuguesewiththais.com/) — lesson booking, a 30-question placement test and a Brazilian culture guide.
 - [Marina Rodrigues Photography](https://www.marinarodriiphoto.com/) — multilingual photography portfolio with a Spring Boot API and a client admin area in development.
 - [Au Pair na Espanha](https://www.aupairnaespanha.com.br/) — resource platform with a host-family PDF guide and Brevo signup.
+
+## Database migrations
+
+Flyway runs the versioned SQL in [`backend/src/main/resources/db/migration/`](backend/src/main/resources/db/migration/) when Spring Boot starts, using the existing MySQL datasource. Hibernate schema generation stays disabled (`ddl-auto=none`) and Flyway clean is disabled.
+
+- **New database.** Create an empty MySQL 8 database and start the backend with the existing `MYSQL*` settings pointed at it. V1 creates the active backend tables without seed data, then V2 adds the scrap photo identifier and V3 creates the translation cache.
+- **Existing database without Flyway history.** Confirm the target connection, take a backup and verify the existing `projects`, `communities`, `activity_feed` and `scraps` tables against V1. Set `LORKUT_FLYWAY_BASELINE_ON_MIGRATE=true` for the first authorized startup only. Flyway records baseline 1, skips the V1 table creation, and applies V2 and V3. It recognizes matching objects left by the older manual SQL and fails if their definitions are incompatible. Resolve any mismatch with a reviewed change before retrying.
+- **Subsequent starts.** Unset the baseline flag. Flyway checks the existing history and runs only pending versions. Add future migrations with a new version and preserve the contents of applied files.
+- **Production.** Follow the existing-database procedure on Railway only during an approved rollout, after reviewing the target schema and backup. Verify that the existing database account can perform the required DDL. First startup with Flyway will apply the pending migrations.
+
+To verify the result on the intended database:
+
+```sql
+SELECT installed_rank, version, description, type, success
+FROM flyway_schema_history
+ORDER BY installed_rank;
+
+SHOW COLUMNS FROM scraps LIKE 'avatar_public_id';
+SHOW CREATE TABLE scrap_translations;
+```
+
+## Scrapbook data and moderation
+
+- `POST /api/scraps` accepts multipart fields `author` (1–100 characters), `message` (1–780), `confirmed=true` and optional `photo`. Only approved scraps appear in public GET responses. The confirmation is validated during submission. The application stores no separate consent record.
+- MySQL stores the scrap ID, author, message, avatar delivery URL, Cloudinary public ID for new photos, approval status and creation timestamp. The browser receives the public scrap fields and never receives the Cloudinary credentials or the stored public-ID field.
+- The backend decodes and re-encodes JPEG/PNG images, checks their MIME against the decoded format, and limits input to 5 MiB and 8 megapixels. It uses a generated Cloudinary identifier and a generic file name. Moderation controls appearance on the site. A Cloudinary delivery URL can be opened by anyone who knows it.
+- Configure `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET` only on the backend to enable photo uploads and deletion. Text-only submission works without these settings.
+- Flyway creates the optional photo identifier and translation cache during startup. Existing photo URLs and cached translations are preserved.
+- Pending list, approval and deletion require the server-only `SCRAP_MODERATION_TOKEN` via an `Authorization: Bearer …` header. When the token is unset, the routes return 404. Use an operator-held random secret over HTTPS. The portfolio has no administrative login, edit endpoint or distinct rejection status.
+- For a removal request, use the public list or protected pending list to identify the scrap. After verifying the request, use the protected `DELETE /api/scraps/{id}`. Use the protected `DELETE /api/scraps/{id}/photo` when only the photo should be removed. For a managed photo, deletion requests Cloudinary CDN invalidation before removing the reference from MySQL. Full scrap deletion also removes the database row and translation cache. A provider failure leaves the row for retry. If the database commit fails after Cloudinary removes the file, retry the same ID. The provider’s “not found” response counts as successful removal.
+- Legacy submissions with a photo URL and no identifier require manual review. Verify the matching Cloudinary asset and any shared references in the account. After handling the image, the operator can delete the row with `legacyPhotoHandled=true`. The application never infers an asset to delete from a visitor-supplied URL. Failed upload cleanup logs the generated ID for verified manual follow-up.
+- The previous frontend used an unsigned Cloudinary preset and a JSON POST. Coordinate a frontend/backend release after the schema change. Review whether any other consumer still uses the unsigned preset before disabling it. No automatic retention schedule is implemented.
 
 ## Documentation
 

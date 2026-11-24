@@ -148,6 +148,7 @@
 }
 
 .imageButton {
+  position: relative;
   cursor: pointer;
   color: var(--link);
   font-size: 14px;
@@ -183,4 +184,37 @@
   .collapsed { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
   .expand { display: inline-block; }
   .swipeHint { display: block; margin-bottom: -12px; color: #667; font-size: 12px; }
+}
+
+.confirmation {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.confirmation input {
+  margin: 4px 0 0;
+  flex-shrink: 0;
+}
+
+.privacyLink {
+  align-self: flex-start;
+  color: var(--link);
+  font-size: 0.9rem;
+}
+
+.fileInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.imageButton:focus-within {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
 }

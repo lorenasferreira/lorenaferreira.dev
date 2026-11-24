@@ -3,6 +3,21 @@ import { useTranslation } from "react-i18next";
 import { translateScrap } from "../../../services/scraps";
 import styles from "./Scraps.module.css";
 
+const defaultAvatar = "/assets/img/default-avatar.png";
+
+function avatarUrl(value) {
+  if (!value) return defaultAvatar;
+
+  try {
+    const url = new URL(value);
+    if (url.protocol === "https:" && url.hostname === "res.cloudinary.com") return url.href;
+  } catch {
+    // Existing local avatars are limited to the bundled image directory.
+    if (/^\/?assets\/img\/[\w.-]+$/.test(value)) return `/${value.replace(/^\//, "")}`;
+  }
+  return defaultAvatar;
+}
+
 export default function ScrapCard({ scrap, formatDate }) {
   const { t, i18n } = useTranslation();
   const language = i18n.resolvedLanguage?.split("-")[0] || "en";
@@ -27,7 +42,7 @@ export default function ScrapCard({ scrap, formatDate }) {
     finally { setLoading(false); }
   }
   return <article className={styles.card}>
-    <img src={scrap.avatar || "/assets/img/default-avatar.png"} alt={scrap.author}/>
+    <img src={avatarUrl(scrap.avatar)} referrerPolicy="no-referrer" alt={scrap.author}/>
     <div className={styles.cardContent}>
       <strong>{scrap.author}</strong>
       <p id={id} className={long && !expanded ? styles.collapsed : undefined} lang={translated ? language : translation?.sourceLanguage?.toLowerCase()}>{text}</p>

@@ -12,20 +12,15 @@ export async function getScraps() {
   return response.json();
 }
 
-export async function createScrap(scrap) {
-  const response = await fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(scrap),
-  });
+export async function createScrap({ author, message, confirmed, photo }) {
+  const body = new FormData();
+  body.set("author", author);
+  body.set("message", message);
+  body.set("confirmed", String(confirmed));
+  if (photo) body.set("photo", photo, photo.type === "image/png" ? "avatar.png" : "avatar.jpg");
 
-  if (!response.ok) {
-    throw new Error("Could not create scrap.");
-  }
-
-  return response.json();
+  const response = await fetch(API_URL, { method: "POST", body });
+  if (!response.ok) throw new Error("Could not create scrap.");
 }
 
 const translations = new Map();

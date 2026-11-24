@@ -163,6 +163,8 @@ MySQL through MAMP.
 
 Spring Boot uses environment variables for production database configuration and local fallback values for development.
 
+Flyway owns schema changes. Existing databases without history use an explicit baseline at version 1 before applying later migrations. See the [migration procedure](../README.md#database-migrations).
+
 Sensitive credentials must never be committed to Git.
 
 ---
@@ -198,13 +200,12 @@ The portfolio includes an interactive scraps feature inspired by Orkut.
 
 Current flow:
 
-1. Visitor submits a scrap
-2. Scrap is stored in the backend
-3. New scrap remains pending
-4. Lorena can review pending scraps
-5. Approved scraps become publicly visible
+1. The visitor confirms the publication notice and submits a name, message and optional photo.
+2. Spring Boot validates the submission. New photos go through the backend to Cloudinary and the database stores the delivery URL and the asset identifier.
+3. New scraps remain pending. Only approved scraps are listed publicly.
+4. The operator uses protected API routes to review, approve or remove a scrap or its photo. Legacy photos require manual review.
 
-Demo scraps are intentionally included as part of the portfolio experience and should not be removed during refactoring.
+See the [operating instructions](../README.md#scrapbook-data-and-moderation) and the [translation guide](../backend/TRANSLATION.md).
 
 ---
 

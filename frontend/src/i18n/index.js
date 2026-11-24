@@ -20,6 +20,11 @@ i18n
 
     fallbackLng: "en",
 
+    detection: {
+      order: ["querystring", "localStorage", "navigator", "htmlTag"],
+      caches: ["localStorage"],
+    },
+
     interpolation: {
       escapeValue: false,
     },

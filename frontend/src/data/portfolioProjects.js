@@ -5,6 +5,7 @@ export const portfolioProjects = [
   {
     slug: "bmv-makeup",
     title: "BMV Makeup",
+    completedAt: "2026-11-18", // Date of Bruno's testimonial, used with Lorena's confirmation.
     status: "completed",
     techStack: "React, Vite, JavaScript, CSS Modules, i18next, Vercel Functions, Playwright",
     liveUrl: "https://www.bmvmakeup.com/",
