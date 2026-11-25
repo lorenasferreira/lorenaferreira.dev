@@ -1,4 +1,4 @@
-import { mergePortfolioProjects, portfolioProjects } from "../data/portfolioProjects";
+import { mergePortfolioProjects, portfolioProjects, withPortfolioStatus } from "../data/portfolioProjects";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
@@ -35,7 +35,7 @@ export async function getProjectBySlug(slug, { signal } = {}) {
     }
 
     const project = await response.json();
-    return curated ? { ...project, ...curated } : project;
+    return curated ? { ...project, ...curated } : withPortfolioStatus(project);
   } catch (error) {
     if (!curated || signal?.aborted) throw error;
     return curated;

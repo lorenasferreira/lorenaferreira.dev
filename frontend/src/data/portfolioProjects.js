@@ -1,4 +1,4 @@
-// Curated portfolio entries are versioned with their translations and screenshots.
+// Curated portfolio entries are versioned with their translations and media.
 const imageRoot = "/assets/img/projects";
 
 export const portfolioProjects = [
@@ -12,6 +12,10 @@ export const portfolioProjects = [
     thumbnail: `${imageRoot}/bmv-makeup/bmv-mark.svg`,
     cover: `${imageRoot}/bmv-makeup/home-desktop.webp`,
     screenshots: ["portfolio-desktop.webp", "weddings-mobile.webp"],
+    walkthrough: {
+      desktop: { file: "bmv-makeup-walkthrough-desktop.mp4", width: 1280, height: 800 },
+      mobile: { file: "bmv-makeup-walkthrough-mobile.mp4", width: 526, height: 1152 },
+    },
   },
   {
     slug: "portuguese-with-thais",
@@ -23,6 +27,7 @@ export const portfolioProjects = [
     thumbnail: `${imageRoot}/portuguese-with-thais/thais-logo.svg`,
     cover: `${imageRoot}/portuguese-with-thais/home-desktop.webp`,
     screenshots: ["brazilian-soul-desktop.webp", "booking-mobile.webp"],
+    walkthrough: { desktop: { file: "portuguese-with-thais-walkthrough.mp4", width: 1280, height: 690 } },
   },
   {
     slug: "marinarodriiphoto",
@@ -35,14 +40,33 @@ export const portfolioProjects = [
   {
     slug: "aupairnaespanha",
     title: "Au Pair na Espanha",
-    status: "maintained",
+    status: "completed",
     techStack: "React, Vite, JavaScript, React Router, CSS, Brevo, Node.js",
     liveUrl: "https://www.aupairnaespanha.com.br/",
     thumbnail: `${imageRoot}/aupairnaespanha/au-pair-logo.webp`,
     cover: `${imageRoot}/aupairnaespanha/home.webp`,
     screenshots: ["resources.webp", "host-family-guide.webp"],
+    walkthrough: { desktop: { file: "au-pair-na-espanha-walkthrough.mp4", width: 1280, height: 800 } },
   },
 ];
+
+const completedApiProjects = new Set(["curiofy", "claravision-optica"]);
+
+export function withPortfolioStatus(project) {
+  return completedApiProjects.has(project.slug) ? { ...project, status: "completed" } : project;
+}
+
+export function getProjectPhotos(project, includeCover = false) {
+  const photos = (project.screenshots ?? []).map((file, index) => ({
+    src: `${imageRoot}/${project.slug}/${file}`,
+    captionKey: `projectDetails.${project.slug}.screenshotCaptions.${index}`,
+  }));
+  if (includeCover) {
+    const src = project.cover ?? project.thumbnail;
+    if (src) photos.unshift({ src, captionKey: `projectDetails.${project.slug}.coverAlt` });
+  }
+  return photos;
+}
 
 export function mergePortfolioProjects(projects) {
   const curatedSlugs = new Set(portfolioProjects.map(({ slug }) => slug));
@@ -50,6 +74,6 @@ export function mergePortfolioProjects(projects) {
 
   return [
     ...portfolioProjects.map((project) => ({ ...existingBySlug.get(project.slug), ...project })),
-    ...projects.filter(({ slug }) => !curatedSlugs.has(slug)),
+    ...projects.filter(({ slug }) => !curatedSlugs.has(slug)).map(withPortfolioStatus),
   ];
 }

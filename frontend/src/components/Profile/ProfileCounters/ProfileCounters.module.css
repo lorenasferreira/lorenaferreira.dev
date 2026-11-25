@@ -27,6 +27,14 @@
   font: 500 14px/1.2 "Work Sans", Inter, sans-serif;
 }
 
+a.label {
+  text-decoration: none;
+}
+
+a.label:hover {
+  color: var(--link);
+}
+
 .value {
   display: flex;
   align-items: center;

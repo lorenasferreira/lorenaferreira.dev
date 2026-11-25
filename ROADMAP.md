@@ -36,11 +36,21 @@
 - [ ] Determinar se o site realmente precisa de banner de cookies
 - [ ] Implementar consentimento de cookies apenas se necessário
 
+- [ ] Enviar um Recado de teste sem foto
+- [ ] Enviar um Recado de teste com foto
+- [ ] Testar moderação pelo Thunder Client com o token
+- [ ] Excluir os Recados de teste e confirmar a remoção da imagem no Cloudinary
+- [ ] Revisar e desativar o preset unsigned antigo do Cloudinary
+- [ ] Reconciliar fotos antigas dos Recados
+- [ ] Revisar Reference Variables da Railway
+- [ ] Confirmar as práticas de retenção e logs dos provedores
+
 ## Documentação e organização técnica
 
 - [x] Revisar os arquivos Markdown e atualizar o README e o contexto do projeto
 - [x] Referenciar `backend/TRANSLATION.md` pelo README e manter a configuração detalhada no guia
 - [ ] Revisar scripts SQL e documentação do banco
+- [ ] Finalizar a revisão da documentação
 
 ## Conteúdo e projetos
 
@@ -58,6 +68,7 @@
 - [x] Renderizar feed na Home
 - [x] Exibir projetos existentes no feed
 - [x] Exibir comunidades existentes no feed
+- [x] Ordenar atividades por data, com registros sem data no final
 - [ ] Gerar atividade automaticamente ao criar projeto
 - [ ] Gerar atividade automaticamente ao criar comunidade
 - [ ] Separar tipos de atividade em componentes React
@@ -71,10 +82,11 @@
 - [ ] CRUD de fotos e vídeos
 - [ ] CRUD de depoimentos
 
-## Mídia — evolução futura
+## Mídia
 
-- [ ] Criar álbuns de fotos
-- [ ] Criar vídeos e álbuns
+- [x] Ativar Fotos no perfil e criar álbuns a partir das imagens do catálogo
+- [x] Ativar Vídeos no perfil e reutilizar os walkthroughs nas páginas dos projetos
+- [ ] Adicionar álbuns pessoais e outros vídeos quando houver conteúdo selecionado
 - [ ] Integrar mídia ao feed
 
 ## Jogos — evolução futura

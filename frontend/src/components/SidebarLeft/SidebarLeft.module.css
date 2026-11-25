@@ -30,6 +30,20 @@
   font-weight: 550;
 }
 
+.profileName a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.profileName a:hover {
+  color: var(--link);
+}
+
+.profileName a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
 .location {
   margin: 8px;
   padding: 0;

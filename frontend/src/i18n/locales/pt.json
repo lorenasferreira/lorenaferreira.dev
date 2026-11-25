@@ -34,6 +34,15 @@
   "privacy.requests.text": "Use o contato já disponível no site para solicitar correção ou remoção de um recado ou de sua foto. Informe o nome usado e como localizar o recado, sem enviar dados desnecessários.",
   "privacy.contact": "Solicitar via WhatsApp",
   "privacy.contact_message": "Olá, gostaria de solicitar a correção ou remoção de um recado ou foto no Lorkut.",
+  "media.photos": "Fotos",
+  "media.videos": "Vídeos",
+  "media.albums": "Álbuns",
+  "media.navigation": "Mídia do perfil",
+  "media.album_not_found": "Álbum não encontrado.",
+  "media.photo_count_one": "{{count}} foto",
+  "media.photo_count_other": "{{count}} fotos",
+  "media.walkthrough": "Demonstração de {{project}}",
+  "media.video_unavailable": "Seu navegador não consegue reproduzir este vídeo.",
   "footer.privacy": "Privacidade",
   "footer.terms": "Termos",
 
@@ -216,7 +225,6 @@
   "scraps.page.description": "Deixe uma mensagem no meu perfil ou veja os recados que já recebi.",
 
     "project.features": "Recursos principais",
-    "project.screenshots": "Capturas de tela",
     "project.status.completed": "Concluído",
     "project.status.in_development": "Em desenvolvimento",
     "project.status.maintained": "Em manutenção",

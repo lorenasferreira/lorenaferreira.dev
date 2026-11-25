@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 
+import { contactUrl } from "../../../services/contact";
+
 import styles from "./ProfileInformation.module.css";
 
 function calculateAge(birthDate) {
@@ -91,6 +93,12 @@ function ProfileInformation({ birthDate, linkedinUrl, githubUrl }) {
 
           <a href={githubUrl} target="_blank" rel="noopener noreferrer">
             {t("profile.links.github")}
+          </a>
+
+          <span> | </span>
+
+          <a href={contactUrl(t("footer.contact_message"))} target="_blank" rel="noopener noreferrer">
+            WhatsApp
           </a>
         </p>
       </div>

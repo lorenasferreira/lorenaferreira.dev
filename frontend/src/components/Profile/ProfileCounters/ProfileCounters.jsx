@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import styles from "./ProfileCounters.module.css";
@@ -11,11 +12,13 @@ const counters = [
   {
     translationKey: "profile.counters.photos",
     valueKey: "photos",
+    to: "/photos",
     icon: "/assets/icons/camera.svg",
   },
   {
     translationKey: "profile.counters.videos",
     valueKey: "videos",
+    to: "/videos",
     icon: "/assets/icons/video-camera.svg",
   },
   {
@@ -40,7 +43,11 @@ function ProfileCounters({ scraps = 0, photos = 0, videos = 0, fans = 0 }) {
       <ul className={styles.counters}>
         {counters.map((counter) => (
           <li key={counter.translationKey} className={styles.stat}>
-            <span className={styles.label}>{t(counter.translationKey)}</span>
+            {counter.to ? (
+              <Link className={styles.label} to={counter.to}>{t(counter.translationKey)}</Link>
+            ) : (
+              <span className={styles.label}>{t(counter.translationKey)}</span>
+            )}
 
             <span className={styles.value}>
               <img

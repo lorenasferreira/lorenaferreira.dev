@@ -34,6 +34,15 @@
   "privacy.requests.text": "Use the site’s existing contact channel to request a correction or removal of a scrap or its photo. Include the name used and enough information to identify the scrap.",
   "privacy.contact": "Request via WhatsApp",
   "privacy.contact_message": "Hello, I would like to request a correction or removal of a scrap or photo on Lorkut.",
+  "media.photos": "Photos",
+  "media.videos": "Videos",
+  "media.albums": "Albums",
+  "media.navigation": "Profile media",
+  "media.album_not_found": "Album not found.",
+  "media.photo_count_one": "{{count}} photo",
+  "media.photo_count_other": "{{count}} photos",
+  "media.walkthrough": "{{project}} walkthrough",
+  "media.video_unavailable": "Your browser cannot play this video.",
   "footer.privacy": "Privacy",
   "footer.terms": "Terms",
 
@@ -213,7 +222,6 @@
   "scraps.page.description": "Leave a message on my profile or read the scraps I have received.",
 
     "project.features": "Key features",
-    "project.screenshots": "Screenshots",
     "project.status.completed": "Completed",
     "project.status.in_development": "In development",
     "project.status.maintained": "Maintained",

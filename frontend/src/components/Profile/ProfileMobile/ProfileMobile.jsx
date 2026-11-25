@@ -7,6 +7,8 @@ import Scraps from "../Scraps/Scraps";
 
 import ProjectThumbnail from "../../ProjectThumbnail/ProjectThumbnail";
 
+import { contactUrl } from "../../../services/contact";
+
 import styles from "./ProfileMobile.module.css";
 
 function normalizeImagePath(imagePath) {
@@ -69,15 +71,15 @@ function ProfileMobile({
           <strong>{counters.scraps}</strong>
         </div>
 
-        <div className={styles.mobileCounterItem}>
+        <Link className={styles.mobileCounterItem} to="/photos">
           <span>{t("profile.counters.photos")}</span>
           <strong>{counters.photos}</strong>
-        </div>
+        </Link>
 
-        <div className={styles.mobileCounterItem}>
+        <Link className={styles.mobileCounterItem} to="/videos">
           <span>{t("profile.counters.videos")}</span>
           <strong>{counters.videos}</strong>
-        </div>
+        </Link>
 
         <div className={styles.mobileCounterItem}>
           <span>{t("profile.counters.fans")}</span>
@@ -158,6 +160,12 @@ function ProfileMobile({
                 rel="noopener noreferrer"
               >
                 {t("profile.links.github")}
+              </a>
+
+              <span> | </span>
+
+              <a href={contactUrl(t("footer.contact_message"))} target="_blank" rel="noopener noreferrer">
+                WhatsApp
               </a>
             </p>
           </div>

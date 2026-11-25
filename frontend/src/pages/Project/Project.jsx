@@ -9,6 +9,10 @@ import SidebarRight from "../../components/SidebarRight/SidebarRight";
 
 import { getProjectBySlug } from "../../services/api";
 
+import { getProjectPhotos } from "../../data/portfolioProjects";
+import PhotoGallery from "../../components/ProjectMedia/PhotoGallery";
+import ProjectVideo from "../../components/ProjectMedia/ProjectVideo";
+
 import styles from "./Project.module.css";
 
 function normalizeImagePath(path) {
@@ -204,22 +208,15 @@ function Project() {
 
               {project.screenshots?.length > 0 && (
                 <section className={styles.section}>
-                  <h2 className={styles.sectionTitle}>{t("project.screenshots")}</h2>
-                  <div className={styles.gallery}>
-                    {project.screenshots.map((filename, index) => {
-                      const src = `/assets/img/projects/${project.slug}/${filename}`;
-                      const caption = t(`${details}.screenshotCaptions.${index}`);
+                  <h2 className={styles.sectionTitle}>{t("media.photos")}</h2>
+                  <PhotoGallery photos={getProjectPhotos(project)} title={project.title} />
+                </section>
+              )}
 
-                      return (
-                        <figure key={filename}>
-                          <a href={src}>
-                            <img src={src} alt={caption} loading="lazy" decoding="async" />
-                          </a>
-                          <figcaption>{caption}</figcaption>
-                        </figure>
-                      );
-                    })}
-                  </div>
+              {project.walkthrough && (
+                <section className={styles.section}>
+                  <h2 className={styles.sectionTitle}>{t("media.videos")}</h2>
+                  <ProjectVideo project={project} />
                 </section>
               )}
             </>

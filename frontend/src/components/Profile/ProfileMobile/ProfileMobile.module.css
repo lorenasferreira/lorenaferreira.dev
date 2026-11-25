@@ -101,6 +101,14 @@
   box-sizing: border-box;
 }
 
+a.mobileCounterItem {
+  text-decoration: none;
+}
+
+a.mobileCounterItem:hover {
+  border-color: var(--link);
+}
+
 .mobileCounterItem span {
   display: block;
   color: var(--mute);

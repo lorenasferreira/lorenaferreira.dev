@@ -34,6 +34,15 @@
   "privacy.requests.text": "Utilisez le contact déjà indiqué sur le site pour demander la rectification ou le retrait d’un message ou de sa photo. Indiquez le nom utilisé et les éléments nécessaires pour retrouver le message.",
   "privacy.contact": "Faire une demande sur WhatsApp",
   "privacy.contact_message": "Bonjour, je souhaite demander la rectification ou le retrait d’un message ou d’une photo sur Lorkut.",
+  "media.photos": "Photos",
+  "media.videos": "Vidéos",
+  "media.albums": "Albums",
+  "media.navigation": "Médias du profil",
+  "media.album_not_found": "Album introuvable.",
+  "media.photo_count_one": "{{count}} photo",
+  "media.photo_count_other": "{{count}} photos",
+  "media.walkthrough": "Présentation de {{project}}",
+  "media.video_unavailable": "Votre navigateur ne peut pas lire cette vidéo.",
   "footer.privacy": "Confidentialité",
   "footer.terms": "Conditions",
 
@@ -212,7 +221,6 @@
   "scraps.page.description": "Laissez-moi un message sur mon profil ou consultez ceux que j’ai déjà reçus.",
 
     "project.features": "Fonctionnalités principales",
-    "project.screenshots": "Captures d’écran",
     "project.status.completed": "Terminé",
     "project.status.in_development": "En développement",
     "project.status.maintained": "En maintenance",

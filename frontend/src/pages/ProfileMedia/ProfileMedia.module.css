@@ -1,0 +1,83 @@
+.panel {
+  min-width: 0;
+  padding: clamp(14px, 3vw, 24px);
+  border: 1px solid var(--lilac);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.panel h1 {
+  margin: 10px 0 18px;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.links a,
+.videoCard a {
+  color: var(--link);
+}
+
+.links a[aria-current="page"] {
+  font-weight: 700;
+}
+
+.albums {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 155px), 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.album,
+.videoCard {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid var(--lilac);
+  border-radius: 8px;
+  background: var(--gray);
+}
+
+.album {
+  height: 100%;
+  color: var(--link);
+  text-decoration: none;
+}
+
+.album:hover strong {
+  text-decoration: underline;
+}
+
+.album img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.album small {
+  color: var(--mute);
+}
+
+.walkthroughs {
+  display: grid;
+  gap: 16px;
+}
+
+.videoCard {
+  min-width: 0;
+}

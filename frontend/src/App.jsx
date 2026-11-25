@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
+import ProfileMedia from "./pages/ProfileMedia/ProfileMedia";
 import Projects from "./pages/Projects/Projects";
 import Project from "./pages/Project/Project";
 import Communities from "./pages/Communities/Communities";
@@ -24,6 +25,10 @@ function App() {
         <Route path="/home" element={<Home />} />
 
         <Route path="/profile" element={<Profile />} />
+
+        <Route path="/photos" element={<ProfileMedia kind="photos" />} />
+        <Route path="/photos/:slug" element={<ProfileMedia kind="photos" />} />
+        <Route path="/videos" element={<ProfileMedia kind="videos" />} />
 
         <Route path="/projects" element={<Projects />} />
 

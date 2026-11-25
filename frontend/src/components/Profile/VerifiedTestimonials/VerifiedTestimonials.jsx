@@ -4,6 +4,9 @@ import { useTranslation } from "react-i18next";
 
 import styles from "./VerifiedTestimonials.module.css";
 
+const linkedinRecommendations =
+  "https://www.linkedin.com/in/lorenasferreira/details/recommendations/?detailScreenTabIndex=0";
+
 const testimonials = [
   {
     id: 1,
@@ -34,15 +37,15 @@ const testimonials = [
     projectSlug: "marinarodriiphoto",
 
     recommendationSource: "LinkedIn",
-    linkedinUrl:
-      "https://www.linkedin.com/in/lorenasferreira/details/recommendations/?detailScreenTabIndex=0",
+    linkedinUrl: linkedinRecommendations,
     websiteUrl: "https://www.marinarodriiphoto.com",
   },
   {
     id: 2,
     clientName: "Bruno Mënezess",
     clientRoleKey: "profile.verified_testimonials.bmv_client",
-    clientAvatar: "/assets/img/default-avatar.png",
+    clientAvatar: "/assets/img/bruno-menezess.webp",
+    avatarPosition: "center 10%",
     verified: true,
     originalLanguage: "pt",
     originalMessage:
@@ -55,7 +58,7 @@ const testimonials = [
     projectName: "BMV Makeup",
     projectSlug: "bmv-makeup",
     recommendationSource: "LinkedIn",
-    linkedinUrl: "https://www.linkedin.com/in/bruno-de-menezes-6a6728286/",
+    linkedinUrl: linkedinRecommendations,
     websiteUrl: "https://www.bmvmakeup.com/",
     publishedAt: "2026-11-18",
   },
@@ -114,6 +117,7 @@ function VerifiedTestimonials() {
               <img
                 className={styles.avatar}
                 src={testimonial.clientAvatar}
+                style={{ objectPosition: testimonial.avatarPosition }}
                 alt={testimonial.clientName}
               />
 

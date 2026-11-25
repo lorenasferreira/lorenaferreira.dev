@@ -17,10 +17,12 @@ const profileNavigation = [
   {
     translationKey: "sidebar.photos",
     icon: "/assets/icons/camera.svg",
+    to: "/photos",
   },
   {
     translationKey: "sidebar.videos",
     icon: "/assets/icons/video-camera.svg",
+    to: "/videos",
   },
   {
     translationKey: "sidebar.testimonials",
@@ -55,7 +57,9 @@ function SidebarLeft() {
       />
 
       <div className={styles.profileCard}>
-        <h1 className={styles.profileName}>{t("common.name")}</h1>
+        <h1 className={styles.profileName}>
+          <Link to="/profile">{t("common.name")}</Link>
+        </h1>
 
         <h2 className={styles.location}>{t("profile.values.location")}</h2>
 
@@ -75,11 +79,7 @@ function SidebarLeft() {
                   aria-hidden="true"
                 />
 
-                {item.to ? (
-                  <Link to={item.to}>{t(item.translationKey)}</Link>
-                ) : (
-                  <span>{t(item.translationKey)}</span>
-                )}
+                <Link to={item.to}>{t(item.translationKey)}</Link>
               </li>
             ))}
           </ul>

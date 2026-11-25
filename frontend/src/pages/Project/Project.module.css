@@ -202,36 +202,3 @@
   font-family: "Work Sans", sans-serif;
   line-height: 1.5;
 }
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  gap: 16px;
-}
-
-.gallery figure {
-  margin: 0;
-}
-
-.gallery a {
-  display: block;
-}
-
-.gallery img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 350px;
-  object-fit: contain;
-  object-position: top center;
-  border: 1px solid var(--lilac);
-  border-radius: 8px;
-  background: var(--gray);
-}
-
-.gallery figcaption {
-  margin-top: 8px;
-  color: var(--mute);
-  font-family: "Work Sans", sans-serif;
-  font-size: 0.85rem;
-}

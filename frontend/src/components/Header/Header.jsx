@@ -151,6 +151,14 @@ function Header() {
             {t("nav.profile")}
           </NavLink>
 
+          <NavLink to="/photos" onClick={closeMobileMenu}>
+            {t("media.photos")}
+          </NavLink>
+
+          <NavLink to="/videos" onClick={closeMobileMenu}>
+            {t("media.videos")}
+          </NavLink>
+
           <NavLink to="/scraps" onClick={closeMobileMenu}>
             {t("nav.scrapbook")}
           </NavLink>

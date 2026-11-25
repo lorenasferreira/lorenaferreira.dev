@@ -59,6 +59,13 @@ async function getActivities() {
   return response.json();
 }
 
+function activityTimestamp(date) {
+  if (!date) return -Infinity;
+  const utcDate = /^\d{4}-\d{2}-\d{2}T[\d:.]+$/.test(date) ? `${date}Z` : date;
+  const timestamp = Date.parse(utcDate);
+  return Number.isFinite(timestamp) ? timestamp : -Infinity;
+}
+
 function ActivityFeed() {
   const { t, i18n } = useTranslation();
 
@@ -189,6 +196,11 @@ function ActivityFeed() {
       }),
       date: activity.createdAt ?? project.completedAt,
     };
+  }).sort((a, b) => {
+    const first = activityTimestamp(a.date ?? a.createdAt);
+    const second = activityTimestamp(b.date ?? b.createdAt);
+    if (first === second) return 0;
+    return first > second ? -1 : 1;
   });
 
   return (
@@ -214,7 +226,7 @@ function ActivityFeed() {
                     {t("feed.new_project.title")}
                   </p>
 
-                  {date && (
+                  {activityTimestamp(date) !== -Infinity && (
                     <time className={styles.meta} dateTime={date}>
                       {projectDateFormatter.format(new Date(date.slice(0, 10)))}
                     </time>

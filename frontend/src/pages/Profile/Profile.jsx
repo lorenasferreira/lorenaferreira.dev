@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import ProfileDesktop from "../../components/Profile/ProfileDesktop/ProfileDesktop";
 import ProfileMobile from "../../components/Profile/ProfileMobile/ProfileMobile";
 
+import { getProjectPhotos, portfolioProjects } from "../../data/portfolioProjects";
 import { getCommunities, getProjects } from "../../services/api";
 import { getScraps } from "../../services/scraps";
 
@@ -39,12 +40,12 @@ function Profile() {
     loadProfileContent();
   }, []);
 
-const counters = {
-  scraps: scraps.length,
-  photos: 0,
-  videos: 0,
-  fans: 0,
-};
+  const counters = {
+    scraps: scraps.length,
+    photos: portfolioProjects.reduce((total, project) => total + getProjectPhotos(project, true).length, 0),
+    videos: portfolioProjects.filter((project) => project.walkthrough).length,
+    fans: 0,
+  };
 
   return (
     <>
